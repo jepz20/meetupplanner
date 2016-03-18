@@ -1,8 +1,5 @@
 <div>
   <h1>Register</h1>
-  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    Sign In
   </fb:login-button>    
   <form id="register" name="register">
     <label for="usremail">
@@ -18,10 +15,14 @@
       <input type="password" id="password" required="true" ng-change="validatePassword()" ng-model="password">
     </label>
     <label for="checkpassword">
-      Password
+      Validate Password
       <input type="password" id="checkpassword" required="true">
     </label>
-    <button ng-click="actRegister('No era nada, era algo')">{{btnRegister}}</button>
-    {{usremail}}
+    <button ng-click="actRegister">{{btnRegister}}</button>    
   </form>  
 </div>
+
+
+<button ng-click="authenticate('facebook')">Sign in with Facebook</button>
+
+<button ng-click="authenticate('google')">Sign in with Google</button>

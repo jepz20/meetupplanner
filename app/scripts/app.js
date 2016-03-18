@@ -15,9 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'satellizer'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider,$authProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -31,5 +32,13 @@ angular
       })
       .otherwise({
         redirectTo: '/'
+      });      
+      $authProvider.facebook({
+        clientId: '903607643089946',
+        responseType: 'token'
       });
+
+      $authProvider.google({
+        clientId: '4393999410-hiip54bd4d46mn7f7p1no5gtp0cv0fgn.apps.googleusercontent.com'
+      });      
   });
