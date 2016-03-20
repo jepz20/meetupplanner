@@ -9,111 +9,100 @@
  */
 angular.module('meetUpPlannerApp')
   .controller('MainCtrl', function ($scope, $location, $auth) {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
-   $scope.btnRegister = "Register";
+   $scope.btnRegister = 'Register';
+   $scope.btnSignUpFacebook = 'Sign up with Facebook';
+   $scope.btnSignUpGoogle = 'Sign up with Google';
 
    /**
    * @name validatePassword
    * @description
-   * validates that user password meet the criteria   
+   * validates that user password meet the criteria
    */
     $scope.validatePassword = function() {
-        var password = document.querySelector("#password");
-        var checkpassword = document.querySelector("#checkpassword");
+        var password = document.querySelector('#password');
+        var checkpassword = document.querySelector('#checkpassword');
         var checkValidityMessagePassword = '';
         var checkValidityMessageCheckPassword = '';
         if (password.value.length < 6     ) {
-            checkValidityMessagePassword = checkValidityMessagePassword + 
-            "\n" + 
-            "Password should have at least 8 characters"
-                
-        } 
+            checkValidityMessagePassword = checkValidityMessagePassword +
+            '\n' +
+            'Password should have at least 8 characters';
+
+        }
         if (password.value.length > 30) {
-            checkValidityMessagePassword = checkValidityMessagePassword + 
-            "\n" + 
-             "Password should have no more than 30 characters"
-            
-        }         
-        if (!/[0-9]/.test(password.value)) {      
-            checkValidityMessagePassword = checkValidityMessagePassword + 
-            "\n" + 
-             "Please include at least one number"
-            
+            checkValidityMessagePassword = checkValidityMessagePassword +
+            '\n' +
+             'Password should have no more than 30 characters';
+
         }
-        if (!/[a-z]/.test(password.value)) {      
-            checkValidityMessagePassword = checkValidityMessagePassword + 
-            "\n" + 
-             "Please include at least one lowercase letter"
-            
+        if (!/[0-9]/.test(password.value)) {
+            checkValidityMessagePassword = checkValidityMessagePassword +
+            '\n' +
+             'Please include at least one number';
+
         }
-        if (!/[A-Z]/.test(password.value)) {      
-            checkValidityMessagePassword = checkValidityMessagePassword + 
-            "\n" + 
-             "Please include at least one uppercase letter"
-            
+        if (!/[a-z]/.test(password.value)) {
+            checkValidityMessagePassword = checkValidityMessagePassword +
+            '\n' +
+             'Please include at least one lowercase letter';
+
         }
-        if (/[^A-z0-9\!\@\#\$\%\^\&\*]/.test(password.value)) {       
-            checkValidityMessagePassword = checkValidityMessagePassword + 
-            "\n" + 
-             /[^A-z0-9\!\@\#\$\%\^\&\*]/.match(password.value) + "is an illegal character"
-            
-        }        
-        password.setCustomValidity(checkValidityMessagePassword)
+        if (!/[A-Z]/.test(password.value)) {
+            checkValidityMessagePassword = checkValidityMessagePassword +
+            '\n' +
+             'Please include at least one uppercase letter';
+
+        }
+        if (/[^A-z0-9\!\@\#\$\%\^\&\*]/.test(password.value)) {
+            checkValidityMessagePassword = checkValidityMessagePassword +
+            '\n' +
+             /[^A-z0-9\!\@\#\$\%\^\&\*]/.match(password.value) + 'is an illegal character';
+
+        }
+        password.setCustomValidity(checkValidityMessagePassword);
 
         if (password.value !== checkpassword.value) {
-            checkValidityMessageCheckPassword = "Password don't match"            
+            checkValidityMessageCheckPassword = 'Password do not match';
         } else {
-            checkValidityMessageCheckPassword ="";            
+            checkValidityMessageCheckPassword ='';
         }
         checkpassword.setCustomValidity(checkValidityMessageCheckPassword);
-        if (checkValidityMessagePassword === "" && checkValidityMessageCheckPassword ==="") {
-            return true;            
+        if (checkValidityMessagePassword === '' && checkValidityMessageCheckPassword ==='') {
+            return true;
         } else {
             return false;
         }
-   }
-   /**
-   * @name actRegister
-   * @description   
-   * register a user if it's new   
-   */
-   $scope.actRegister = function (entrada) {
+    };
+
+    /**
+    * @name actRegister
+    * @description
+    * register a user if it's new
+    */
+    $scope.actRegister = function () {
 
         if ($scope.validatePassword()) {
-            $location.path("/about");
-        };                
-   }
-
-   $scope.onSignIn = function(googleUser) {
-        console.log("Llegue aqui");
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();        
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log("Name: " + profile.getName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
+            var user = {
+                name: $scope.usrname,
+                password: $scope.password,
+                email: $scope.usremail
+            };
+            $auth.signup(user)
+            .then(function (response) {
+                $location.path('/about');
+            });
+        }
     };
 
     $scope.authenticate = function(provider) {
         $auth.authenticate(provider)
         .then(function(response) {
-            var facebook_response = {};
-            facebook_response.token = response.access_token;
-            $auth.setToken(facebook_response);
-            console.log(response);
+            $location.path('/about');
         })
         .catch(function(response) {
-            console.log("response error:", response);
-        })
-    }
+            console.log('response error:', response);
+        });
+    };
   });
 

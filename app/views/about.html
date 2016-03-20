@@ -1,6 +1,9 @@
+<h1>
+Create an Event
+</h1>
 <form>
 	<label for="eventName">Name
-		<input type="text" name="eventName" id="eventName" ng-model= "eventName">		
+		<input type="text" name="eventName" id="eventName" ng-model= "eventName">
 	</label>
 	<label for="eventType">Type
 		<input list="browsers" name="eventType" id="eventType">
@@ -13,12 +16,13 @@
 	  <option value="Safari">
 	</datalist>
 	<label for="eventHost">Host
-		<input type="text" name="eventHost" id="eventHost" ng-model= "eventHost">		
-	</label>	
+		<input type="text" name="eventHost" id="eventHost" ng-model= "eventHost">
+	</label>
 	<label for="eventStart"> Start
-		<input type="datetime" name="eventStart" id="eventStart" ng-model= "eventStart">		
-	</label>		
+		<input type="month" name="eventStart" id="eventStart" ng-model= "eventStart">
+	</label>
 	<label for="eventEnd">End
-		<input type="datetime" name="eventEnd" id="eventEnd" ng-model= "eventEnd">		
-	</label>			
+		<input type="number" name="eventEnd" id="eventEnd" ng-model= "eventEnd">
+	</label>
+	<button>Genializar </button>
 </form>

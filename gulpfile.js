@@ -7,8 +7,11 @@ var openURL = require('open');
 var lazypipe = require('lazypipe');
 var rimraf = require('rimraf');
 var wiredep = require('wiredep').stream;
-var browserSync = require('browser-sync').create();
+var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
+var process = require('child_process');
+var exec = require('child_process').exec;
+var reload = browserSync.reload;
 
 var yeoman = {
   app: require('./bower.json').appPath || 'app',
@@ -73,13 +76,24 @@ gulp.task('start:client', ['start:server', 'styles'], function () {
   openURL('http://localhost:9000');
 });
 
-gulp.task('start:server', function() {
-  $.connect.server({
-    root: [yeoman.app, '.tmp'],
-    livereload: true,
-    // Change this to '0.0.0.0' to access the server from outside.
-    port: 9000
+gulp.task('runserver', function() {
+  // var proc = exec('python app.py');
+
+  var spawn = process.spawn;
+  console.info('Starting flask server');
+  var PIPE = {stdio: 'inherit'};
+  spawn('python', ['app.py','runserver'], PIPE);
+});
+
+gulp.task('start:server', ['runserver'], function() {
+  browserSync({
+    notify: false,
+    port:9000,
+    proxy: 'http://localhost:3000'
   });
+
+  gulp.watch(paths.scripts, reload);
+  gulp.watch([paths.views.files], reload);
 });
 
 gulp.task('start:server:test', function() {
@@ -94,16 +108,15 @@ gulp.task('watch', function () {
   $.watch(paths.styles)
     .pipe($.plumber())
     .pipe(styles())
-    .pipe($.connect.reload());
 
   $.watch(paths.views.files)
     .pipe($.plumber())
-    .pipe($.connect.reload());
+    // .pipe(browserSync.stream());
 
   $.watch(paths.scripts)
     .pipe($.plumber())
     .pipe(lintScripts())
-    .pipe($.connect.reload());
+    // .pipe($.connect.reload());
 
   $.watch(paths.test)
     .pipe($.plumber())
