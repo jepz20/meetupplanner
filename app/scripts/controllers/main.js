@@ -13,7 +13,12 @@ angular.module('meetUpPlannerApp')
    $scope.btnRegister = 'Register';
    $scope.btnSignUpFacebook = 'Sign up with Facebook';
    $scope.btnSignUpGoogle = 'Sign up with Google';
-
+   $scope.errorMessages = [{'type': 'minlength', 'text': 'Password should have at least 8 characters'},
+   {'type': 'maxlength', 'text': 'Password should have no more than 30 characters'},
+   {'type': 'includenumber', 'text': 'Please include at least one number'},
+   {'type': 'includelowercase', 'text': 'Please include at least one lowercase letter'},
+   {'type': 'includeuppercase', 'text': 'Please include at least one uppercase letter'},
+   {'type': 'passwordmatch', 'text': 'Password do not match'}];
    /**
    * @name validatePassword
    * @description
@@ -24,55 +29,39 @@ angular.module('meetUpPlannerApp')
         var checkpassword = document.querySelector('#checkpassword');
         var checkValidityMessagePassword = '';
         var checkValidityMessageCheckPassword = '';
-        if (password.value.length < 6     ) {
-            checkValidityMessagePassword = checkValidityMessagePassword +
-            '\n' +
-            'Password should have at least 8 characters';
+        var validPassword = true;
+        // $scope.register.password.$error.minlength = false;
+        // $scope.register.password.$error.maxlength = false;
+        $scope.register.password.$error.includenumber = false;
+        $scope.register.password.$error.includelowercase = false;
+        $scope.register.password.$error.includeuppercase = false;
+        $scope.register.password.$error.illegalchar = false;
+        // $scope.register.checkpassword.$error.passwordmatch = false;
 
-        }
-        if (password.value.length > 30) {
-            checkValidityMessagePassword = checkValidityMessagePassword +
-            '\n' +
-             'Password should have no more than 30 characters';
-
-        }
         if (!/[0-9]/.test(password.value)) {
-            checkValidityMessagePassword = checkValidityMessagePassword +
-            '\n' +
-             'Please include at least one number';
-
+            $scope.register.password.$error.includenumber = true;
+            validPassword = false;
         }
         if (!/[a-z]/.test(password.value)) {
-            checkValidityMessagePassword = checkValidityMessagePassword +
-            '\n' +
-             'Please include at least one lowercase letter';
+            $scope.register.password.$error.includelowercase = true;
+            validPassword = false;
 
         }
         if (!/[A-Z]/.test(password.value)) {
-            checkValidityMessagePassword = checkValidityMessagePassword +
-            '\n' +
-             'Please include at least one uppercase letter';
-
+            $scope.register.password.$error.includeuppercase = true;
+            validPassword = false;
         }
-        if (/[^A-z0-9\!\@\#\$\%\^\&\*]/.test(password.value)) {
-            checkValidityMessagePassword = checkValidityMessagePassword +
-            '\n' +
-             /[^A-z0-9\!\@\#\$\%\^\&\*]/.match(password.value) + 'is an illegal character';
-
-        }
-        password.setCustomValidity(checkValidityMessagePassword);
 
         if (password.value !== checkpassword.value) {
-            checkValidityMessageCheckPassword = 'Password do not match';
+            // $scope.register.checkpassword.$error.passwordmatch = true;
         } else {
             checkValidityMessageCheckPassword ='';
         }
-        checkpassword.setCustomValidity(checkValidityMessageCheckPassword);
-        if (checkValidityMessagePassword === '' && checkValidityMessageCheckPassword ==='') {
-            return true;
-        } else {
-            return false;
-        }
+        // checkpassword.setCustomValidity(checkValidityMessageCheckPassword);
+        $scope.register.password.$valid = validPassword;
+        console.log($scope.register.password.$valid );
+        return !validPassword;
+
     };
 
     /**
@@ -81,8 +70,10 @@ angular.module('meetUpPlannerApp')
     * register a user if it's new
     */
     $scope.actRegister = function () {
-
-        if ($scope.validatePassword()) {
+        console.log($scope.register.$valid);
+        console.log($scope.register.password.$valid);
+        $scope.validatePassword()
+        if ($scope.register.$valid) {
             var user = {
                 name: $scope.usrname,
                 password: $scope.password,
@@ -105,4 +96,6 @@ angular.module('meetUpPlannerApp')
         });
     };
   });
+
+
 

@@ -15,9 +15,9 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
-    'satellizer',
-    'ngMaterial'
+    'ngMaterial',
+    'ngMessages',
+    'satellizer'
   ])
   .config(function ($routeProvider,$authProvider) {
     $routeProvider

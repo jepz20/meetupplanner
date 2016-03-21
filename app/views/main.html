@@ -1,28 +1,54 @@
-<div>
-  <h1>Register</h1>
-  </fb:login-button>
-  <form id="register" name="register">
-    <label for="usremail">
-    Email
-      <input type="email" id="usremail" ng-model="usremail" required="true">
-    </label>
-    <label for="usrname">
-    Name
-    <input type="text" id="usrname" ng-model="usrname" required="true">
-    </label>
-    <label for="password">
-      Password
-      <input type="password" id="password" required="true" ng-change="validatePassword()" ng-model="password">
-    </label>
-    <label for="checkpassword">
-      Validate Password
-      <input type="password" id="checkpassword" required="true">
-    </label>
-    <button ng-click="actRegister()">{{btnRegister}}</button>
-  </form>
-</div>
+<!-- Container #2 -->
+    <div flex layout="row">
+
+        <!-- Container #3 -->
+<!--         <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
+        </md-sidenav>
+ -->
+        <!-- Container #4 -->
+        <md-content flex id="content">
+          <md-icon md-svg-src="./assets/svg/avatar-1.svg" class="avatar"></md-icon>
+          <div>
+
+              <!-- <h1>Register</h1> -->
+              <form id="register" name="register">
+                <md-input-container class="md-block">
+                  <label for="usremail">Email</label>
+                  <input type="email" id="usremail" ng-model="usremail" required="true" name="usremail">
+                  <div ng-messages="register.usremail.$error">
+                    <div ng-message="required">Please enter your email</div>
+                    <div ng-message="email">Please enter a valid email</div>
+                  </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label for="usrname">Name</label>
+                  <input type="text" id="usrname" ng-model="usrname" required="true" name="usrname">
+                  <div ng-messages="register.usrname.$error">
+                    <div ng-message="required">Please enter your name</div>
+                  </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" ng-change="validatePassword()" name="password"  ng-model="password" required minlength="8"
+                  maxlength="30">
+                  <div ng-messages="register.password.$error">
+                    <div ng-repeat="errorMessage in errorMessages">
+                      <div ng-message-exp="errorMessage.type">{{errorMessage.text}}</div>
+                    </div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                  <label for="checkpassword">Validate Password</label>
+                  <input type="password" id="checkpassword" required="true" name="checkpassword">
+                </md-input-container>
+                <md-button class="md-primary md-raised" ng-click="actRegister()">{{btnRegister}}</md-button>
+                <md-button class="md-primary md-raised md-hue-1" ng-click="authenticate('facebook')">{{btnSignUpFacebook}}</md-button>
+
+                <md-button class="md-primary  md-raised md-warn " ng-click="authenticate('google')">{{btnSignUpGoogle}}</button>
+              </form>
+            </div>
 
 
-<button ng-click="authenticate('facebook')">{{btnSignUpFacebook}}</button>
-
-<button ng-click="authenticate('google')">{{btnSignUpGoogle}}</button>
+        </md-content>
+    </div>
