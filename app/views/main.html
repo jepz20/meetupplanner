@@ -29,7 +29,7 @@
                 </md-input-container>
                 <md-input-container class="md-block">
                   <label for="password">Password</label>
-                  <input type="password" id="password" ng-change="validatePassword()" name="password"  ng-model="password" required minlength="8"
+                  <input type="password" id="password" ng-change="setPasswordValidity()" name="password"  ng-model="password" required minlength="8"
                   maxlength="30">
                   <div ng-messages="register.password.$error">
                     <div ng-repeat="errorMessage in errorMessages">
@@ -40,12 +40,15 @@
 
                 <md-input-container class="md-block">
                   <label for="checkpassword">Validate Password</label>
-                  <input type="password" id="checkpassword" required="true" name="checkpassword">
+                  <input type="password" id="checkpassword" required="true" name="checkpassword" ng-model="checkPassword" ng-change="setCheckPasswordValidity()">
+                  <div ng-messages="register.checkpassword.$error">
+                    <div ng-message="passwordmatch"> Password don't match</div>
+                  </div>
                 </md-input-container>
                 <md-button class="md-primary md-raised" ng-click="actRegister()">{{btnRegister}}</md-button>
                 <md-button class="md-primary md-raised md-hue-1" ng-click="authenticate('facebook')">{{btnSignUpFacebook}}</md-button>
 
-                <md-button class="md-primary  md-raised md-warn " ng-click="authenticate('google')">{{btnSignUpGoogle}}</button>
+                <md-button class="md-primary  md-raised md-warn " ng-click="authenticate('google')">{{btnSignUpGoogle}}</md-button>
               </form>
             </div>
 

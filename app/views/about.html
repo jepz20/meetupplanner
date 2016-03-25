@@ -2,27 +2,41 @@
 Create an Event
 </h1>
 <form>
-	<label for="eventName">Name
-		<input type="text" name="eventName" id="eventName" ng-model= "eventName">
-	</label>
-	<label for="eventType">Type
-		<input list="browsers" name="eventType" id="eventType">
-	</label>
-	<datalist id="browsers">
-	  <option value="Internet Explorer">
-	  <option value="Firefox">
-	  <option value="Chrome">
-	  <option value="Opera">
-	  <option value="Safari">
-	</datalist>
-	<label for="eventHost">Host
-		<input type="text" name="eventHost" id="eventHost" ng-model= "eventHost">
-	</label>
-	<label for="eventStart"> Start
-		<input type="month" name="eventStart" id="eventStart" ng-model= "eventStart">
-	</label>
-	<label for="eventEnd">End
-		<input type="number" name="eventEnd" id="eventEnd" ng-model= "eventEnd">
-	</label>
-	<button>Genializar </button>
+
+  <md-input-container class="md-block">
+    <label for="eventName">Name</label>
+    <input type="text" name="eventName" id="eventName" ng-model= "eventName">
+  </md-input-container>
+  </md-input-container>
+  <md-input-container class="md-block">
+    <label for="eventType">Type</label>
+    <input list="browsers" name="eventType" id="eventType">
+  </md-input-container>
+    <datalist id="browsers">
+      <option value="Internet Explorer">
+      <option value="Firefox">
+      <option value="Chrome">
+      <option value="Opera">
+      <option value="Safari">
+    </datalist>
+  <md-input-container class="md-block">
+    <label for="eventHost">Host</label>
+    <input type="text" name="eventHost" id="eventHost" ng-model= "eventHost">
+  </md-input-container>
+  <md-datepicker ng-model="startDate">Start Date</md-datepicker>
+  <md-input-container>
+    <label for="startTime">Start Time</label>
+    <input type="number" name="startTime" id="startTime" ng-model= "startTime">
+  </md-input-container>
+  <md-datepicker ng-model="endDate">End Date</md-datepicker>
+  <md-input-container>
+    <label for="endTime">End Time</label>
+    <input type="number" name="endTime" id="endTime" ng-model= "endTime">
+  </md-input-container>
+  <!-- <md-input-container class="md-block">
+    <label for="eventEnd">End</label>
+    <input type="number" name="eventEnd" id="eventEnd" ng-model= "eventEnd">
+  </md-input-container> -->
+  <md-button class="md-primary md-raised" aria-label="genializar">Genializar</md-button>
+    <!-- <button> </button> -->
 </form>

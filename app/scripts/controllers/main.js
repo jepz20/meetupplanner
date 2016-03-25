@@ -18,50 +18,97 @@ angular.module('meetUpPlannerApp')
    {'type': 'includenumber', 'text': 'Please include at least one number'},
    {'type': 'includelowercase', 'text': 'Please include at least one lowercase letter'},
    {'type': 'includeuppercase', 'text': 'Please include at least one uppercase letter'},
-   {'type': 'passwordmatch', 'text': 'Password do not match'}];
+   {'type': 'passwodrdmatch', 'text': 'Password do not match'}];
+
+
+   /**
+   * @name checkIfIncludeNumber
+   * @description
+   * checks if a string contains a number
+   * @param stringToValidate
+   */
+
+   var checkIfIncludeNumber = function(stringToValidate) {
+        if (/[0-9]/.test(stringToValidate)) {
+            return true;
+        } else {
+            return false;
+        }
+   };
+
+   /**
+   * @name checkIfIncludLowerCase
+   * @description
+   * checks if a string contains a lowercase letter
+   * @param stringToValidate
+   */
+
+    var checkIfIncludeLowercase = function(stringToValidate) {
+        if (/[a-z]/.test(stringToValidate)) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+   /**
+   * @name checkIfIncludUppercase
+   * @description
+   * checks if a string contains an uppercase letter
+   * @param stringToValidate
+   */
+
+    var checkIfIncludeUppercase = function(stringToValidate) {
+        if (/[A-Z]/.test(stringToValidate)) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+
    /**
    * @name validatePassword
    * @description
    * validates that user password meet the criteria
    */
-    $scope.validatePassword = function() {
-        var password = document.querySelector('#password');
-        var checkpassword = document.querySelector('#checkpassword');
-        var checkValidityMessagePassword = '';
-        var checkValidityMessageCheckPassword = '';
-        var validPassword = true;
-        // $scope.register.password.$error.minlength = false;
-        // $scope.register.password.$error.maxlength = false;
-        $scope.register.password.$error.includenumber = false;
-        $scope.register.password.$error.includelowercase = false;
-        $scope.register.password.$error.includeuppercase = false;
-        $scope.register.password.$error.illegalchar = false;
-        // $scope.register.checkpassword.$error.passwordmatch = false;
+    $scope.setPasswordValidity = function() {
+        $scope.register.password.$setValidity('includenumber',
+            checkIfIncludeNumber($scope.password));
+        $scope.register.password.$setValidity('includelowercase',
+            checkIfIncludeLowercase($scope.password));
+        $scope.register.password.$setValidity('includeuppercase',
+            checkIfIncludeUppercase($scope.password));
+        $scope.setCheckPasswordValidity();
+    };
 
-        if (!/[0-9]/.test(password.value)) {
-            $scope.register.password.$error.includenumber = true;
-            validPassword = false;
-        }
-        if (!/[a-z]/.test(password.value)) {
-            $scope.register.password.$error.includelowercase = true;
-            validPassword = false;
+    /**
+    * @name checkIfPasswordMatch
+    * @description
+    * check if password fields matches
+    * @param password
+    * @param checkPassword
+    */
 
-        }
-        if (!/[A-Z]/.test(password.value)) {
-            $scope.register.password.$error.includeuppercase = true;
-            validPassword = false;
-        }
-
-        if (password.value !== checkpassword.value) {
-            // $scope.register.checkpassword.$error.passwordmatch = true;
+    var checkIfPasswordMatch = function(password, checkPassword) {
+        if (password !== checkPassword) {
+            return false;
         } else {
-            checkValidityMessageCheckPassword ='';
+            return true;
         }
-        // checkpassword.setCustomValidity(checkValidityMessageCheckPassword);
-        $scope.register.password.$valid = validPassword;
-        console.log($scope.register.password.$valid );
-        return !validPassword;
+    };
 
+    /**
+    * @name setCheckPasswordValidity
+    * @description
+    * validates if password and checkpassword fields matches
+    * @param password
+    * @param checkPassword
+    */
+
+    $scope.setCheckPasswordValidity = function () {
+        $scope.register.checkpassword.$setValidity('passwordmatch',
+            checkIfPasswordMatch($scope.password, $scope.checkPassword));
     };
 
     /**
@@ -70,9 +117,6 @@ angular.module('meetUpPlannerApp')
     * register a user if it's new
     */
     $scope.actRegister = function () {
-        console.log($scope.register.$valid);
-        console.log($scope.register.password.$valid);
-        $scope.validatePassword()
         if ($scope.register.$valid) {
             var user = {
                 name: $scope.usrname,
@@ -83,6 +127,8 @@ angular.module('meetUpPlannerApp')
             .then(function (response) {
                 $location.path('/about');
             });
+        } else {
+            console.log('Invalid form');
         }
     };
 
