@@ -10,9 +10,6 @@
 angular.module('meetUpPlannerApp')
   .controller('MainCtrl', function ($scope, $location, $auth) {
 
-   $scope.btnRegister = 'Register';
-   $scope.btnSignUpFacebook = 'Sign up with Facebook';
-   $scope.btnSignUpGoogle = 'Sign up with Google';
    $scope.errorMessages = [{'type': 'minlength', 'text': 'Password should have at least 8 characters'},
    {'type': 'maxlength', 'text': 'Password should have no more than 30 characters'},
    {'type': 'includenumber', 'text': 'Please include at least one number'},
@@ -20,13 +17,6 @@ angular.module('meetUpPlannerApp')
    {'type': 'includeuppercase', 'text': 'Please include at least one uppercase letter'},
    {'type': 'passwodrdmatch', 'text': 'Password do not match'}];
 
-
-   /**
-   * @name checkIfIncludeNumber
-   * @description
-   * checks if a string contains a number
-   * @param stringToValidate
-   */
 
    var checkIfIncludeNumber = function(stringToValidate) {
         if (/[0-9]/.test(stringToValidate)) {
@@ -36,12 +26,6 @@ angular.module('meetUpPlannerApp')
         }
    };
 
-   /**
-   * @name checkIfIncludLowerCase
-   * @description
-   * checks if a string contains a lowercase letter
-   * @param stringToValidate
-   */
 
     var checkIfIncludeLowercase = function(stringToValidate) {
         if (/[a-z]/.test(stringToValidate)) {
@@ -51,12 +35,6 @@ angular.module('meetUpPlannerApp')
         }
     };
 
-   /**
-   * @name checkIfIncludUppercase
-   * @description
-   * checks if a string contains an uppercase letter
-   * @param stringToValidate
-   */
 
     var checkIfIncludeUppercase = function(stringToValidate) {
         if (/[A-Z]/.test(stringToValidate)) {
@@ -67,11 +45,6 @@ angular.module('meetUpPlannerApp')
     };
 
 
-   /**
-   * @name validatePassword
-   * @description
-   * validates that user password meet the criteria
-   */
     $scope.setPasswordValidity = function() {
         $scope.register.password.$setValidity('includenumber',
             checkIfIncludeNumber($scope.password));
@@ -82,13 +55,6 @@ angular.module('meetUpPlannerApp')
         $scope.setCheckPasswordValidity();
     };
 
-    /**
-    * @name checkIfPasswordMatch
-    * @description
-    * check if password fields matches
-    * @param password
-    * @param checkPassword
-    */
 
     var checkIfPasswordMatch = function(password, checkPassword) {
         if (password !== checkPassword) {
@@ -98,25 +64,14 @@ angular.module('meetUpPlannerApp')
         }
     };
 
-    /**
-    * @name setCheckPasswordValidity
-    * @description
-    * validates if password and checkpassword fields matches
-    * @param password
-    * @param checkPassword
-    */
 
     $scope.setCheckPasswordValidity = function () {
         $scope.register.checkpassword.$setValidity('passwordmatch',
             checkIfPasswordMatch($scope.password, $scope.checkPassword));
     };
 
-    /**
-    * @name actRegister
-    * @description
-    * register a user if it's new
-    */
-    $scope.actRegister = function () {
+
+    $scope.signupUser = function () {
         if ($scope.register.$valid) {
             var user = {
                 name: $scope.usrname,

@@ -8,10 +8,8 @@
  * Controller of the meetUpPlannerApp
  */
 angular.module('meetUpPlannerApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('AboutCtrl', function ($scope) {
+    $scope.minDate = new Date();
+    $scope.types = ['Normal', 'Party', 'Amazing'];
+    $scope.guests = [];
   });

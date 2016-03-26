@@ -1,42 +1,42 @@
 <h1>
 Create an Event
 </h1>
+<div class="md-inline-form">
 <form>
-
   <md-input-container class="md-block">
     <label for="eventName">Name</label>
-    <input type="text" name="eventName" id="eventName" ng-model= "eventName">
-  </md-input-container>
-  </md-input-container>
-  <md-input-container class="md-block">
-    <label for="eventType">Type</label>
-    <input list="browsers" name="eventType" id="eventType">
-  </md-input-container>
-    <datalist id="browsers">
-      <option value="Internet Explorer">
-      <option value="Firefox">
-      <option value="Chrome">
-      <option value="Opera">
-      <option value="Safari">
-    </datalist>
-  <md-input-container class="md-block">
+    <input type="text" name="eventName" id="eventName" ng-model= "eventName" required>
+    </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Type</label>
+        <md-select ng-model="type">
+          <md-option ng-repeat="type in types" value="{{type}}">
+            {{type}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    <md-input-container class="md-block">
     <label for="eventHost">Host</label>
     <input type="text" name="eventHost" id="eventHost" ng-model= "eventHost">
   </md-input-container>
-  <md-datepicker ng-model="startDate">Start Date</md-datepicker>
-  <md-input-container>
-    <label for="startTime">Start Time</label>
-    <input type="number" name="startTime" id="startTime" ng-model= "startTime">
-  </md-input-container>
-  <md-datepicker ng-model="endDate">End Date</md-datepicker>
-  <md-input-container>
-    <label for="endTime">End Time</label>
-    <input type="number" name="endTime" id="endTime" ng-model= "endTime">
-  </md-input-container>
-  <!-- <md-input-container class="md-block">
-    <label for="eventEnd">End</label>
-    <input type="number" name="eventEnd" id="eventEnd" ng-model= "eventEnd">
-  </md-input-container> -->
-  <md-button class="md-primary md-raised" aria-label="genializar">Genializar</md-button>
-    <!-- <button> </button> -->
+  <div layout-gt-xs="row">
+    <md-datepicker ng-model="startDate" md-min-date="minDate" md-max-date="endDate" class="md-block" md-placeholder="Start Date">
+    </md-datepicker>
+    <md-input-container class="md-block">
+      <label for="startTime">Start Time</label>
+      <input type="time" name="startTime" id="startTime" ng-model= "startTime" required>
+    </md-input-container>
+    <md-datepicker ng-model="endDate" md-min-date="startDate" md-placeholder="End Date"></md-datepicker>
+     <md-input-container class="md-block">
+      <label for="endTime">End Time</label>
+      <input type="time" name="endTime" id="endTime" ng-model="endTime" required>
+    </md-input-container>
+   </div>
+   <md-chips ng-model="guests" name="guest" readonly="false" placeholder="Add a Guest and hit Enter" secondary-placeholder="Add more Guests">
+     <md-chip-template>
+       <strong>{{$chip}}</strong>
+     </md-chip-template>
+   </md-chips>
+  <md-button class="md-primary md-raised" aria-label="Create Event">Create Event</md-button>
 </form>
+</div>
