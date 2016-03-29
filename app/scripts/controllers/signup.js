@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name meetUpPlannerApp.controller:MainCtrl
+ * @name meetUpPlannerApp.controller:SignupCtrl
  * @description
- * # MainCtrl
+ * # SignupCtrl
  * Controller of the meetUpPlannerApp
  */
 angular.module('meetUpPlannerApp')
-  .controller('MainCtrl', function ($scope, $location, $auth) {
+  .controller('SignupCtrl', function ($scope, $location, $auth) {
 
    $scope.errorMessages = [{'type': 'minlength', 'text': 'Password should have at least 8 characters'},
    {'type': 'maxlength', 'text': 'Password should have no more than 30 characters'},
@@ -83,7 +83,7 @@ angular.module('meetUpPlannerApp')
                 $location.path('/about');
             });
         } else {
-            console.log('Invalid form');
+            $scope.register.$setSubmitted();
         }
     };
 

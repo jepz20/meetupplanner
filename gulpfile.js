@@ -94,6 +94,7 @@ gulp.task('start:server', ['runserver'], function() {
 
   gulp.watch(paths.scripts, reload);
   gulp.watch([paths.views.files], reload);
+  gulp.watch([paths.views.main], reload);
 });
 
 gulp.task('start:server:test', function() {
