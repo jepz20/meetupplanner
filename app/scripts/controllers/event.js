@@ -17,7 +17,7 @@ angular.module('meetUpPlannerApp')
     $scope.searchText = null;
     $scope.startDateTime;
     $scope.endDateTime;
-
+    $scope.gPlace ={};
     $scope.eventTypes = [{'display': 'Wedding'},
         {'display': 'Birthday'},
         {'display': 'Holy Friday'},
@@ -133,4 +133,22 @@ angular.module('meetUpPlannerApp')
         }
     };
 
-  });
+    }).directive('googleplace', function() {
+    /*base on https://gist.github.com/VictorBjelkholm/6687484*/
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attrs, model) {
+            var options = {
+                types: [],
+                componentRestrictions: {}
+            };
+            scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
+
+            google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
+                scope.$apply(function() {
+                    model.$setViewValue(element.val());
+                });
+            });
+        }
+    };
+});
