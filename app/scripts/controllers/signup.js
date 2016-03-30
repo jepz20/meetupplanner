@@ -80,7 +80,7 @@ angular.module('meetUpPlannerApp')
             };
             $auth.signup(user)
             .then(function (response) {
-                $location.path('/about');
+                $location.path('/event/create');
             });
         } else {
             $scope.register.$setSubmitted();
@@ -90,7 +90,7 @@ angular.module('meetUpPlannerApp')
     $scope.authenticate = function(provider) {
         $auth.authenticate(provider)
         .then(function(response) {
-            $location.path('/about');
+            $location.path('/event/create');
         })
         .catch(function(response) {
             console.log('response error:', response);

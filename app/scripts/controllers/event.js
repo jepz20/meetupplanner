@@ -8,7 +8,7 @@
  * Controller of the meetUpPlannerApp
  */
 angular.module('meetUpPlannerApp')
-  .controller('EventCtrl', function ($scope) {
+  .controller('EventCtrl', function ($scope,$location) {
     $scope.minDate = new Date();
     $scope.startDate = new Date();
     $scope.types = ['Normal', 'Party', 'Amazing'];
@@ -33,6 +33,7 @@ angular.module('meetUpPlannerApp')
             return $scope.items;
         }
     };
+    $scope.firebaseEvents = new Firebase('https://popping-heat-5589.firebaseio.com/events');
 
     $scope.filterWithSearchText = function(items) {
         var matchItems = [];
@@ -125,12 +126,33 @@ angular.module('meetUpPlannerApp')
     };
 
     $scope.createEvent = function() {
-        console.log($scope.event.$valid);
         if ($scope.event.$valid) {
-            console.log('voy a hacer el envio');
+            $scope.firebaseEvents.push(createEventJson());
+            $location.path('/');
         } else {
             $scope.event.$setSubmitted();
         }
+    };
+
+    var createEventJson = function() {
+        var message = (typeof $scope.message === 'undefined') ? '' : $scope.message
+        console.log(message);
+        var eventJson = { 'name': $scope.name,
+                'host': $scope.host,
+                'type': $scope.type,
+                'location': $scope.location,
+                'startDateTime': $scope.startDateTime,
+                'endDateTime': $scope.endDateTime,
+                'guests': $scope.guests,
+                'message': message
+            };
+        return eventJson;
+    };
+
+    $scope.getAllEvents = function() {
+        $scope.firebaseEvents.on('child_added', function(snapshot, prevChildKey){
+            console.log(snapshot.val());
+        });
     };
 
     }).directive('googleplace', function() {

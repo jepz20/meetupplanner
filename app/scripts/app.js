@@ -26,8 +26,13 @@ angular
         controller: 'SignupCtrl',
         controllerAs: 'signup'
       })
+      .when('/event/create', {
+        templateUrl: 'views/event_create.html',
+        controller: 'EventCtrl',
+        controllerAs: 'event'
+      })
       .when('/', {
-        templateUrl: 'views/event.html',
+        templateUrl: 'views/event_show.html',
         controller: 'EventCtrl',
         controllerAs: 'event'
       })
@@ -42,12 +47,4 @@ angular
       $authProvider.google({
         clientId: '4393999410-hiip54bd4d46mn7f7p1no5gtp0cv0fgn.apps.googleusercontent.com'
       });
-      //TODO
-      // http://stackoverflow.com/questions/24704063/google-map-error-uncaught-referenceerror-google-is-not-defined-yeoman
-    //      .config(function(uiGmapGoogleMapApiProvider) {
-    // uiGmapGoogleMapApiProvider.configure({
-    //     //    key: 'your api key',
-    //     v: '3.20', //defaults to latest 3.X anyhow
-    //     libraries: 'weather,geometry,visualization'
-    // });
   });
