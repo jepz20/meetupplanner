@@ -1,12 +1,23 @@
 <h1>Aqui estan los eventos</h1>
-<button ng-click="getAllEvents()">traer</button>
-<div>
-	<span>name</span>
-	<span>host</span>
-	<span>location</span>
-	<span>type</span>
-	<span>startDateTime</span>
-	<span>endDateTime</span>
-	<span>guests</span>
-	<span>message</span>
-</div>
+<md-content class="md-padding" layout-xs="column" layout="row">
+	<div flex-xs flex-gt-xs="30" layout="column">
+		<md-card ng-repeat="event in allEvents">
+    	<md-card-title>
+    		<md-card-title-text>
+      		<span class="md-headline">{{event.name | uppercase}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+      <p>
+        <div>{{event.host}}</div>
+        <div>{{event.location}}</div>
+        <div>{{event.type}}</div>
+        <div>{{event.startDateTime}}</div>
+        <div>{{event.endDateTime}}</div>
+        <div>{{event.guests}}</div>
+        <div>{{event.message}}</div>
+      </p>
+      </md-card-content>
+    </md-card>
+  </div>
+</md-content>

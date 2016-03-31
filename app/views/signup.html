@@ -31,7 +31,7 @@
                   <label for="password">Password</label>
                   <input type="password" id="password" ng-change="setPasswordValidity()" name="password"  ng-model="password" required minlength="8"
                   maxlength="30">
-                  <div ng-messages="register.password.$error">
+                  <div ng-messages="register.password.$error" ng-messages-multiple>
                     <div ng-repeat="errorMessage in errorMessages">
                       <div ng-message-exp="errorMessage.type">{{errorMessage.text}}</div>
                     </div>

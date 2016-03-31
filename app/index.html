@@ -25,15 +25,17 @@
     <!-- Container #1 (see wireframe) -->
     <md-toolbar>
     <div class="md-toolbar-tools">
-      <h2>
-        <span>Meetup Planner</span>
-      </h2>
+      <md-button aria-label="MeetUp Planner" ng-href="#/">
+          <h2><span>MeetUp Planner</span></h2>
+      </md-button>
+      <md-button class="md-raised" aria-label="Favorite" ng-href="#/event/create">
+        Create Event
+      </md-button>
     </div>
     </md-toolbar>
     <div ng-view=""></div>
 
   </body>
-    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzEVkOjMHW67M6NbgA5nm2F41dxM0-Uto&signed_in=true&libraries=places"></script>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -50,6 +52,9 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
 

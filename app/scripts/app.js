@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngMaterial',
     'ngMessages',
-    'satellizer'
+    'satellizer',
+    'firebase'
   ])
   .config(function ($routeProvider,$authProvider) {
     $routeProvider

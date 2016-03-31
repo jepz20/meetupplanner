@@ -8,7 +8,7 @@
  * Controller of the meetUpPlannerApp
  */
 angular.module('meetUpPlannerApp')
-  .controller('EventCtrl', function ($scope,$location) {
+  .controller('EventCtrl', function ($scope,$location, $firebaseArray) {
     $scope.minDate = new Date();
     $scope.startDate = new Date();
     $scope.types = ['Normal', 'Party', 'Amazing'];
@@ -126,17 +126,14 @@ angular.module('meetUpPlannerApp')
     };
 
     $scope.createEvent = function() {
-        if ($scope.event.$valid) {
+        if (validateEventForm()) {
             $scope.firebaseEvents.push(createEventJson());
             $location.path('/');
-        } else {
-            $scope.event.$setSubmitted();
         }
     };
 
     var createEventJson = function() {
         var message = (typeof $scope.message === 'undefined') ? '' : $scope.message
-        console.log(message);
         var eventJson = { 'name': $scope.name,
                 'host': $scope.host,
                 'type': $scope.type,
@@ -149,10 +146,18 @@ angular.module('meetUpPlannerApp')
         return eventJson;
     };
 
+    var validateEventForm = function() {
+        if (!$scope.event.$valid) {
+            $scope.event.$setSubmitted();
+            return false;
+        }
+        return true;
+    };
+
+    $scope.allEvents = $firebaseArray($scope.firebaseEvents);
     $scope.getAllEvents = function() {
-        $scope.firebaseEvents.on('child_added', function(snapshot, prevChildKey){
-            console.log(snapshot.val());
-        });
+        // var getAllEventsQuery = $scope.firebaseEvents.on('child_added');
+        $scope.allEvents = $firebaseArray($scope.firebaseEvents);
     };
 
     }).directive('googleplace', function() {
