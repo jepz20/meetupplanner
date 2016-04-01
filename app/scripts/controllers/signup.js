@@ -17,6 +17,11 @@ angular.module('meetUpPlannerApp')
    {'type': 'includeuppercase', 'text': 'Please include at least one uppercase letter'},
    {'type': 'passwodrdmatch', 'text': 'Password do not match'}];
 
+   $scope.showSignUp = false;
+
+   $scope.toggleShowSignUpForm = function() {
+        $scope.showSignUp = !$scope.showSignUp;
+   };
 
    var checkIfIncludeNumber = function(stringToValidate) {
         if (/[0-9]/.test(stringToValidate)) {
@@ -80,6 +85,7 @@ angular.module('meetUpPlannerApp')
             };
             $auth.signup(user)
             .then(function (response) {
+                setUserInfo(response.data);
                 $location.path('/event/create');
             });
         } else {
@@ -87,9 +93,15 @@ angular.module('meetUpPlannerApp')
         }
     };
 
+    var setUserInfo = function(user) {
+        localStorage.setItem('userName', user.name);
+        localStorage.setItem('userEmail', user.email);
+    };
+
     $scope.authenticate = function(provider) {
         $auth.authenticate(provider)
         .then(function(response) {
+            setUserInfo(response.data);
             $location.path('/event/create');
         })
         .catch(function(response) {

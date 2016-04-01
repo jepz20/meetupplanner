@@ -1,57 +1,55 @@
-<!-- Container #2 -->
     <div flex layout="row">
-
-        <!-- Container #3 -->
-<!--         <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
-        </md-sidenav>
- -->
-        <!-- Container #4 -->
         <md-content flex id="content">
-          <md-icon md-svg-src="./assets/svg/avatar-1.svg" class="avatar"></md-icon>
-          <div>
+        <h1>Create an Account</h1>
+          <div ng-show="showSignUp">
+            <form id="register" name="register">
+              <md-input-container class="md-block">
+                <label for="usremail">Email</label>
+                <input type="email" id="usremail" ng-model="usremail" required="true" name="usremail">
+                <div ng-messages="register.usremail.$error">
+                  <div ng-message="required">Please enter your email</div>
+                  <div ng-message="email">Please enter a valid email</div>
+                </div>
+              </md-input-container>
+              <md-input-container class="md-block">
+                <label for="usrname">Name</label>
+                <input type="text" id="usrname" ng-model="usrname" required="true" name="usrname">
+                <div ng-messages="register.usrname.$error">
+                  <div ng-message="required">Please enter your name</div>
+                </div>
+              </md-input-container>
+              <md-input-container class="md-block">
+                <label for="password">Password</label>
+                <input type="password" id="password" ng-change="setPasswordValidity()" name="password"  ng-model="password" required minlength="8"
+                maxlength="30">
+                <div ng-messages="register.password.$error" ng-messages-multiple>
+                  <div ng-repeat="errorMessage in errorMessages">
+                    <div ng-message-exp="errorMessage.type">{{errorMessage.text}}</div>
+                  </div>
+                </div>
+              </md-input-container>
 
-              <!-- <h1>Register</h1> -->
-              <form id="register" name="register">
-                <md-input-container class="md-block">
-                  <label for="usremail">Email</label>
-                  <input type="email" id="usremail" ng-model="usremail" required="true" name="usremail">
-                  <div ng-messages="register.usremail.$error">
-                    <div ng-message="required">Please enter your email</div>
-                    <div ng-message="email">Please enter a valid email</div>
-                  </div>
-                </md-input-container>
-                <md-input-container class="md-block">
-                  <label for="usrname">Name</label>
-                  <input type="text" id="usrname" ng-model="usrname" required="true" name="usrname">
-                  <div ng-messages="register.usrname.$error">
-                    <div ng-message="required">Please enter your name</div>
-                  </div>
-                </md-input-container>
-                <md-input-container class="md-block">
-                  <label for="password">Password</label>
-                  <input type="password" id="password" ng-change="setPasswordValidity()" name="password"  ng-model="password" required minlength="8"
-                  maxlength="30">
-                  <div ng-messages="register.password.$error" ng-messages-multiple>
-                    <div ng-repeat="errorMessage in errorMessages">
-                      <div ng-message-exp="errorMessage.type">{{errorMessage.text}}</div>
-                    </div>
-                  </div>
-                </md-input-container>
-
-                <md-input-container class="md-block">
-                  <label for="checkpassword">Validate Password</label>
-                  <input type="password" id="checkpassword" required="true" name="checkpassword" ng-model="checkPassword" ng-change="setCheckPasswordValidity()">
-                  <div ng-messages="register.checkpassword.$error">
-                    <div ng-message="passwordmatch"> Password don't match</div>
-                  </div>
-                </md-input-container>
-                <md-button class="md-primary md-raised" ng-click="signupUser()">SignUp</md-button>
-                <md-button class="md-primary md-raised md-hue-1" ng-click="authenticate('facebook')">Sign up with Facebook</md-button>
-
-                <md-button class="md-primary  md-raised md-warn " ng-click="authenticate('google')">Sign up with Google</md-button>
-              </form>
+              <md-input-container class="md-block">
+                <label for="checkpassword">Validate Password</label>
+                <input type="password" id="checkpassword" required="true" name="checkpassword" ng-model="checkPassword" ng-change="setCheckPasswordValidity()">
+                <div ng-messages="register.checkpassword.$error">
+                  <div ng-message="passwordmatch"> Password don't match</div>
+                </div>
+              </md-input-container>
+              <md-button class="md-primary md-raised" ng-click="signupUser()">Sign up</md-button>
+              <md-button class="md-raised" ng-click="toggleShowSignUpForm()">Cancel</md-button>
+            </form>
+          </div>
+            <div ng-hide="showSignUp">
+              <div flex-gt-xs layout="row" layout-sm="column" >
+                <md-button class="md-primary md-raised md-hue-1" ng-click="toggleShowSignUpForm()" flex-gt-xs="20" flex>Sign up with Email</md-button>
+              </div>
+              <div flex-gt-xs layout="row" layout-sm="column">
+                <md-button class="md-primary md-raised md-hue-2" ng-click="authenticate('facebook')" flex-gt-xs="20" flex>Sign up with Facebook</md-button>
+              </div>
+              <div flex-gt-xs layout="row" layout-sm="column">
+                <md-button class="md-primary  md-raised md-warn " ng-click="authenticate('google')" flex-gt-xs="20" flex>Sign up with Google</md-button>
+              </div>
             </div>
-
-
         </md-content>
     </div>

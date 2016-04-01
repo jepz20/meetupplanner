@@ -136,41 +136,8 @@ def facebook():
         userData = {"name": profile['name'], "email": profile['email'],
         'facebook_id': profile['id']}
     result = firebase.put('/users',profile['email'].replace('@','at').replace('.','dot'), userData)
-    # except Exception, e:
-        # print e
-    # # Step 3. (optional) Link accounts.
-    # if request.headers.get('Authorization'):
-    #     # user = User.query.filter_by(facebook=profile['id']).first()
-    #     if user:
-    #         response = jsonify(message='There is already a Facebook account that belongs to you')
-    #         response.status_code = 409
-    #         return response
 
-    #     payload = parse_token(request)
-
-    #     user = User.query.filter_by(id=payload['sub']).first()
-    #     if not user:
-    #         response = jsonify(message='User not found')
-    #         response.status_code = 400
-    #         return response
-
-    #     u = User(facebook=profile['id'], display_name=profile['name'])
-    #     db.session.add(u)
-    #     db.session.commit()
-    #     token = create_token(u)
-    #     return jsonify(token=token)
-
-    # # Step 4. Create a new account or return an existing one.
-    # user = User.query.filter_by(facebook=profile['id']).first()
-    # if user:
-    #     token = create_token(user)
-    #     return jsonify(token=token)
-
-    # u = User(facebook=profile['id'], display_name=profile['name'])
-    # db.session.add(u)
-    # db.session.commit()
-    # token = create_token(u)
-    return dumps(profile)
+    return dumps(userData)
 
 
 @app.route('/auth/google', methods=['POST'])
@@ -215,7 +182,7 @@ def google():
     # db.session.commit()
     # token = create_token(u)
 
-    return jsonify(token="hola")
+    return dumps(userData)
 
 if __name__ == '__main__':
     app.run(port=3000)

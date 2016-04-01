@@ -1,7 +1,7 @@
-<h1>Aqui estan los eventos</h1>
-<md-content class="md-padding" layout-xs="column" layout="row">
-	<div flex-xs flex-gt-xs="30" layout="column">
-		<md-card ng-repeat="event in allEvents">
+<h1>All Events</h1>
+<div class='md-padding' layout="row" layout-wrap>
+	<div flex-xs="100" flex-gt-xs="33" ng-repeat="event in allEvents">
+		<md-card>
     	<md-card-title>
     		<md-card-title-text>
       		<span class="md-headline">{{event.name | uppercase}}</span>
@@ -9,15 +9,15 @@
       </md-card-title>
       <md-card-content>
       <p>
-        <div>{{event.host}}</div>
-        <div>{{event.location}}</div>
-        <div>{{event.type}}</div>
-        <div>{{event.startDateTime}}</div>
-        <div>{{event.endDateTime}}</div>
-        <div>{{event.guests}}</div>
-        <div>{{event.message}}</div>
+        <div><b>Host: </b></div><div>{{event.host}}</div>
+        <div><b>Location: </b>{{event.location}}</div>
+        <div><b>Type: </b>{{event.type}}</div>
+        <div><b>Start: </b>{{event.startDateTime}}</div>
+        <div><b>End: </b>{{event.endDateTime}}</div>
+        <div><b>Guests: </b><div ng-repeat="guest in event.guests">{{guest}}</div></div>
+        <div><b>Message: </b>{{event.message}}</div>
       </p>
       </md-card-content>
     </md-card>
   </div>
-</md-content>
+</div>

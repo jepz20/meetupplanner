@@ -26,6 +26,7 @@ angular.module('meetUpPlannerApp')
         {'display': 'Forever Alone'},
         {'display': 'Fifiada'}];
 
+    $scope.userName = localStorage.getItem('userName');
     $scope.returnEventTypesResult = function(){
         if ($scope.searchText) {
             return $scope.filterWithSearchText($scope.eventTypes);
@@ -128,8 +129,15 @@ angular.module('meetUpPlannerApp')
     $scope.createEvent = function() {
         if (validateEventForm()) {
             $scope.firebaseEvents.push(createEventJson());
-            $location.path('/');
+            $scope.goToShowEvents();
         }
+    };
+
+
+
+
+    $scope.goToShowEvents = function() {
+        $location.path('/');
     };
 
     var createEventJson = function() {
@@ -138,8 +146,8 @@ angular.module('meetUpPlannerApp')
                 'host': $scope.host,
                 'type': $scope.type,
                 'location': $scope.location,
-                'startDateTime': $scope.startDateTime,
-                'endDateTime': $scope.endDateTime,
+                'startDateTime': $scope.startDateTime.getTime(),
+                'endDateTime': $scope.endDateTime.getTime(),
                 'guests': $scope.guests,
                 'message': message
             };
