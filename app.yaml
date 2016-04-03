@@ -10,7 +10,10 @@ application: meetupplanner-j
 version: 2
 runtime: python27
 api_version: 1
-threadsafe: yes
+module: default
+threadsafe: no
+
+
 
 # Handlers define how to route requests to your application.
 handlers:
@@ -38,4 +41,10 @@ handlers:
 #  version: latest
 libraries:
 - name: pycrypto
+  version: latest
+- name: ssl
+  version: latest
+- name: endpoints
+  version: 1.0
+- name: webapp2
   version: latest

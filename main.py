@@ -1,24 +1,21 @@
 from datetime import datetime, timedelta
 import os
-import jwt
-import json
+from flask import Flask, g, send_file, request, redirect, url_for, jsonify
+from werkzeug.security import generate_password_hash, check_password_hash
 import requests
-import base64
 import logging
 from functools import wraps
 from urlparse import parse_qs, parse_qsl
 from urllib import urlencode
-from flask import Flask, g, send_file, request, redirect, url_for, jsonify
-from werkzeug.security import generate_password_hash, check_password_hash
 from requests_oauthlib import OAuth1
+import jwt
 from jwt import DecodeError, ExpiredSignature
-from firebase import firebase
 try:
     # For c speedups
     from simplejson import loads, dumps
 except ImportError:
     from json import loads, dumps
-# Configuration
+from firebase import firebase
 
 current_path = os.path.dirname(__file__)
 client_path = os.path.abspath(os.path.join(current_path, 'app'))
@@ -185,3 +182,10 @@ def google():
 
 # if __name__ == '__main__':
 #     app.run(port=3000)
+
+def log_exception(sender, exception, **extra):
+    """ Log an exception to our logging framework """
+    sender.logger.debug('Got exception during processing: %s', exception)
+
+from flask import got_request_exception
+got_request_exception.connect(log_exception, app)

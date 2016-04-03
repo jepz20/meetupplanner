@@ -8,4 +8,4 @@ itsdangerous==0.24
 PyJWT==0.2.1
 requests==2.3.0
 requests-oauthlib==0.4.1
-python-firebase=1.2
+python-firebase==1.2
