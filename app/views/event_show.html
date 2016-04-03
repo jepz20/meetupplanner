@@ -1,23 +1,54 @@
-<h1>All Events</h1>
-<div class='md-padding' layout="row" layout-wrap>
-	<div flex-xs="100" flex-gt-xs="33" ng-repeat="event in allEvents">
+<h1>Events</h1>
+      <div flex="50">
+              <md-checkbox ng-model="showAll" ng-change="event.getAllEvents()">
+                Show all events
+              </md-checkbox>
+            </div>
+<div class='md-padding' layout="row" layout-wrap ng-init="event.getAllEvents()">
+	<div flex-xs="100" flex-gt-xs="33" ng-repeat="singleEvent in event.allEvents | orderBy: '-createDate'">
 		<md-card>
-    	<md-card-title>
-    		<md-card-title-text>
-      		<span class="md-headline">{{event.name | uppercase}}</span>
-        </md-card-title-text>
-      </md-card-title>
+      <img src="images/{{singleEvent.type}}.jpg" class="md-card-image" alt="Type">
+    	<md-card-header>
+    		<md-card-header-text>
+      		<span class="md-title">
+          {{singleEvent.name}}
+          </span>
+          <div class="md-subhead">{{singleEvent.startDateTime | date:"MMM dd, yyyy"}}</div>
+          <span class="md-subhead">hosted by {{singleEvent.host}}</span>
+        </md-card-header-text>
+      </md-card-header>
       <md-card-content>
-      <p>
-        <div><b>Host: </b></div><div>{{event.host}}</div>
-        <div><b>Location: </b>{{event.location}}</div>
-        <div><b>Type: </b>{{event.type}}</div>
-        <div><b>Start: </b>{{event.startDateTime}}</div>
-        <div><b>End: </b>{{event.endDateTime}}</div>
-        <div><b>Guests: </b><div ng-repeat="guest in event.guests">{{guest}}</div></div>
-        <div><b>Message: </b>{{event.message}}</div>
-      </p>
+          <div>
+            <md-icon md-svg-src="images/icons/location.svg" aria-label="location"></md-icon>{{singleEvent.location}}
+            <md-button ng-click="event.openMap(singleEvent.detailLocation)">
+              open map...
+            </md-button>
+          </div>
+        <p>
+          <div>
+            <md-icon md-svg-src="images/icons/calendar.svg" aria-label="location"></md-icon>{{singleEvent.startDateTime | date:"MMM dd, yyyy 'at' h:mma"}} - {{singleEvent.endDateTime | date:"MMM dd, yyyy 'at' h:mma"}}
+          </div>
+        </p>
+        <p>
+          <md-icon md-svg-src="images/icons/account-multiple.svg" aria-label="guests"></md-icon>
+          Guests
+           <md-chips ng-model="singleEvent.guests" readonly="true"  name="guests">
+             <md-chip-template>
+               <span>{{$chip}}</span>
+             </md-chip-template>
+          </md-chips>
+        </p>
+        <p>
+          <h4>Description</h4>
+          <span>{{singleEvent.description}}</span>
+        </p>
       </md-card-content>
     </md-card>
   </div>
 </div>
+<md-button class="md-fab md-warn md-hue-2 md-fab-bottom-right" aria-label="Create Event" ng-click="event.gotToCreateEvent()" style="position: fixed">
+  <md-icon md-svg-src="images/icons/cross.svg"></md-icon>
+  <md-tooltip md-direction="left">
+    Create Event
+  </md-tooltip>
+</md-button>

@@ -2,79 +2,79 @@
 Create an Event
 </h3>
 <div class="md-inline-form">
-<form id="event" name="event">
+<form id="eventForm" name="eventForm">
   <div layout-gt-xs="row">
     <md-input-container flex-gt-xs class="md-block">
       <label for="name">Name</label>
-      <input type="text" name="name" id="name" ng-model= "name" required maxlength="50" autofocus="true" placeholder="e.g. Jose Graduation">
-      <div ng-messages="event.name.$error">
+      <input type="text" name="name" id="name" ng-model="event.name" required maxlength="50" autofocus="true" placeholder="{{'e.g.' + event.user.data.firstName + '`s Graduation'}}">
+      <div ng-messages="eventForm.name.$error">
         <div ng-message="required">Whats the name for your event?</div>
         <div ng-message="maxlength">Name should be shorter(50 max)</div>
       </div>
     </md-input-container>
     <md-input-container flex-gt-xs class="md-block">
       <label for="host">Host</label>
-      <input type="text" name="host" id="host" ng-model="host" required maxlength="30" placeholder="e.g. Jose Perdomo">
-      <div ng-messages="event.host.$error">
+      <input type="text" name="host" id="host" ng-model="event.host" required maxlength="30" placeholder="e.g. Yeny Perdomo">
+      <div ng-messages="eventForm.host.$error">
         <div ng-message="required">Who is hosting the Event?</div>
         <div ng-message="maxlength">Host should be shorter(30 max)</div>
       </div>
     </md-input-container>
   </div>
   <div layout-gt-xs="row">
-    <datalist id="types">
-      <option ng-repeat="type in eventTypes" value="{{type.display}}">
-    </datalist>
     <md-input-container flex-gt-xs class="md-block">
-      <label for="type">Type</label>
-      <input type="text" name="type" id="type" ng-model= "type" placeholder="e.g. Party" list="types" required maxlength="30">
-      <div ng-messages="event.type.$error">
+      <label>Type</label>
+      <md-select name="type" ng-model="event.type" required>
+        <md-option ng-repeat="type in event.types" value="{{type.display}}">
+        {{type.display}}
+        </md-option>
+      </md-select>
+      <div ng-messages="eventForm.type.$error">
         <div ng-message="required">Whats your event about?</div>
-        <div ng-message="maxlength">Type should be shorter(30 max)</div>
       </div>
     </md-input-container>
     <md-input-container flex-gt-xs class="md-block">
       <label for="location">Location</label>
-      <input type="text" name="location" id="location" ng-model= "location" googleplace placeholder="e.g. 12 St. Boca Raton Miami" required>
-      <div ng-messages="event.location.$error">
+      <input type="text" name="location" id="location" ng-model="event.location" googleplace placeholder="e.g. Hotel Honduras Maya" required>
+      <div ng-messages="eventForm.location.$error">
         <div ng-message="required">Where are you hosting your event?</div>
       </div>
     </md-input-container>
   </div>
-  <div layout-gt-xs="row">
-    <md-input-container class="md-block" flex-gt-xs>
+  <div layout="row">
+    <md-input-container flex-gt-xs flex-xs="60">
       <label for="startDate ">Start Date</label>
-      <input type="date" name="startDate" id="startDate" ng-model="startDate" required ng-change="setStartDateTime()" ng-blur="manageDate()" min="{{minDate | date:'yyyy-MM-dd'}}"
+      <input type="date" name="startDate" id="startDate" ng-model="event.startDate" required ng-change="event.setStartDateTime()" ng-blur="event.manageDate()" min="{{minDate | date:'yyyy-MM-dd'}}"
       max="{{endDate | date:'yyyy-MM-dd'}}||''" placeholder="">
-      <div ng-messages="event.startDate.$error">
+      <div ng-messages="eventForm.startDate.$error">
         <div ng-message="required">What day does the event start?</div>
         <div ng-message="max">Event should start before it ends</div>
         <div ng-message="min">Event can't start before today</div>
       </div>
     </md-input-container>
-    <md-input-container class="md-block" flex-gt-xs>
+    <md-input-container flex-gt-xs flex-xs="40">
       <label for="startTime">Start Time</label>
-      <input type="time" name="startTime" id="startTime" ng-model="startTime" required ng-blur="manageTime()" placeholder="">
-      <div ng-messages="event.startTime.$error">
+      <input type="time" name="startTime" id="startTime" ng-model="event.startTime" required ng-blur="event.manageTime()" placeholder="">
+      <div ng-messages="eventForm.startTime.$error">
         <div ng-message="required">What time does the event start?</div>
         <div ng-message="max">Event should start before it ends</div>
       </div>
     </md-input-container>
   </div>
-  <div layout-gt-xs="row">
-    <md-input-container class="md-block" flex-gt-xs>
+  <div layout="row" flex>
+    <md-input-container flex-gt-xs flex-xs="60">
       <label for="endDate ">End Date</label>
-      <input type="date" name="endDate" id="endDate" ng-model="endDate" required ng-blur="manageDate()" min="{{startDate | date:'yyyy-MM-dd'}}" placeholder="">
-      <div ng-messages="event.endDate.$error">
+      <input type="date" name="endDate" id="endDate" ng-model="event.endDate" required ng-blur="event.manageDate()" min="{{startDate | date:'yyyy-MM-dd'}}" placeholder="">
+      <div ng-messages="eventForm.endDate.$error">
         <div ng-message="required">What day does the event start?</div>
         <div ng-message="max">Event should start before it ends</div>
         <div ng-message="min">Event can't start before today</div>
       </div>
     </md-input-container>
-    <md-input-container class="md-block" flex-gt-xs>
+    <md-input-container flex-gt-xs flex-xs="40">
       <label for="endTime">End Time</label>
-      <input type="time" name="endTime" id="endTime" ng-model="endTime" required ng-blur="manageTime()" placeholder="">
-      <div ng-messages="event.endTime.$error">
+      <input type="time" name="endTime" id="endTime" ng-model="event.endTime" required ng-blur="event.manageTime()" placeholder="">
+      <div ng-messages="eventForm.endTime.$error">
         <div ng-message="required">What time does the event end?</div>
         <div ng-message="min">Event should end after it starts</div>
       </div>
@@ -86,12 +86,12 @@ Create an Event
     <div layout-gt-xs="row">
     <md-input-container class="md-block" flex-gt-xs>
       <label for="guests">Guests</label>
-       <md-chips ng-model="guests" name="guest" readonly="false" placeholder="Add a guest and hit enter" secondary-placeholder="Add a guest and hit enter" class="md-block" name="guests" requireds>
+       <md-chips ng-model="event.guests" readonly="false" placeholder="Add a guest and hit enter" secondary-placeholder="Add a guest and hit enter" class="md-block" name="guests" required>
          <md-chip-template>
            <span>{{$chip}}</span>
          </md-chip-template>
       </md-chips>
-      <div ng-messages="event.guests.$error">
+      <div ng-messages="eventForm.guests.$error">
         <div ng-message="required">What time does the event end?</div>
       </div>
     </md-input-container>
@@ -99,16 +99,15 @@ Create an Event
    <br>
    <div layout-gt-xs="row">
     <md-input-container class="md-block" flex-gt-xs>
-      <label for="message">Message</label>
-      <input type="text" name="message" id="message" ng-model= "message" ng-maxlength="150" placeholder="e.g. Awesome Graduation as a Senior Web Developer :D">
-      <div ng-messages="event.message.$error">
+      <label for="description">Description</label>
+      <input type="text" name="description" id="description" ng-model="event.description" ng-maxlength="150" placeholder="e.g. Awesome Graduation as a Senior Web Developer :D">
+      <div ng-messages="eventForm.description.$error">
         <div ng-message="ng-maxlength">Message should be shorter (150 max)</div>
       </div>
     </md-input-container>
   </div>
 </form>
-<md-button class="md-primary md-raised" aria-label="Create Event" ng-click="
-createEvent()">Create Event</md-button>
-<md-button class="md-raised" aria-label="Cancel" ng-click="goToShowEvents()">Cancel</md-button
+<md-button class="md-raised md-primary" aria-label="Create Event" ng-click="event.createEvent()">Create Event</md-button>
+<md-button class="md-raised" aria-label="Cancel" ng-click="event.cancelEvent()">Cancel</md-button>
 </div>
 

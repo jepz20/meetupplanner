@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('meetUpPlannerApp', [
+angular.module('meetUpPlannerApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -19,33 +18,33 @@ angular
     'ngMessages',
     'satellizer',
     'firebase'
-  ])
-  .config(function ($routeProvider,$authProvider) {
+])
+.config(function ($routeProvider,$authProvider) {
     $routeProvider
-      .when('/signup', {
+    .when('/signup', {
         templateUrl: 'views/signup.html',
         controller: 'SignupCtrl',
         controllerAs: 'signup'
-      })
-      .when('/event/create', {
+    })
+    .when('/event/create', {
         templateUrl: 'views/event_create.html',
         controller: 'EventCtrl',
         controllerAs: 'event'
-      })
-      .when('/', {
+    })
+    .when('/', {
         templateUrl: 'views/event_show.html',
         controller: 'EventCtrl',
         controllerAs: 'event'
-      })
-      .otherwise({
+    })
+    .otherwise({
         redirectTo: '/'
-      });
-      $authProvider.facebook({
+    });
+
+    $authProvider.facebook({
         clientId: '903607643089946',
         scope: ['email']
-      });
-
-      $authProvider.google({
+    });
+    $authProvider.google({
         clientId: '4393999410-hiip54bd4d46mn7f7p1no5gtp0cv0fgn.apps.googleusercontent.com'
-      });
-  });
+    });
+});

@@ -22,7 +22,6 @@ except ImportError:
 
 current_path = os.path.dirname(__file__)
 client_path = os.path.abspath(os.path.join(current_path, 'app'))
-
 app = Flask(__name__, static_url_path='', static_folder=client_path)
 app.config.from_object('config')
 firebase = firebase.FirebaseApplication('https://popping-heat-5589.firebaseio.com/',None)
@@ -184,5 +183,5 @@ def google():
 
     return dumps(userData)
 
-if __name__ == '__main__':
-    app.run(port=3000)
+# if __name__ == '__main__':
+#     app.run(port=3000)

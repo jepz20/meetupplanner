@@ -19,19 +19,27 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
- <body ng-app="meetUpPlannerApp" ng-controller="MainCtrl as main" ng-cloak>
+ <body ng-app="meetUpPlannerApp" ng-controller="MainCtrl as main">
 
     <!-- Container #1 (see wireframe) -->
-    <md-toolbar>
+    <md-toolbar ng-cloak>
     <div class="md-toolbar-tools">
-      <md-button aria-label="MeetUp Planner" ng-href="#/">
-          <h2><span>MeetUp Planner</span></h2>
-      </md-button>
+      <h2 style="cursor:pointer" ng-click="main.goToHome()">
+        <span>MeetUp Planner</span>
+      </h2>
       <span flex></span>
-      <md-button class="md-icon-button" aria-label="Create Event" ng-href="#/event/create">
-        <md-icon md-svg-icon="images/icons/hospital.svg"></md-icon>
-      </md-button>
-      <span hide-xs>Hello {{userName}}</span>
+      <md-menu md-position-mode="target-right target" ng-show="main.user.loggedIn">
+        <md-button aria-label="Open user menu" ng-click="$mdOpenMenu($event)" >
+          {{main.user.data.firstName}}
+        </md-button>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button ng-click="main.logout()">
+                  <p flex>Logout</p>
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
     </div>
     </md-toolbar>
     <div ng-view=""></div>
@@ -61,6 +69,8 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/services/navigation.js"></script>
+        <script src="scripts/services/user.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/signup.js"></script>
         <script src="scripts/controllers/event.js"></script>

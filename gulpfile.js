@@ -82,7 +82,7 @@ gulp.task('runserver', function() {
   var spawn = process.spawn;
   console.info('Starting flask server');
   var PIPE = {stdio: 'inherit'};
-  spawn('python', ['app.py','runserver'], PIPE);
+  spawn('python', ['main.py','runserver'], PIPE);
 });
 
 gulp.task('start:server', ['runserver'], function() {

@@ -8,6 +8,17 @@
  * Controller of the meetUpPlannerApp
  */
 angular.module('meetUpPlannerApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.userName = localStorage.getItem('userName');
-})
+.controller('MainCtrl', function(User, Navigation) {
+    var main = this;
+    main.user = User;
+    main.user.get();
+
+    main.logout = function() {
+        main.user.logout();
+    };
+
+    main.goToHome = function() {
+        Navigation.home(main.user.loggedIn);
+    };
+
+});

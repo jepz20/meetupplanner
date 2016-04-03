@@ -8,38 +8,40 @@
  * Controller of the meetUpPlannerApp
  */
 angular.module('meetUpPlannerApp')
-  .controller('EventCtrl', function ($scope,$location, $firebaseArray) {
-    $scope.minDate = new Date();
-    $scope.startDate = new Date();
-    $scope.types = ['Normal', 'Party', 'Amazing'];
-    $scope.guests = ['Me'];
-    $scope.selectedEvent = null;
-    $scope.searchText = null;
-    $scope.startDateTime;
-    $scope.endDateTime;
-    $scope.gPlace ={};
-    $scope.eventTypes = [{'display': 'Wedding'},
+.controller('EventCtrl', function (Navigation, $firebaseArray, User, $scope,
+    $mdToast, $window) {
+    var event = this;
+    event.user = User;
+    if (!event.user.loggedIn) {
+        Navigation.signup();
+    }
+    event.minDate = new Date();
+    event.startDate = new Date();
+    event.startDateTime;
+    event.endDateTime;
+    event.gPlace ={};
+    event.types = [
+        {'display': 'Conference'},
+        {'display': 'Meeting'},
+        {'display': 'Sport'},
+        {'display': 'Videogame'},
+        {'display': 'Networking'},
+        {'display': 'Party'},
+        {'display': 'Wedding'},
         {'display': 'Birthday'},
-        {'display': 'Holy Friday'},
-        {'display': 'First Day'},
-        {'display': 'Other Type'},
-        {'display': 'Forever Alone'},
-        {'display': 'Fifiada'}];
+        {'display': 'Family'},
+        {'display': 'Other'}
 
-    $scope.userName = localStorage.getItem('userName');
-    $scope.returnEventTypesResult = function(){
-        if ($scope.searchText) {
-            return $scope.filterWithSearchText($scope.eventTypes);
-        } else {
-            return $scope.items;
-        }
-    };
-    $scope.firebaseEvents = new Firebase('https://popping-heat-5589.firebaseio.com/events');
+    ];
+    event.guests = [event.user.data.firstName];
+    event.host = event.user.data.name;
+    event.type = event.types[0].display;
+    event.firebaseEvents = new Firebase('https://popping-heat-5589.firebaseio.com/events');
 
-    $scope.filterWithSearchText = function(items) {
+    event.filterWithSearchText = function(items) {
         var matchItems = [];
         for (var i = 0; i < items.length; i++) {
-            if (lowercaseComparison(items[i].display, $scope.searchText)) {
+            if (lowercaseComparison(items[i].display, event.searchText)) {
                 matchItems.push(items[i]);
             }
         }
@@ -54,24 +56,24 @@ angular.module('meetUpPlannerApp')
         }
     };
 
-    $scope.manageDate = function() {
+    event.manageDate = function() {
         setEndDatetoStartDateIfNull();
         setStartDatetoEndDateIfNull();
-        $scope.manageTime();
+        event.manageTime();
     };
 
     var setEndDatetoStartDateIfNull = function() {
-        if (!$scope.endDate) {
-            $scope.endDate = $scope.startDate;
+        if (!event.endDate) {
+            event.endDate = event.startDate;
         }
     };
 
     var setStartDatetoEndDateIfNull = function() {
-        if (!$scope.startDate) {
-            $scope.startDate = $scope.endDate;
+        if (!event.startDate) {
+            event.startDate = event.endDate;
         }
     };
-    $scope.manageTime = function() {
+    event.manageTime = function() {
         setEndTimeBaseOnStartTimeIfNull(1);
         setStartDateTime();
         setEndDateTime();
@@ -79,23 +81,23 @@ angular.module('meetUpPlannerApp')
         setEndDateTimeValidity();
     };
     var setEndTimeBaseOnStartTimeIfNull = function(hours) {
-        if ($scope.startTime instanceof Date) {
-            if (!$scope.endTime) {
-                $scope.endTime = new Date();
-                $scope.endTime.setTime($scope.startTime.getTime() +
+        if (event.startTime instanceof Date) {
+            if (!event.endTime) {
+                event.endTime = new Date();
+                event.endTime.setTime(event.startTime.getTime() +
                  (hours*60*60*1000));
             }
         }
     };
 
     var setStartDateTime = function() {
-        $scope.startDateTime = mergeDateTime($scope.startDate,
-            $scope.startTime);
+        event.startDateTime = mergeDateTime(event.startDate,
+            event.startTime);
     };
 
     var setEndDateTime = function() {
-        $scope.endDateTime = mergeDateTime($scope.endDate,
-            $scope.endTime);
+        event.endDateTime = mergeDateTime(event.endDate,
+            event.endTime);
     };
 
     var mergeDateTime = function(date,time) {
@@ -109,66 +111,91 @@ angular.module('meetUpPlannerApp')
     };
 
     var setStartDateTimeValidity = function() {
-        $scope.event.startTime.$setValidity('max',
+        $scope.eventForm.startTime.$setValidity('max',
             checkStartDateTimeGreaterThanEndDateTime());
     };
 
     var setEndDateTimeValidity = function() {
-        $scope.event.endTime.$setValidity('min',
+        $scope.eventForm.endTime.$setValidity('min',
             checkStartDateTimeGreaterThanEndDateTime());
     };
 
     var checkStartDateTimeGreaterThanEndDateTime = function() {
-        if ($scope.startDateTime > $scope.endDateTime) {
+        if (event.startDateTime > event.endDateTime) {
             return false;
         } else {
             return true;
         }
     };
 
-    $scope.createEvent = function() {
+    event.gotToCreateEvent = function() {
+        Navigation.createEvent(event.user.loggedIn);
+    };
+    event.openMap = function(location) {
+        var url = 'http://maps.google.com/maps?q='+location[0]+','+location[1];
+        $window.open(url, '_blank');
+    }
+
+    event.cancelEvent = function() {
+        Navigation.showEvents(event.user.loggedIn);
+    };
+    event.createEvent = function() {
         if (validateEventForm()) {
-            $scope.firebaseEvents.push(createEventJson());
-            $scope.goToShowEvents();
+            event.firebaseEvents.push(createEventJson());
+            Navigation.showEvents(event.user.loggedIn);
         }
     };
 
-
-
-
-    $scope.goToShowEvents = function() {
-        $location.path('/');
-    };
-
     var createEventJson = function() {
-        var message = (typeof $scope.message === 'undefined') ? '' : $scope.message
-        var eventJson = { 'name': $scope.name,
-                'host': $scope.host,
-                'type': $scope.type,
-                'location': $scope.location,
-                'startDateTime': $scope.startDateTime.getTime(),
-                'endDateTime': $scope.endDateTime.getTime(),
-                'guests': $scope.guests,
-                'message': message
+        var description = (typeof event.description === 'undefined') ? '' : event.description;
+        var eventJson = { 'name': event.name,
+                'host': event.host,
+                'type': event.type,
+                'location': event.location,
+                'detailLocation': $scope.detailLocation,
+                'startDateTime': event.startDateTime.getTime(),
+                'endDateTime': event.endDateTime.getTime(),
+                'guests': event.guests,
+                'description': description,
+                'createDate': (new Date()).getTime(),
+                'createdBy': event.user.data.email
             };
         return eventJson;
     };
-
+    event.showToast = function() {
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent('Please add a guest')
+            .position('bottom right')
+            .hideDelay(3000)
+        );
+    };
     var validateEventForm = function() {
-        if (!$scope.event.$valid) {
-            $scope.event.$setSubmitted();
+        if (!$scope.eventForm.$valid) {
+            $scope.eventForm.$setSubmitted();
+            return false;
+        }
+        if (event.guests.length===0) {
+            event.showToast();
             return false;
         }
         return true;
     };
 
-    $scope.allEvents = $firebaseArray($scope.firebaseEvents);
-    $scope.getAllEvents = function() {
-        // var getAllEventsQuery = $scope.firebaseEvents.on('child_added');
-        $scope.allEvents = $firebaseArray($scope.firebaseEvents);
+    $scope.showAll = true;
+    event.getAllEvents = function() {
+        // $scope.showAll = !$scope.showAll;
+        console.log($scope.showAll);
+        if ($scope.showAll) {
+            query = event.firebaseEvents;
+        } else {
+            var query = event.firebaseEvents.orderByChild('createdBy').equalTo(event.user.data.email);
+        }
+        event.allEvents = $firebaseArray(query);
     };
 
-    }).directive('googleplace', function() {
+})
+.directive('googleplace', function() {
     /*base on https://gist.github.com/VictorBjelkholm/6687484*/
     return {
         require: 'ngModel',
@@ -177,9 +204,17 @@ angular.module('meetUpPlannerApp')
                 types: [],
                 componentRestrictions: {}
             };
-            scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
+            scope.gPlace = new google.maps.places.Autocomplete(
+                element[0], options
+            );
 
             google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
+                var geoComponents = scope.gPlace.getPlace();
+                var latitude = geoComponents.geometry.location.lat();
+                var longitude = geoComponents.geometry.location.lng();
+                var detailLocation = [];
+                detailLocation.push(latitude, longitude);
+                scope.detailLocation = detailLocation;
                 scope.$apply(function() {
                     model.$setViewValue(element.val());
                 });

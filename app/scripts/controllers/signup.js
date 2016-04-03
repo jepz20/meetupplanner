@@ -8,28 +8,29 @@
  * Controller of the meetUpPlannerApp
  */
 angular.module('meetUpPlannerApp')
-  .controller('SignupCtrl', function ($scope, $location, $auth) {
+.controller('SignupCtrl', function ($scope, $auth, User, Navigation) {
+    $scope.errorMessages = [
+        {'type': 'minlength', 'text': 'Password should have at least 8 characters'},
+        {'type': 'maxlength', 'text': 'Password should have no more than 30 characters'},
+        {'type': 'includenumber', 'text': 'Please include at least one number'},
+        {'type': 'includelowercase', 'text': 'Please include at least one lowercase letter'},
+        {'type': 'includeuppercase', 'text': 'Please include at least one uppercase letter'},
+        {'type': 'passwodrdmatch', 'text': 'Password do not match'}
+    ];
 
-   $scope.errorMessages = [{'type': 'minlength', 'text': 'Password should have at least 8 characters'},
-   {'type': 'maxlength', 'text': 'Password should have no more than 30 characters'},
-   {'type': 'includenumber', 'text': 'Please include at least one number'},
-   {'type': 'includelowercase', 'text': 'Please include at least one lowercase letter'},
-   {'type': 'includeuppercase', 'text': 'Please include at least one uppercase letter'},
-   {'type': 'passwodrdmatch', 'text': 'Password do not match'}];
+    $scope.showSignUp = false;
 
-   $scope.showSignUp = false;
-
-   $scope.toggleShowSignUpForm = function() {
+    $scope.toggleShowSignUpForm = function() {
         $scope.showSignUp = !$scope.showSignUp;
-   };
+    };
 
-   var checkIfIncludeNumber = function(stringToValidate) {
+    var checkIfIncludeNumber = function(stringToValidate) {
         if (/[0-9]/.test(stringToValidate)) {
             return true;
         } else {
             return false;
         }
-   };
+    };
 
 
     var checkIfIncludeLowercase = function(stringToValidate) {
@@ -85,30 +86,28 @@ angular.module('meetUpPlannerApp')
             };
             $auth.signup(user)
             .then(function (response) {
-                setUserInfo(response.data);
-                $location.path('/event/create');
+                User.login(response.data);
+            })
+            .catch(function(response) {
+                $scope.authError = true;
+                console.log('response error:', response);
             });
         } else {
             $scope.register.$setSubmitted();
         }
     };
 
-    var setUserInfo = function(user) {
-        localStorage.setItem('userName', user.name);
-        localStorage.setItem('userEmail', user.email);
-    };
 
     $scope.authenticate = function(provider) {
         $auth.authenticate(provider)
         .then(function(response) {
-            setUserInfo(response.data);
-            $location.path('/event/create');
+            User.login(response.data);
         })
         .catch(function(response) {
             console.log('response error:', response);
         });
     };
-  });
+});
 
 
 
