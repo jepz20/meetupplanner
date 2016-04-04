@@ -165,7 +165,7 @@ angular.module('meetUpPlannerApp')
         return true;
     };
 
-    $scope.showAll = true;
+    $scope.showAll = false;
     event.getAllEvents = function() {
         if ($scope.showAll) {
             query = event.firebaseEvents;
