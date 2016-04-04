@@ -6,7 +6,7 @@ First Proyect of the Nanodegree for Senior Web Developer Nanodegree at Udacity
 MeetUp Planner allows you to easily create an event, set guests and location.
 Signup using facebook, google or your email
 
- Live demo](http://meetupplanner-j.appspot.com)
+ [Live demo](http://meetupplanner-j.appspot.com).
 
 ##Backend
 
