@@ -1,0 +1,1582 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'gulp-gae',
+1 verbose cli   '--save-dev' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.34
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json gulp-minify-css@1.2.4 No repository field.
+6 verbose readDependencies using package.json deps
+7 verbose cache add [ 'gulp-gae', null ]
+8 verbose cache add name=undefined spec="gulp-gae" args=["gulp-gae",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'gulp-gae',
+9 verbose parsed url   path: 'gulp-gae',
+9 verbose parsed url   href: 'gulp-gae' }
+10 silly lockFile 797736b0-gulp-gae gulp-gae
+11 verbose lock gulp-gae C:\Users\jepz2_000\AppData\Roaming\npm-cache\797736b0-gulp-gae.lock
+12 silly lockFile 797736b0-gulp-gae gulp-gae
+13 silly lockFile 797736b0-gulp-gae gulp-gae
+14 verbose addNamed [ 'gulp-gae', '' ]
+15 verbose addNamed [ null, '*' ]
+16 silly lockFile f8c9ff76-gulp-gae gulp-gae@
+17 verbose lock gulp-gae@ C:\Users\jepz2_000\AppData\Roaming\npm-cache\f8c9ff76-gulp-gae.lock
+18 silly addNameRange { name: 'gulp-gae', range: '*', hasData: false }
+19 verbose request where is /gulp-gae
+20 verbose request registry https://registry.npmjs.org/
+21 verbose request id a3c5d55eeee2496f
+22 verbose url raw /gulp-gae
+23 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-gae' ]
+24 verbose url resolved https://registry.npmjs.org/gulp-gae
+25 verbose request where is https://registry.npmjs.org/gulp-gae
+26 info trying registry request attempt 1 at 22:08:01
+27 http GET https://registry.npmjs.org/gulp-gae
+28 http 200 https://registry.npmjs.org/gulp-gae
+29 silly registry.get cb [ 200,
+29 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+29 silly registry.get     etag: '"2EWHIF36SMYBYR871UP3IU7YZ"',
+29 silly registry.get     'content-type': 'application/json',
+29 silly registry.get     'cache-control': 'max-age=300',
+29 silly registry.get     'content-length': '5964',
+29 silly registry.get     'accept-ranges': 'bytes',
+29 silly registry.get     date: 'Mon, 04 Apr 2016 04:08:05 GMT',
+29 silly registry.get     via: '1.1 varnish',
+29 silly registry.get     age: '0',
+29 silly registry.get     connection: 'keep-alive',
+29 silly registry.get     'x-served-by': 'cache-jfk1036-JFK',
+29 silly registry.get     'x-cache': 'MISS',
+29 silly registry.get     'x-cache-hits': '0',
+29 silly registry.get     'x-timer': 'S1459742885.227458,VS0,VE371',
+29 silly registry.get     vary: 'Accept' } ]
+30 silly addNameRange number 2 { name: 'gulp-gae', range: '*', hasData: true }
+31 silly addNameRange versions [ 'gulp-gae', [ '0.0.1', '0.0.2', '0.0.3', '0.0.4' ] ]
+32 verbose addNamed [ 'gulp-gae', '0.0.4' ]
+33 verbose addNamed [ '0.0.4', '0.0.4' ]
+34 silly lockFile b8b9d977-gulp-gae-0-0-4 gulp-gae@0.0.4
+35 verbose lock gulp-gae@0.0.4 C:\Users\jepz2_000\AppData\Roaming\npm-cache\b8b9d977-gulp-gae-0-0-4.lock
+36 silly lockFile 679995c8--org-gulp-gae-gulp-gae-0-0-4-tgz https://registry.npmjs.org/gulp-gae/-/gulp-gae-0.0.4.tgz
+37 verbose lock https://registry.npmjs.org/gulp-gae/-/gulp-gae-0.0.4.tgz C:\Users\jepz2_000\AppData\Roaming\npm-cache\679995c8--org-gulp-gae-gulp-gae-0-0-4-tgz.lock
+38 verbose addRemoteTarball [ 'https://registry.npmjs.org/gulp-gae/-/gulp-gae-0.0.4.tgz',
+38 verbose addRemoteTarball   '5633044468275cd4b3b8b171527c7f502bcc0391' ]
+39 info retry fetch attempt 1 at 22:08:03
+40 verbose fetch to= C:\Users\JEPZ2_~1\AppData\Local\Temp\npm-8068-iTCJgDb5\registry.npmjs.org\gulp-gae\-\gulp-gae-0.0.4.tgz
+41 http GET https://registry.npmjs.org/gulp-gae/-/gulp-gae-0.0.4.tgz
+42 http 200 https://registry.npmjs.org/gulp-gae/-/gulp-gae-0.0.4.tgz
+43 silly lockFile 679995c8--org-gulp-gae-gulp-gae-0-0-4-tgz https://registry.npmjs.org/gulp-gae/-/gulp-gae-0.0.4.tgz
+44 silly lockFile 679995c8--org-gulp-gae-gulp-gae-0-0-4-tgz https://registry.npmjs.org/gulp-gae/-/gulp-gae-0.0.4.tgz
+45 silly lockFile b8b9d977-gulp-gae-0-0-4 gulp-gae@0.0.4
+46 silly lockFile b8b9d977-gulp-gae-0-0-4 gulp-gae@0.0.4
+47 silly lockFile f8c9ff76-gulp-gae gulp-gae@
+48 silly lockFile f8c9ff76-gulp-gae gulp-gae@
+49 silly resolved [ { name: 'gulp-gae',
+49 silly resolved     version: '0.0.4',
+49 silly resolved     description: 'Gulp Google App Engine Plugin',
+49 silly resolved     main: 'index.js',
+49 silly resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+49 silly resolved     repository:
+49 silly resolved      { type: 'git',
+49 silly resolved        url: 'git+https://github.com/maciejzasada/gulp-gae.git' },
+49 silly resolved     keywords: [ 'gulp', 'gae', 'google', 'app', 'engine', 'appengine' ],
+49 silly resolved     author: { name: 'Maciej Zasada', email: 'hello@maciejzasada.com' },
+49 silly resolved     license: 'MIT',
+49 silly resolved     bugs: { url: 'https://github.com/maciejzasada/gulp-gae/issues' },
+49 silly resolved     homepage: 'https://github.com/maciejzasada/gulp-gae#readme',
+49 silly resolved     devDependencies: { gulp: '^3.9.0' },
+49 silly resolved     dependencies: { 'gulp-util': '^3.0.6', through2: '^2.0.0' },
+49 silly resolved     gitHead: '33ea3f900b672e5af347be42c632f55a4a8d9a52',
+49 silly resolved     _id: 'gulp-gae@0.0.4',
+49 silly resolved     _shasum: '5633044468275cd4b3b8b171527c7f502bcc0391',
+49 silly resolved     _from: 'gulp-gae@',
+49 silly resolved     _npmVersion: '2.10.1',
+49 silly resolved     _nodeVersion: '0.12.4',
+49 silly resolved     _npmUser: { name: 'maciejzasada', email: 'hello@maciejzasada.com' },
+49 silly resolved     dist:
+49 silly resolved      { shasum: '5633044468275cd4b3b8b171527c7f502bcc0391',
+49 silly resolved        tarball: 'https://registry.npmjs.org/gulp-gae/-/gulp-gae-0.0.4.tgz' },
+49 silly resolved     maintainers: [ [Object] ],
+49 silly resolved     directories: {},
+49 silly resolved     _resolved: 'https://registry.npmjs.org/gulp-gae/-/gulp-gae-0.0.4.tgz' } ]
+50 info install gulp-gae@0.0.4 into C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner
+51 info installOne gulp-gae@0.0.4
+52 verbose node_modules\gulp-gae unbuild
+53 verbose tar unpack C:\Users\jepz2_000\AppData\Roaming\npm-cache\gulp-gae\0.0.4\package.tgz
+54 silly lockFile 44649351-tUpPlanner-node-modules-gulp-gae tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae
+55 verbose lock tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae C:\Users\jepz2_000\AppData\Roaming\npm-cache\44649351-tUpPlanner-node-modules-gulp-gae.lock
+56 silly lockFile 8a839aad-cache-gulp-gae-0-0-4-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\gulp-gae\0.0.4\package.tgz
+57 verbose lock tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\gulp-gae\0.0.4\package.tgz C:\Users\jepz2_000\AppData\Roaming\npm-cache\8a839aad-cache-gulp-gae-0-0-4-package-tgz.lock
+58 silly gunzTarPerm modes [ '777', '666' ]
+59 silly gunzTarPerm extractEntry package.json
+60 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+61 silly gunzTarPerm extractEntry .npmignore
+62 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+63 silly gunzTarPerm extractEntry README.md
+64 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+65 silly gunzTarPerm extractEntry LICENSE
+66 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+67 silly gunzTarPerm extractEntry index.js
+68 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+69 silly gunzTarPerm extractEntry test/gulpfile.js
+70 silly gunzTarPerm modified mode [ 'test/gulpfile.js', 420, 438 ]
+71 silly gunzTarPerm extractEntry test/app/app.yaml
+72 silly gunzTarPerm modified mode [ 'test/app/app.yaml', 420, 438 ]
+73 silly gunzTarPerm extractEntry test/app/favicon.ico
+74 silly gunzTarPerm modified mode [ 'test/app/favicon.ico', 420, 438 ]
+75 silly gunzTarPerm extractEntry test/app/index.yaml
+76 silly gunzTarPerm modified mode [ 'test/app/index.yaml', 420, 438 ]
+77 silly gunzTarPerm extractEntry test/app/main.py
+78 silly gunzTarPerm modified mode [ 'test/app/main.py', 420, 438 ]
+79 silly lockFile 44649351-tUpPlanner-node-modules-gulp-gae tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae
+80 silly lockFile 44649351-tUpPlanner-node-modules-gulp-gae tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae
+81 silly lockFile 8a839aad-cache-gulp-gae-0-0-4-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\gulp-gae\0.0.4\package.tgz
+82 silly lockFile 8a839aad-cache-gulp-gae-0-0-4-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\gulp-gae\0.0.4\package.tgz
+83 info preinstall gulp-gae@0.0.4
+84 verbose readDependencies using package.json deps
+85 verbose readDependencies using package.json deps
+86 verbose cache add [ 'through2@^2.0.0', null ]
+87 verbose cache add name=undefined spec="through2@^2.0.0" args=["through2@^2.0.0",null]
+88 verbose parsed url { protocol: null,
+88 verbose parsed url   slashes: null,
+88 verbose parsed url   auth: null,
+88 verbose parsed url   host: null,
+88 verbose parsed url   port: null,
+88 verbose parsed url   hostname: null,
+88 verbose parsed url   hash: null,
+88 verbose parsed url   search: null,
+88 verbose parsed url   query: null,
+88 verbose parsed url   pathname: 'through2@^2.0.0',
+88 verbose parsed url   path: 'through2@^2.0.0',
+88 verbose parsed url   href: 'through2@^2.0.0' }
+89 verbose cache add name="through2" spec="^2.0.0" args=["through2","^2.0.0"]
+90 verbose parsed url { protocol: null,
+90 verbose parsed url   slashes: null,
+90 verbose parsed url   auth: null,
+90 verbose parsed url   host: null,
+90 verbose parsed url   port: null,
+90 verbose parsed url   hostname: null,
+90 verbose parsed url   hash: null,
+90 verbose parsed url   search: null,
+90 verbose parsed url   query: null,
+90 verbose parsed url   pathname: '^2.0.0',
+90 verbose parsed url   path: '^2.0.0',
+90 verbose parsed url   href: '^2.0.0' }
+91 verbose addNamed [ 'through2', '^2.0.0' ]
+92 verbose addNamed [ null, '>=2.0.0-0 <3.0.0-0' ]
+93 silly lockFile 06b895c8-through2-2-0-0 through2@^2.0.0
+94 verbose lock through2@^2.0.0 C:\Users\jepz2_000\AppData\Roaming\npm-cache\06b895c8-through2-2-0-0.lock
+95 silly addNameRange { name: 'through2', range: '>=2.0.0-0 <3.0.0-0', hasData: false }
+96 verbose request where is /through2
+97 verbose request registry https://registry.npmjs.org/
+98 verbose url raw /through2
+99 verbose url resolving [ 'https://registry.npmjs.org/', './through2' ]
+100 verbose url resolved https://registry.npmjs.org/through2
+101 verbose request where is https://registry.npmjs.org/through2
+102 info trying registry request attempt 1 at 22:08:05
+103 verbose etag "AB78GIBIHSPI8M1VGA4LK47Y1"
+104 http GET https://registry.npmjs.org/through2
+105 http 200 https://registry.npmjs.org/through2
+106 silly registry.get cb [ 200,
+106 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+106 silly registry.get     etag: '"3ULPIJQ0GGE1B76VOCUAZ35JG"',
+106 silly registry.get     'content-type': 'application/json',
+106 silly registry.get     'cache-control': 'max-age=300',
+106 silly registry.get     'content-length': '39462',
+106 silly registry.get     'accept-ranges': 'bytes',
+106 silly registry.get     date: 'Mon, 04 Apr 2016 04:08:07 GMT',
+106 silly registry.get     via: '1.1 varnish',
+106 silly registry.get     age: '229',
+106 silly registry.get     connection: 'keep-alive',
+106 silly registry.get     'x-served-by': 'cache-jfk1029-JFK',
+106 silly registry.get     'x-cache': 'HIT',
+106 silly registry.get     'x-cache-hits': '670',
+106 silly registry.get     'x-timer': 'S1459742887.762377,VS0,VE0',
+106 silly registry.get     vary: 'Accept' } ]
+107 silly addNameRange number 2 { name: 'through2', range: '>=2.0.0-0 <3.0.0-0', hasData: true }
+108 silly addNameRange versions [ 'through2',
+108 silly addNameRange   [ '0.0.0',
+108 silly addNameRange     '0.0.1',
+108 silly addNameRange     '0.0.2',
+108 silly addNameRange     '0.0.3',
+108 silly addNameRange     '0.0.4',
+108 silly addNameRange     '0.0.5',
+108 silly addNameRange     '0.1.0',
+108 silly addNameRange     '0.2.0',
+108 silly addNameRange     '0.2.1',
+108 silly addNameRange     '0.2.2',
+108 silly addNameRange     '0.2.3',
+108 silly addNameRange     '0.3.0',
+108 silly addNameRange     '0.4.0',
+108 silly addNameRange     '0.4.1',
+108 silly addNameRange     '1.0.0',
+108 silly addNameRange     '0.4.2',
+108 silly addNameRange     '0.5.0',
+108 silly addNameRange     '0.5.1',
+108 silly addNameRange     '0.6.0',
+108 silly addNameRange     '1.1.0',
+108 silly addNameRange     '0.6.1',
+108 silly addNameRange     '1.1.1',
+108 silly addNameRange     '0.6.2',
+108 silly addNameRange     '0.6.3',
+108 silly addNameRange     '0.6.4',
+108 silly addNameRange     '0.6.5',
+108 silly addNameRange     '2.0.0',
+108 silly addNameRange     '2.0.1' ] ]
+109 verbose addNamed [ 'through2', '2.0.1' ]
+110 verbose addNamed [ '2.0.1', '2.0.1' ]
+111 silly lockFile eb939be0-through2-2-0-1 through2@2.0.1
+112 verbose lock through2@2.0.1 C:\Users\jepz2_000\AppData\Roaming\npm-cache\eb939be0-through2-2-0-1.lock
+113 silly lockFile eb939be0-through2-2-0-1 through2@2.0.1
+114 silly lockFile eb939be0-through2-2-0-1 through2@2.0.1
+115 silly lockFile 06b895c8-through2-2-0-0 through2@^2.0.0
+116 silly lockFile 06b895c8-through2-2-0-0 through2@^2.0.0
+117 silly resolved [ { name: 'through2',
+117 silly resolved     version: '2.0.1',
+117 silly resolved     description: 'A tiny wrapper around Node streams2 Transform to avoid explicit subclassing noise',
+117 silly resolved     main: 'through2.js',
+117 silly resolved     scripts:
+117 silly resolved      { test: 'node test/test.js | faucet',
+117 silly resolved        'test-local': 'brtapsauce-local test/basic-test.js' },
+117 silly resolved     repository:
+117 silly resolved      { type: 'git',
+117 silly resolved        url: 'git+https://github.com/rvagg/through2.git' },
+117 silly resolved     keywords: [ 'stream', 'streams2', 'through', 'transform' ],
+117 silly resolved     author:
+117 silly resolved      { name: 'Rod Vagg',
+117 silly resolved        email: 'r@va.gg',
+117 silly resolved        url: 'https://github.com/rvagg' },
+117 silly resolved     license: 'MIT',
+117 silly resolved     dependencies: { 'readable-stream': '~2.0.0', xtend: '~4.0.0' },
+117 silly resolved     devDependencies:
+117 silly resolved      { bl: '~0.9.4',
+117 silly resolved        faucet: '0.0.1',
+117 silly resolved        'stream-spigot': '~3.0.5',
+117 silly resolved        tape: '~4.0.0' },
+117 silly resolved     gitHead: '6d52a1b77db13a741f2708cd5854a198e4ae3072',
+117 silly resolved     bugs: { url: 'https://github.com/rvagg/through2/issues' },
+117 silly resolved     homepage: 'https://github.com/rvagg/through2#readme',
+117 silly resolved     _id: 'through2@2.0.1',
+117 silly resolved     _shasum: '384e75314d49f32de12eebb8136b8eb6b5d59da9',
+117 silly resolved     _from: 'through2@^2.0.0',
+117 silly resolved     _npmVersion: '3.6.0',
+117 silly resolved     _nodeVersion: '5.5.0',
+117 silly resolved     _npmUser: { name: 'rvagg', email: 'rod@vagg.org' },
+117 silly resolved     maintainers: [ [Object], [Object] ],
+117 silly resolved     dist:
+117 silly resolved      { shasum: '384e75314d49f32de12eebb8136b8eb6b5d59da9',
+117 silly resolved        tarball: 'http://registry.npmjs.org/through2/-/through2-2.0.1.tgz' },
+117 silly resolved     _npmOperationalInternal:
+117 silly resolved      { host: 'packages-6-west.internal.npmjs.com',
+117 silly resolved        tmp: 'tmp/through2-2.0.1.tgz_1454928418348_0.7339043114334345' },
+117 silly resolved     directories: {},
+117 silly resolved     _resolved: 'https://registry.npmjs.org/through2/-/through2-2.0.1.tgz',
+117 silly resolved     readme: 'ERROR: No README data found!' } ]
+118 info install through2@2.0.1 into C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae
+119 info installOne through2@2.0.1
+120 verbose node_modules\gulp-gae\node_modules\through2 unbuild
+121 verbose tar unpack C:\Users\jepz2_000\AppData\Roaming\npm-cache\through2\2.0.1\package.tgz
+122 silly lockFile a92ace3c-s-gulp-gae-node-modules-through2 tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2
+123 verbose lock tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2 C:\Users\jepz2_000\AppData\Roaming\npm-cache\a92ace3c-s-gulp-gae-node-modules-through2.lock
+124 silly lockFile f3f9c6bf-cache-through2-2-0-1-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\through2\2.0.1\package.tgz
+125 verbose lock tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\through2\2.0.1\package.tgz C:\Users\jepz2_000\AppData\Roaming\npm-cache\f3f9c6bf-cache-through2-2-0-1-package-tgz.lock
+126 silly gunzTarPerm modes [ '777', '666' ]
+127 silly gunzTarPerm extractEntry package.json
+128 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+129 silly gunzTarPerm extractEntry .npmignore
+130 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+131 silly gunzTarPerm extractEntry README.md
+132 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+133 silly gunzTarPerm extractEntry LICENSE
+134 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+135 silly gunzTarPerm extractEntry through2.js
+136 silly gunzTarPerm modified mode [ 'through2.js', 420, 438 ]
+137 silly lockFile a92ace3c-s-gulp-gae-node-modules-through2 tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2
+138 silly lockFile a92ace3c-s-gulp-gae-node-modules-through2 tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2
+139 silly lockFile f3f9c6bf-cache-through2-2-0-1-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\through2\2.0.1\package.tgz
+140 silly lockFile f3f9c6bf-cache-through2-2-0-1-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\through2\2.0.1\package.tgz
+141 info preinstall through2@2.0.1
+142 verbose readDependencies using package.json deps
+143 verbose readDependencies using package.json deps
+144 verbose cache add [ 'readable-stream@~2.0.0', null ]
+145 verbose cache add name=undefined spec="readable-stream@~2.0.0" args=["readable-stream@~2.0.0",null]
+146 verbose parsed url { protocol: null,
+146 verbose parsed url   slashes: null,
+146 verbose parsed url   auth: null,
+146 verbose parsed url   host: null,
+146 verbose parsed url   port: null,
+146 verbose parsed url   hostname: null,
+146 verbose parsed url   hash: null,
+146 verbose parsed url   search: null,
+146 verbose parsed url   query: null,
+146 verbose parsed url   pathname: 'readable-stream@~2.0.0',
+146 verbose parsed url   path: 'readable-stream@~2.0.0',
+146 verbose parsed url   href: 'readable-stream@~2.0.0' }
+147 verbose cache add [ 'xtend@~4.0.0', null ]
+148 verbose cache add name=undefined spec="xtend@~4.0.0" args=["xtend@~4.0.0",null]
+149 verbose parsed url { protocol: null,
+149 verbose parsed url   slashes: null,
+149 verbose parsed url   auth: null,
+149 verbose parsed url   host: null,
+149 verbose parsed url   port: null,
+149 verbose parsed url   hostname: null,
+149 verbose parsed url   hash: null,
+149 verbose parsed url   search: null,
+149 verbose parsed url   query: null,
+149 verbose parsed url   pathname: 'xtend@~4.0.0',
+149 verbose parsed url   path: 'xtend@~4.0.0',
+149 verbose parsed url   href: 'xtend@~4.0.0' }
+150 verbose cache add name="readable-stream" spec="~2.0.0" args=["readable-stream","~2.0.0"]
+151 verbose parsed url { protocol: null,
+151 verbose parsed url   slashes: null,
+151 verbose parsed url   auth: null,
+151 verbose parsed url   host: null,
+151 verbose parsed url   port: null,
+151 verbose parsed url   hostname: null,
+151 verbose parsed url   hash: null,
+151 verbose parsed url   search: null,
+151 verbose parsed url   query: null,
+151 verbose parsed url   pathname: '~2.0.0',
+151 verbose parsed url   path: '~2.0.0',
+151 verbose parsed url   href: '~2.0.0' }
+152 verbose addNamed [ 'readable-stream', '~2.0.0' ]
+153 verbose addNamed [ null, '>=2.0.0-0 <2.1.0-0' ]
+154 silly lockFile 9a56f82a-readable-stream-2-0-0 readable-stream@~2.0.0
+155 verbose lock readable-stream@~2.0.0 C:\Users\jepz2_000\AppData\Roaming\npm-cache\9a56f82a-readable-stream-2-0-0.lock
+156 verbose cache add name="xtend" spec="~4.0.0" args=["xtend","~4.0.0"]
+157 verbose parsed url { protocol: null,
+157 verbose parsed url   slashes: null,
+157 verbose parsed url   auth: null,
+157 verbose parsed url   host: null,
+157 verbose parsed url   port: null,
+157 verbose parsed url   hostname: null,
+157 verbose parsed url   hash: null,
+157 verbose parsed url   search: null,
+157 verbose parsed url   query: null,
+157 verbose parsed url   pathname: '~4.0.0',
+157 verbose parsed url   path: '~4.0.0',
+157 verbose parsed url   href: '~4.0.0' }
+158 verbose addNamed [ 'xtend', '~4.0.0' ]
+159 verbose addNamed [ null, '>=4.0.0-0 <4.1.0-0' ]
+160 silly lockFile 252bdd84-xtend-4-0-0 xtend@~4.0.0
+161 verbose lock xtend@~4.0.0 C:\Users\jepz2_000\AppData\Roaming\npm-cache\252bdd84-xtend-4-0-0.lock
+162 silly addNameRange { name: 'readable-stream',
+162 silly addNameRange   range: '>=2.0.0-0 <2.1.0-0',
+162 silly addNameRange   hasData: false }
+163 silly addNameRange { name: 'xtend', range: '>=4.0.0-0 <4.1.0-0', hasData: false }
+164 verbose request where is /xtend
+165 verbose request registry https://registry.npmjs.org/
+166 verbose url raw /xtend
+167 verbose url resolving [ 'https://registry.npmjs.org/', './xtend' ]
+168 verbose url resolved https://registry.npmjs.org/xtend
+169 verbose request where is https://registry.npmjs.org/xtend
+170 info trying registry request attempt 1 at 22:08:06
+171 verbose etag "4O71ZSW7GI25INWNGHEBIR7QV"
+172 http GET https://registry.npmjs.org/xtend
+173 verbose request where is /readable-stream
+174 verbose request registry https://registry.npmjs.org/
+175 verbose url raw /readable-stream
+176 verbose url resolving [ 'https://registry.npmjs.org/', './readable-stream' ]
+177 verbose url resolved https://registry.npmjs.org/readable-stream
+178 verbose request where is https://registry.npmjs.org/readable-stream
+179 info trying registry request attempt 1 at 22:08:06
+180 verbose etag "2970I2CGB33XH722SIBBO8XYW"
+181 http GET https://registry.npmjs.org/readable-stream
+182 http 304 https://registry.npmjs.org/xtend
+183 silly registry.get cb [ 304,
+183 silly registry.get   { date: 'Mon, 04 Apr 2016 04:08:08 GMT',
+183 silly registry.get     via: '1.1 varnish',
+183 silly registry.get     'cache-control': 'max-age=300',
+183 silly registry.get     etag: '"4O71ZSW7GI25INWNGHEBIR7QV"',
+183 silly registry.get     age: '284',
+183 silly registry.get     connection: 'keep-alive',
+183 silly registry.get     'x-served-by': 'cache-jfk1020-JFK',
+183 silly registry.get     'x-cache': 'HIT',
+183 silly registry.get     'x-cache-hits': '14',
+183 silly registry.get     'x-timer': 'S1459742888.916520,VS0,VE0',
+183 silly registry.get     vary: 'Accept' } ]
+184 verbose etag https://registry.npmjs.org/xtend from cache
+185 silly addNameRange number 2 { name: 'xtend', range: '>=4.0.0-0 <4.1.0-0', hasData: true }
+186 silly addNameRange versions [ 'xtend',
+186 silly addNameRange   [ '1.0.0',
+186 silly addNameRange     '1.0.1',
+186 silly addNameRange     '1.0.2',
+186 silly addNameRange     '1.0.3',
+186 silly addNameRange     '2.0.1',
+186 silly addNameRange     '2.0.2',
+186 silly addNameRange     '2.0.3',
+186 silly addNameRange     '2.0.4',
+186 silly addNameRange     '2.0.5',
+186 silly addNameRange     '2.0.6',
+186 silly addNameRange     '2.1.1',
+186 silly addNameRange     '2.1.2',
+186 silly addNameRange     '2.2.0',
+186 silly addNameRange     '3.0.0',
+186 silly addNameRange     '4.0.0',
+186 silly addNameRange     '4.0.1' ] ]
+187 verbose addNamed [ 'xtend', '4.0.1' ]
+188 verbose addNamed [ '4.0.1', '4.0.1' ]
+189 silly lockFile bb54db35-xtend-4-0-1 xtend@4.0.1
+190 verbose lock xtend@4.0.1 C:\Users\jepz2_000\AppData\Roaming\npm-cache\bb54db35-xtend-4-0-1.lock
+191 silly lockFile bb54db35-xtend-4-0-1 xtend@4.0.1
+192 silly lockFile bb54db35-xtend-4-0-1 xtend@4.0.1
+193 silly lockFile 252bdd84-xtend-4-0-0 xtend@~4.0.0
+194 silly lockFile 252bdd84-xtend-4-0-0 xtend@~4.0.0
+195 http 200 https://registry.npmjs.org/readable-stream
+196 silly registry.get cb [ 200,
+196 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+196 silly registry.get     etag: '"9AS4119UHTA2GAYDTBQMALM4L"',
+196 silly registry.get     'content-type': 'application/json',
+196 silly registry.get     'cache-control': 'max-age=300',
+196 silly registry.get     'content-length': '54037',
+196 silly registry.get     'accept-ranges': 'bytes',
+196 silly registry.get     date: 'Mon, 04 Apr 2016 04:08:08 GMT',
+196 silly registry.get     via: '1.1 varnish',
+196 silly registry.get     age: '24',
+196 silly registry.get     connection: 'keep-alive',
+196 silly registry.get     'x-served-by': 'cache-jfk1022-JFK',
+196 silly registry.get     'x-cache': 'HIT',
+196 silly registry.get     'x-cache-hits': '3',
+196 silly registry.get     'x-timer': 'S1459742888.900894,VS0,VE0',
+196 silly registry.get     vary: 'Accept' } ]
+197 silly addNameRange number 2 { name: 'readable-stream',
+197 silly addNameRange   range: '>=2.0.0-0 <2.1.0-0',
+197 silly addNameRange   hasData: true }
+198 silly addNameRange versions [ 'readable-stream',
+198 silly addNameRange   [ '0.0.1',
+198 silly addNameRange     '0.0.2',
+198 silly addNameRange     '0.0.3',
+198 silly addNameRange     '0.0.4',
+198 silly addNameRange     '0.1.0',
+198 silly addNameRange     '0.2.0',
+198 silly addNameRange     '0.3.0',
+198 silly addNameRange     '0.3.1',
+198 silly addNameRange     '1.0.0',
+198 silly addNameRange     '1.0.1',
+198 silly addNameRange     '1.0.2',
+198 silly addNameRange     '1.0.15',
+198 silly addNameRange     '1.0.17',
+198 silly addNameRange     '1.1.7',
+198 silly addNameRange     '1.1.8',
+198 silly addNameRange     '1.1.9',
+198 silly addNameRange     '1.0.24',
+198 silly addNameRange     '1.0.25',
+198 silly addNameRange     '1.1.10',
+198 silly addNameRange     '1.0.25-1',
+198 silly addNameRange     '1.1.11',
+198 silly addNameRange     '1.0.26',
+198 silly addNameRange     '1.0.26-1',
+198 silly addNameRange     '1.1.11-1',
+198 silly addNameRange     '1.0.26-2',
+198 silly addNameRange     '1.1.12',
+198 silly addNameRange     '1.0.26-3',
+198 silly addNameRange     '1.0.26-4',
+198 silly addNameRange     '1.1.12-1',
+198 silly addNameRange     '1.0.27-1',
+198 silly addNameRange     '1.1.13-1',
+198 silly addNameRange     '1.0.31',
+198 silly addNameRange     '1.1.13',
+198 silly addNameRange     '1.0.32',
+198 silly addNameRange     '1.0.32-1',
+198 silly addNameRange     '1.0.33-1',
+198 silly addNameRange     '1.0.33-2',
+198 silly addNameRange     '1.0.33',
+198 silly addNameRange     '2.0.0',
+198 silly addNameRange     '2.0.1',
+198 silly addNameRange     '2.0.2',
+198 silly addNameRange     '2.0.3',
+198 silly addNameRange     '2.0.4',
+198 silly addNameRange     '2.0.5',
+198 silly addNameRange     '2.0.6' ] ]
+199 verbose addNamed [ 'readable-stream', '2.0.6' ]
+200 verbose addNamed [ '2.0.6', '2.0.6' ]
+201 silly lockFile 398b6e04-readable-stream-2-0-6 readable-stream@2.0.6
+202 verbose lock readable-stream@2.0.6 C:\Users\jepz2_000\AppData\Roaming\npm-cache\398b6e04-readable-stream-2-0-6.lock
+203 silly lockFile 398b6e04-readable-stream-2-0-6 readable-stream@2.0.6
+204 silly lockFile 398b6e04-readable-stream-2-0-6 readable-stream@2.0.6
+205 silly lockFile 9a56f82a-readable-stream-2-0-0 readable-stream@~2.0.0
+206 silly lockFile 9a56f82a-readable-stream-2-0-0 readable-stream@~2.0.0
+207 silly resolved [ { name: 'xtend',
+207 silly resolved     version: '4.0.1',
+207 silly resolved     description: 'extend like a boss',
+207 silly resolved     keywords: [ 'extend', 'merge', 'options', 'opts', 'object', 'array' ],
+207 silly resolved     author: { name: 'Raynos', email: 'raynos2@gmail.com' },
+207 silly resolved     repository: { type: 'git', url: 'git://github.com/Raynos/xtend.git' },
+207 silly resolved     main: 'immutable',
+207 silly resolved     scripts: { test: 'node test' },
+207 silly resolved     dependencies: {},
+207 silly resolved     devDependencies: { tape: '~1.1.0' },
+207 silly resolved     homepage: 'https://github.com/Raynos/xtend',
+207 silly resolved     contributors: [ [Object], [Object] ],
+207 silly resolved     bugs:
+207 silly resolved      { url: 'https://github.com/Raynos/xtend/issues',
+207 silly resolved        email: 'raynos2@gmail.com' },
+207 silly resolved     license: 'MIT',
+207 silly resolved     testling: { files: 'test.js', browsers: [Object] },
+207 silly resolved     engines: { node: '>=0.4' },
+207 silly resolved     gitHead: '23dc302a89756da89c1897bc732a752317e35390',
+207 silly resolved     _id: 'xtend@4.0.1',
+207 silly resolved     _shasum: 'a5c6d532be656e23db820efb943a1f04998d63af',
+207 silly resolved     _from: 'xtend@~4.0.0',
+207 silly resolved     _npmVersion: '2.14.1',
+207 silly resolved     _nodeVersion: '0.10.32',
+207 silly resolved     _npmUser: { name: 'raynos', email: 'raynos2@gmail.com' },
+207 silly resolved     dist:
+207 silly resolved      { shasum: 'a5c6d532be656e23db820efb943a1f04998d63af',
+207 silly resolved        tarball: 'http://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz' },
+207 silly resolved     maintainers: [ [Object] ],
+207 silly resolved     directories: {},
+207 silly resolved     _resolved: 'https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz',
+207 silly resolved     readme: 'ERROR: No README data found!' },
+207 silly resolved   { name: 'readable-stream',
+207 silly resolved     version: '2.0.6',
+207 silly resolved     description: 'Streams3, a user-land copy of the stream library from Node.js',
+207 silly resolved     main: 'readable.js',
+207 silly resolved     dependencies:
+207 silly resolved      { 'core-util-is': '~1.0.0',
+207 silly resolved        inherits: '~2.0.1',
+207 silly resolved        isarray: '~1.0.0',
+207 silly resolved        'process-nextick-args': '~1.0.6',
+207 silly resolved        string_decoder: '~0.10.x',
+207 silly resolved        'util-deprecate': '~1.0.1' },
+207 silly resolved     devDependencies: { tap: '~0.2.6', tape: '~4.5.1', zuul: '~3.9.0' },
+207 silly resolved     scripts:
+207 silly resolved      { test: 'tap test/parallel/*.js test/ours/*.js',
+207 silly resolved        browser: 'npm run write-zuul && zuul -- test/browser.js',
+207 silly resolved        'write-zuul': 'printf "ui: tape\nbrowsers:\n  - name: $BROWSER_NAME\n    version: $BROWSER_VERSION\n">.zuul.yml' },
+207 silly resolved     repository:
+207 silly resolved      { type: 'git',
+207 silly resolved        url: 'git://github.com/nodejs/readable-stream.git' },
+207 silly resolved     keywords: [ 'readable', 'stream', 'pipe' ],
+207 silly resolved     browser: { util: false },
+207 silly resolved     license: 'MIT',
+207 silly resolved     gitHead: '01fb5608a970b42c900b96746cadc13d27dd9d7e',
+207 silly resolved     bugs: { url: 'https://github.com/nodejs/readable-stream/issues' },
+207 silly resolved     homepage: 'https://github.com/nodejs/readable-stream#readme',
+207 silly resolved     _id: 'readable-stream@2.0.6',
+207 silly resolved     _shasum: '8f90341e68a53ccc928788dacfcd11b36eb9b78e',
+207 silly resolved     _from: 'readable-stream@~2.0.0',
+207 silly resolved     _npmVersion: '3.6.0',
+207 silly resolved     _nodeVersion: '5.7.0',
+207 silly resolved     _npmUser: { name: 'cwmma', email: 'calvin.metcalf@gmail.com' },
+207 silly resolved     dist:
+207 silly resolved      { shasum: '8f90341e68a53ccc928788dacfcd11b36eb9b78e',
+207 silly resolved        tarball: 'http://registry.npmjs.org/readable-stream/-/readable-stream-2.0.6.tgz' },
+207 silly resolved     maintainers: [ [Object], [Object], [Object], [Object] ],
+207 silly resolved     _npmOperationalInternal:
+207 silly resolved      { host: 'packages-12-west.internal.npmjs.com',
+207 silly resolved        tmp: 'tmp/readable-stream-2.0.6.tgz_1457893507709_0.369257491780445' },
+207 silly resolved     directories: {},
+207 silly resolved     _resolved: 'https://registry.npmjs.org/readable-stream/-/readable-stream-2.0.6.tgz',
+207 silly resolved     readme: 'ERROR: No README data found!' } ]
+208 info install xtend@4.0.1 into C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2
+209 info install readable-stream@2.0.6 into C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2
+210 info installOne xtend@4.0.1
+211 info installOne readable-stream@2.0.6
+212 verbose node_modules\gulp-gae\node_modules\through2\node_modules\xtend unbuild
+213 verbose node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream unbuild
+214 verbose tar unpack C:\Users\jepz2_000\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz
+215 silly lockFile ad338f2e-ules-through2-node-modules-xtend tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\xtend
+216 verbose lock tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\xtend C:\Users\jepz2_000\AppData\Roaming\npm-cache\ad338f2e-ules-through2-node-modules-xtend.lock
+217 silly lockFile 68e4f9f1-pm-cache-xtend-4-0-1-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz
+218 verbose lock tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz C:\Users\jepz2_000\AppData\Roaming\npm-cache\68e4f9f1-pm-cache-xtend-4-0-1-package-tgz.lock
+219 verbose tar unpack C:\Users\jepz2_000\AppData\Roaming\npm-cache\readable-stream\2.0.6\package.tgz
+220 silly lockFile c8695de7-gh2-node-modules-readable-stream tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream
+221 verbose lock tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream C:\Users\jepz2_000\AppData\Roaming\npm-cache\c8695de7-gh2-node-modules-readable-stream.lock
+222 silly lockFile 8a9122be-eadable-stream-2-0-6-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\readable-stream\2.0.6\package.tgz
+223 verbose lock tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\readable-stream\2.0.6\package.tgz C:\Users\jepz2_000\AppData\Roaming\npm-cache\8a9122be-eadable-stream-2-0-6-package-tgz.lock
+224 silly gunzTarPerm modes [ '777', '666' ]
+225 silly gunzTarPerm modes [ '777', '666' ]
+226 silly gunzTarPerm extractEntry package.json
+227 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+228 silly gunzTarPerm extractEntry .npmignore
+229 silly gunzTarPerm modified mode [ '.npmignore', 436, 438 ]
+230 silly gunzTarPerm extractEntry README.md
+231 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+232 silly gunzTarPerm extractEntry package.json
+233 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+234 silly gunzTarPerm extractEntry LICENCE
+235 silly gunzTarPerm modified mode [ 'LICENCE', 436, 438 ]
+236 silly gunzTarPerm extractEntry immutable.js
+237 silly gunzTarPerm modified mode [ 'immutable.js', 436, 438 ]
+238 silly gunzTarPerm extractEntry .npmignore
+239 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+240 silly gunzTarPerm extractEntry README.md
+241 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+242 silly gunzTarPerm extractEntry mutable.js
+243 silly gunzTarPerm modified mode [ 'mutable.js', 436, 438 ]
+244 silly gunzTarPerm extractEntry test.js
+245 silly gunzTarPerm modified mode [ 'test.js', 436, 438 ]
+246 silly gunzTarPerm extractEntry LICENSE
+247 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+248 silly gunzTarPerm extractEntry writable.js
+249 silly gunzTarPerm modified mode [ 'writable.js', 420, 438 ]
+250 silly gunzTarPerm extractEntry .jshintrc
+251 silly gunzTarPerm modified mode [ '.jshintrc', 436, 438 ]
+252 silly gunzTarPerm extractEntry Makefile
+253 silly gunzTarPerm modified mode [ 'Makefile', 436, 438 ]
+254 silly gunzTarPerm extractEntry duplex.js
+255 silly gunzTarPerm modified mode [ 'duplex.js', 420, 438 ]
+256 silly gunzTarPerm extractEntry transform.js
+257 silly gunzTarPerm modified mode [ 'transform.js', 420, 438 ]
+258 silly gunzTarPerm extractEntry passthrough.js
+259 silly gunzTarPerm modified mode [ 'passthrough.js', 420, 438 ]
+260 silly gunzTarPerm extractEntry readable.js
+261 silly gunzTarPerm modified mode [ 'readable.js', 420, 438 ]
+262 silly gunzTarPerm extractEntry lib/_stream_duplex.js
+263 silly gunzTarPerm modified mode [ 'lib/_stream_duplex.js', 420, 438 ]
+264 silly gunzTarPerm extractEntry lib/_stream_passthrough.js
+265 silly gunzTarPerm modified mode [ 'lib/_stream_passthrough.js', 420, 438 ]
+266 silly gunzTarPerm extractEntry lib/_stream_readable.js
+267 silly gunzTarPerm modified mode [ 'lib/_stream_readable.js', 420, 438 ]
+268 silly gunzTarPerm extractEntry lib/_stream_transform.js
+269 silly gunzTarPerm modified mode [ 'lib/_stream_transform.js', 420, 438 ]
+270 silly gunzTarPerm extractEntry lib/_stream_writable.js
+271 silly gunzTarPerm modified mode [ 'lib/_stream_writable.js', 420, 438 ]
+272 silly gunzTarPerm extractEntry .travis.yml
+273 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+274 silly gunzTarPerm extractEntry doc/stream.markdown
+275 silly gunzTarPerm modified mode [ 'doc/stream.markdown', 420, 438 ]
+276 silly lockFile ad338f2e-ules-through2-node-modules-xtend tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\xtend
+277 silly lockFile ad338f2e-ules-through2-node-modules-xtend tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\xtend
+278 silly lockFile 68e4f9f1-pm-cache-xtend-4-0-1-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz
+279 silly lockFile 68e4f9f1-pm-cache-xtend-4-0-1-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz
+280 silly gunzTarPerm extractEntry doc/wg-meetings/2015-01-30.md
+281 silly gunzTarPerm modified mode [ 'doc/wg-meetings/2015-01-30.md', 420, 438 ]
+282 silly gunzTarPerm extractEntry .zuul.yml
+283 silly gunzTarPerm modified mode [ '.zuul.yml', 420, 438 ]
+284 info preinstall xtend@4.0.1
+285 verbose readDependencies using package.json deps
+286 verbose readDependencies using package.json deps
+287 silly resolved []
+288 verbose about to build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\xtend
+289 info build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\xtend
+290 verbose linkStuff [ false,
+290 verbose linkStuff   false,
+290 verbose linkStuff   false,
+290 verbose linkStuff   'C:\\Users\\jepz2_000\\Documents\\Udacity\\MeetUpPlanner\\node_modules\\gulp-gae\\node_modules\\through2\\node_modules' ]
+291 info linkStuff xtend@4.0.1
+292 verbose linkBins xtend@4.0.1
+293 verbose linkMans xtend@4.0.1
+294 verbose rebuildBundles xtend@4.0.1
+295 info install xtend@4.0.1
+296 info postinstall xtend@4.0.1
+297 silly lockFile c8695de7-gh2-node-modules-readable-stream tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream
+298 silly lockFile c8695de7-gh2-node-modules-readable-stream tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream
+299 silly lockFile 8a9122be-eadable-stream-2-0-6-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\readable-stream\2.0.6\package.tgz
+300 silly lockFile 8a9122be-eadable-stream-2-0-6-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\readable-stream\2.0.6\package.tgz
+301 info preinstall readable-stream@2.0.6
+302 verbose readDependencies using package.json deps
+303 verbose readDependencies using package.json deps
+304 verbose cache add [ 'core-util-is@~1.0.0', null ]
+305 verbose cache add name=undefined spec="core-util-is@~1.0.0" args=["core-util-is@~1.0.0",null]
+306 verbose parsed url { protocol: null,
+306 verbose parsed url   slashes: null,
+306 verbose parsed url   auth: null,
+306 verbose parsed url   host: null,
+306 verbose parsed url   port: null,
+306 verbose parsed url   hostname: null,
+306 verbose parsed url   hash: null,
+306 verbose parsed url   search: null,
+306 verbose parsed url   query: null,
+306 verbose parsed url   pathname: 'core-util-is@~1.0.0',
+306 verbose parsed url   path: 'core-util-is@~1.0.0',
+306 verbose parsed url   href: 'core-util-is@~1.0.0' }
+307 verbose cache add [ 'inherits@~2.0.1', null ]
+308 verbose cache add name=undefined spec="inherits@~2.0.1" args=["inherits@~2.0.1",null]
+309 verbose parsed url { protocol: null,
+309 verbose parsed url   slashes: null,
+309 verbose parsed url   auth: null,
+309 verbose parsed url   host: null,
+309 verbose parsed url   port: null,
+309 verbose parsed url   hostname: null,
+309 verbose parsed url   hash: null,
+309 verbose parsed url   search: null,
+309 verbose parsed url   query: null,
+309 verbose parsed url   pathname: 'inherits@~2.0.1',
+309 verbose parsed url   path: 'inherits@~2.0.1',
+309 verbose parsed url   href: 'inherits@~2.0.1' }
+310 verbose cache add [ 'isarray@~1.0.0', null ]
+311 verbose cache add name=undefined spec="isarray@~1.0.0" args=["isarray@~1.0.0",null]
+312 verbose parsed url { protocol: null,
+312 verbose parsed url   slashes: null,
+312 verbose parsed url   auth: null,
+312 verbose parsed url   host: null,
+312 verbose parsed url   port: null,
+312 verbose parsed url   hostname: null,
+312 verbose parsed url   hash: null,
+312 verbose parsed url   search: null,
+312 verbose parsed url   query: null,
+312 verbose parsed url   pathname: 'isarray@~1.0.0',
+312 verbose parsed url   path: 'isarray@~1.0.0',
+312 verbose parsed url   href: 'isarray@~1.0.0' }
+313 verbose cache add [ 'process-nextick-args@~1.0.6', null ]
+314 verbose cache add name=undefined spec="process-nextick-args@~1.0.6" args=["process-nextick-args@~1.0.6",null]
+315 verbose parsed url { protocol: null,
+315 verbose parsed url   slashes: null,
+315 verbose parsed url   auth: null,
+315 verbose parsed url   host: null,
+315 verbose parsed url   port: null,
+315 verbose parsed url   hostname: null,
+315 verbose parsed url   hash: null,
+315 verbose parsed url   search: null,
+315 verbose parsed url   query: null,
+315 verbose parsed url   pathname: 'process-nextick-args@~1.0.6',
+315 verbose parsed url   path: 'process-nextick-args@~1.0.6',
+315 verbose parsed url   href: 'process-nextick-args@~1.0.6' }
+316 verbose cache add [ 'string_decoder@~0.10.x', null ]
+317 verbose cache add name=undefined spec="string_decoder@~0.10.x" args=["string_decoder@~0.10.x",null]
+318 verbose parsed url { protocol: null,
+318 verbose parsed url   slashes: null,
+318 verbose parsed url   auth: null,
+318 verbose parsed url   host: null,
+318 verbose parsed url   port: null,
+318 verbose parsed url   hostname: null,
+318 verbose parsed url   hash: null,
+318 verbose parsed url   search: null,
+318 verbose parsed url   query: null,
+318 verbose parsed url   pathname: 'string_decoder@~0.10.x',
+318 verbose parsed url   path: 'string_decoder@~0.10.x',
+318 verbose parsed url   href: 'string_decoder@~0.10.x' }
+319 verbose cache add [ 'util-deprecate@~1.0.1', null ]
+320 verbose cache add name=undefined spec="util-deprecate@~1.0.1" args=["util-deprecate@~1.0.1",null]
+321 verbose parsed url { protocol: null,
+321 verbose parsed url   slashes: null,
+321 verbose parsed url   auth: null,
+321 verbose parsed url   host: null,
+321 verbose parsed url   port: null,
+321 verbose parsed url   hostname: null,
+321 verbose parsed url   hash: null,
+321 verbose parsed url   search: null,
+321 verbose parsed url   query: null,
+321 verbose parsed url   pathname: 'util-deprecate@~1.0.1',
+321 verbose parsed url   path: 'util-deprecate@~1.0.1',
+321 verbose parsed url   href: 'util-deprecate@~1.0.1' }
+322 verbose cache add name="core-util-is" spec="~1.0.0" args=["core-util-is","~1.0.0"]
+323 verbose parsed url { protocol: null,
+323 verbose parsed url   slashes: null,
+323 verbose parsed url   auth: null,
+323 verbose parsed url   host: null,
+323 verbose parsed url   port: null,
+323 verbose parsed url   hostname: null,
+323 verbose parsed url   hash: null,
+323 verbose parsed url   search: null,
+323 verbose parsed url   query: null,
+323 verbose parsed url   pathname: '~1.0.0',
+323 verbose parsed url   path: '~1.0.0',
+323 verbose parsed url   href: '~1.0.0' }
+324 verbose addNamed [ 'core-util-is', '~1.0.0' ]
+325 verbose addNamed [ null, '>=1.0.0-0 <1.1.0-0' ]
+326 silly lockFile 577b60c4-core-util-is-1-0-0 core-util-is@~1.0.0
+327 verbose lock core-util-is@~1.0.0 C:\Users\jepz2_000\AppData\Roaming\npm-cache\577b60c4-core-util-is-1-0-0.lock
+328 verbose cache add name="inherits" spec="~2.0.1" args=["inherits","~2.0.1"]
+329 verbose parsed url { protocol: null,
+329 verbose parsed url   slashes: null,
+329 verbose parsed url   auth: null,
+329 verbose parsed url   host: null,
+329 verbose parsed url   port: null,
+329 verbose parsed url   hostname: null,
+329 verbose parsed url   hash: null,
+329 verbose parsed url   search: null,
+329 verbose parsed url   query: null,
+329 verbose parsed url   pathname: '~2.0.1',
+329 verbose parsed url   path: '~2.0.1',
+329 verbose parsed url   href: '~2.0.1' }
+330 verbose addNamed [ 'inherits', '~2.0.1' ]
+331 verbose addNamed [ null, '>=2.0.1-0 <2.1.0-0' ]
+332 silly lockFile 098ef39f-inherits-2-0-1 inherits@~2.0.1
+333 verbose lock inherits@~2.0.1 C:\Users\jepz2_000\AppData\Roaming\npm-cache\098ef39f-inherits-2-0-1.lock
+334 verbose cache add name="isarray" spec="~1.0.0" args=["isarray","~1.0.0"]
+335 verbose parsed url { protocol: null,
+335 verbose parsed url   slashes: null,
+335 verbose parsed url   auth: null,
+335 verbose parsed url   host: null,
+335 verbose parsed url   port: null,
+335 verbose parsed url   hostname: null,
+335 verbose parsed url   hash: null,
+335 verbose parsed url   search: null,
+335 verbose parsed url   query: null,
+335 verbose parsed url   pathname: '~1.0.0',
+335 verbose parsed url   path: '~1.0.0',
+335 verbose parsed url   href: '~1.0.0' }
+336 verbose addNamed [ 'isarray', '~1.0.0' ]
+337 verbose addNamed [ null, '>=1.0.0-0 <1.1.0-0' ]
+338 silly lockFile c9f174a0-isarray-1-0-0 isarray@~1.0.0
+339 verbose lock isarray@~1.0.0 C:\Users\jepz2_000\AppData\Roaming\npm-cache\c9f174a0-isarray-1-0-0.lock
+340 verbose cache add name="process-nextick-args" spec="~1.0.6" args=["process-nextick-args","~1.0.6"]
+341 verbose parsed url { protocol: null,
+341 verbose parsed url   slashes: null,
+341 verbose parsed url   auth: null,
+341 verbose parsed url   host: null,
+341 verbose parsed url   port: null,
+341 verbose parsed url   hostname: null,
+341 verbose parsed url   hash: null,
+341 verbose parsed url   search: null,
+341 verbose parsed url   query: null,
+341 verbose parsed url   pathname: '~1.0.6',
+341 verbose parsed url   path: '~1.0.6',
+341 verbose parsed url   href: '~1.0.6' }
+342 verbose addNamed [ 'process-nextick-args', '~1.0.6' ]
+343 verbose addNamed [ null, '>=1.0.6-0 <1.1.0-0' ]
+344 silly lockFile 34df6d61-process-nextick-args-1-0-6 process-nextick-args@~1.0.6
+345 verbose lock process-nextick-args@~1.0.6 C:\Users\jepz2_000\AppData\Roaming\npm-cache\34df6d61-process-nextick-args-1-0-6.lock
+346 verbose cache add name="string_decoder" spec="~0.10.x" args=["string_decoder","~0.10.x"]
+347 verbose parsed url { protocol: null,
+347 verbose parsed url   slashes: null,
+347 verbose parsed url   auth: null,
+347 verbose parsed url   host: null,
+347 verbose parsed url   port: null,
+347 verbose parsed url   hostname: null,
+347 verbose parsed url   hash: null,
+347 verbose parsed url   search: null,
+347 verbose parsed url   query: null,
+347 verbose parsed url   pathname: '~0.10.x',
+347 verbose parsed url   path: '~0.10.x',
+347 verbose parsed url   href: '~0.10.x' }
+348 verbose addNamed [ 'string_decoder', '~0.10.x' ]
+349 verbose addNamed [ null, '>=0.10.0-0 <0.11.0-0' ]
+350 silly lockFile 8f75c97d-string-decoder-0-10-x string_decoder@~0.10.x
+351 verbose lock string_decoder@~0.10.x C:\Users\jepz2_000\AppData\Roaming\npm-cache\8f75c97d-string-decoder-0-10-x.lock
+352 verbose cache add name="util-deprecate" spec="~1.0.1" args=["util-deprecate","~1.0.1"]
+353 verbose parsed url { protocol: null,
+353 verbose parsed url   slashes: null,
+353 verbose parsed url   auth: null,
+353 verbose parsed url   host: null,
+353 verbose parsed url   port: null,
+353 verbose parsed url   hostname: null,
+353 verbose parsed url   hash: null,
+353 verbose parsed url   search: null,
+353 verbose parsed url   query: null,
+353 verbose parsed url   pathname: '~1.0.1',
+353 verbose parsed url   path: '~1.0.1',
+353 verbose parsed url   href: '~1.0.1' }
+354 verbose addNamed [ 'util-deprecate', '~1.0.1' ]
+355 verbose addNamed [ null, '>=1.0.1-0 <1.1.0-0' ]
+356 silly lockFile d0045abb-util-deprecate-1-0-1 util-deprecate@~1.0.1
+357 verbose lock util-deprecate@~1.0.1 C:\Users\jepz2_000\AppData\Roaming\npm-cache\d0045abb-util-deprecate-1-0-1.lock
+358 silly addNameRange { name: 'core-util-is',
+358 silly addNameRange   range: '>=1.0.0-0 <1.1.0-0',
+358 silly addNameRange   hasData: false }
+359 silly addNameRange { name: 'inherits', range: '>=2.0.1-0 <2.1.0-0', hasData: false }
+360 silly addNameRange { name: 'isarray', range: '>=1.0.0-0 <1.1.0-0', hasData: false }
+361 silly addNameRange { name: 'string_decoder',
+361 silly addNameRange   range: '>=0.10.0-0 <0.11.0-0',
+361 silly addNameRange   hasData: false }
+362 silly addNameRange { name: 'process-nextick-args',
+362 silly addNameRange   range: '>=1.0.6-0 <1.1.0-0',
+362 silly addNameRange   hasData: false }
+363 silly addNameRange { name: 'util-deprecate',
+363 silly addNameRange   range: '>=1.0.1-0 <1.1.0-0',
+363 silly addNameRange   hasData: false }
+364 verbose request where is /string_decoder
+365 verbose request registry https://registry.npmjs.org/
+366 verbose url raw /string_decoder
+367 verbose url resolving [ 'https://registry.npmjs.org/', './string_decoder' ]
+368 verbose url resolved https://registry.npmjs.org/string_decoder
+369 verbose request where is https://registry.npmjs.org/string_decoder
+370 info trying registry request attempt 1 at 22:08:08
+371 verbose etag "3SLQP4XEWUIBONOV855WOPR0B"
+372 http GET https://registry.npmjs.org/string_decoder
+373 verbose request where is /core-util-is
+374 verbose request registry https://registry.npmjs.org/
+375 verbose url raw /core-util-is
+376 verbose url resolving [ 'https://registry.npmjs.org/', './core-util-is' ]
+377 verbose url resolved https://registry.npmjs.org/core-util-is
+378 verbose request where is https://registry.npmjs.org/core-util-is
+379 info trying registry request attempt 1 at 22:08:08
+380 verbose etag "75RK9UUWAHLYO40UZKLLOJ8YF"
+381 http GET https://registry.npmjs.org/core-util-is
+382 verbose request where is /isarray
+383 verbose request registry https://registry.npmjs.org/
+384 verbose url raw /isarray
+385 verbose url resolving [ 'https://registry.npmjs.org/', './isarray' ]
+386 verbose url resolved https://registry.npmjs.org/isarray
+387 verbose request where is https://registry.npmjs.org/isarray
+388 info trying registry request attempt 1 at 22:08:08
+389 verbose etag "9BAUPW5RTV3W0838KA6Y08NTG"
+390 http GET https://registry.npmjs.org/isarray
+391 verbose request where is /process-nextick-args
+392 verbose request registry https://registry.npmjs.org/
+393 verbose url raw /process-nextick-args
+394 verbose url resolving [ 'https://registry.npmjs.org/', './process-nextick-args' ]
+395 verbose url resolved https://registry.npmjs.org/process-nextick-args
+396 verbose request where is https://registry.npmjs.org/process-nextick-args
+397 info trying registry request attempt 1 at 22:08:08
+398 verbose etag "5AJOT6HL2QR1J143EYQLHDSVU"
+399 http GET https://registry.npmjs.org/process-nextick-args
+400 verbose request where is /util-deprecate
+401 verbose request registry https://registry.npmjs.org/
+402 verbose url raw /util-deprecate
+403 verbose url resolving [ 'https://registry.npmjs.org/', './util-deprecate' ]
+404 verbose url resolved https://registry.npmjs.org/util-deprecate
+405 verbose request where is https://registry.npmjs.org/util-deprecate
+406 info trying registry request attempt 1 at 22:08:08
+407 verbose etag "363T1WE4HHZV0LMEHAOBAVT0G"
+408 http GET https://registry.npmjs.org/util-deprecate
+409 verbose request where is /inherits
+410 verbose request registry https://registry.npmjs.org/
+411 verbose url raw /inherits
+412 verbose url resolving [ 'https://registry.npmjs.org/', './inherits' ]
+413 verbose url resolved https://registry.npmjs.org/inherits
+414 verbose request where is https://registry.npmjs.org/inherits
+415 info trying registry request attempt 1 at 22:08:08
+416 verbose etag "3645UNH34SN5CHM42TXWU4X9A"
+417 http GET https://registry.npmjs.org/inherits
+418 http 304 https://registry.npmjs.org/string_decoder
+419 silly registry.get cb [ 304,
+419 silly registry.get   { date: 'Mon, 04 Apr 2016 04:08:10 GMT',
+419 silly registry.get     via: '1.1 varnish',
+419 silly registry.get     'cache-control': 'max-age=300',
+419 silly registry.get     etag: '"3SLQP4XEWUIBONOV855WOPR0B"',
+419 silly registry.get     age: '165',
+419 silly registry.get     connection: 'keep-alive',
+419 silly registry.get     'x-served-by': 'cache-jfk1042-JFK',
+419 silly registry.get     'x-cache': 'HIT',
+419 silly registry.get     'x-cache-hits': '11',
+419 silly registry.get     'x-timer': 'S1459742890.388145,VS0,VE0',
+419 silly registry.get     vary: 'Accept' } ]
+420 verbose etag https://registry.npmjs.org/string_decoder from cache
+421 silly addNameRange number 2 { name: 'string_decoder',
+421 silly addNameRange   range: '>=0.10.0-0 <0.11.0-0',
+421 silly addNameRange   hasData: true }
+422 silly addNameRange versions [ 'string_decoder',
+422 silly addNameRange   [ '0.0.0',
+422 silly addNameRange     '0.0.1',
+422 silly addNameRange     '0.10.24',
+422 silly addNameRange     '0.11.10',
+422 silly addNameRange     '0.10.25',
+422 silly addNameRange     '0.11.10-1',
+422 silly addNameRange     '0.10.25-1',
+422 silly addNameRange     '0.10.31' ] ]
+423 verbose addNamed [ 'string_decoder', '0.10.31' ]
+424 verbose addNamed [ '0.10.31', '0.10.31' ]
+425 silly lockFile 0a9a4818-string-decoder-0-10-31 string_decoder@0.10.31
+426 verbose lock string_decoder@0.10.31 C:\Users\jepz2_000\AppData\Roaming\npm-cache\0a9a4818-string-decoder-0-10-31.lock
+427 http 304 https://registry.npmjs.org/core-util-is
+428 silly registry.get cb [ 304,
+428 silly registry.get   { date: 'Mon, 04 Apr 2016 04:08:10 GMT',
+428 silly registry.get     via: '1.1 varnish',
+428 silly registry.get     'cache-control': 'max-age=300',
+428 silly registry.get     etag: '"75RK9UUWAHLYO40UZKLLOJ8YF"',
+428 silly registry.get     age: '69',
+428 silly registry.get     connection: 'keep-alive',
+428 silly registry.get     'x-served-by': 'cache-jfk1033-JFK',
+428 silly registry.get     'x-cache': 'HIT',
+428 silly registry.get     'x-cache-hits': '3',
+428 silly registry.get     'x-timer': 'S1459742890.407843,VS0,VE0',
+428 silly registry.get     vary: 'Accept' } ]
+429 verbose etag https://registry.npmjs.org/core-util-is from cache
+430 silly addNameRange number 2 { name: 'core-util-is',
+430 silly addNameRange   range: '>=1.0.0-0 <1.1.0-0',
+430 silly addNameRange   hasData: true }
+431 silly addNameRange versions [ 'core-util-is', [ '1.0.0', '1.0.1', '1.0.2' ] ]
+432 verbose addNamed [ 'core-util-is', '1.0.2' ]
+433 verbose addNamed [ '1.0.2', '1.0.2' ]
+434 silly lockFile 250fbf62-core-util-is-1-0-2 core-util-is@1.0.2
+435 verbose lock core-util-is@1.0.2 C:\Users\jepz2_000\AppData\Roaming\npm-cache\250fbf62-core-util-is-1-0-2.lock
+436 http 304 https://registry.npmjs.org/isarray
+437 silly registry.get cb [ 304,
+437 silly registry.get   { date: 'Mon, 04 Apr 2016 04:08:10 GMT',
+437 silly registry.get     via: '1.1 varnish',
+437 silly registry.get     'cache-control': 'max-age=300',
+437 silly registry.get     etag: '"9BAUPW5RTV3W0838KA6Y08NTG"',
+437 silly registry.get     age: '103',
+437 silly registry.get     connection: 'keep-alive',
+437 silly registry.get     'x-served-by': 'cache-jfk1033-JFK',
+437 silly registry.get     'x-cache': 'HIT',
+437 silly registry.get     'x-cache-hits': '788',
+437 silly registry.get     'x-timer': 'S1459742890.460464,VS0,VE0',
+437 silly registry.get     vary: 'Accept' } ]
+438 verbose etag https://registry.npmjs.org/isarray from cache
+439 silly addNameRange number 2 { name: 'isarray', range: '>=1.0.0-0 <1.1.0-0', hasData: true }
+440 silly addNameRange versions [ 'isarray', [ '0.0.0', '0.0.1', '1.0.0' ] ]
+441 verbose addNamed [ 'isarray', '1.0.0' ]
+442 verbose addNamed [ '1.0.0', '1.0.0' ]
+443 silly lockFile 61d13322-isarray-1-0-0 isarray@1.0.0
+444 verbose lock isarray@1.0.0 C:\Users\jepz2_000\AppData\Roaming\npm-cache\61d13322-isarray-1-0-0.lock
+445 http 304 https://registry.npmjs.org/util-deprecate
+446 silly registry.get cb [ 304,
+446 silly registry.get   { date: 'Mon, 04 Apr 2016 04:08:10 GMT',
+446 silly registry.get     via: '1.1 varnish',
+446 silly registry.get     'cache-control': 'max-age=300',
+446 silly registry.get     etag: '"363T1WE4HHZV0LMEHAOBAVT0G"',
+446 silly registry.get     age: '147',
+446 silly registry.get     connection: 'keep-alive',
+446 silly registry.get     'x-served-by': 'cache-jfk1025-JFK',
+446 silly registry.get     'x-cache': 'HIT',
+446 silly registry.get     'x-cache-hits': '4',
+446 silly registry.get     'x-timer': 'S1459742890.487015,VS0,VE0',
+446 silly registry.get     vary: 'Accept' } ]
+447 verbose etag https://registry.npmjs.org/util-deprecate from cache
+448 silly addNameRange number 2 { name: 'util-deprecate',
+448 silly addNameRange   range: '>=1.0.1-0 <1.1.0-0',
+448 silly addNameRange   hasData: true }
+449 silly addNameRange versions [ 'util-deprecate', [ '1.0.0', '1.0.1', '1.0.2' ] ]
+450 verbose addNamed [ 'util-deprecate', '1.0.2' ]
+451 verbose addNamed [ '1.0.2', '1.0.2' ]
+452 silly lockFile 30fc1e6b-util-deprecate-1-0-2 util-deprecate@1.0.2
+453 verbose lock util-deprecate@1.0.2 C:\Users\jepz2_000\AppData\Roaming\npm-cache\30fc1e6b-util-deprecate-1-0-2.lock
+454 http 304 https://registry.npmjs.org/inherits
+455 silly registry.get cb [ 304,
+455 silly registry.get   { date: 'Mon, 04 Apr 2016 04:08:10 GMT',
+455 silly registry.get     via: '1.1 varnish',
+455 silly registry.get     'cache-control': 'max-age=300',
+455 silly registry.get     etag: '"3645UNH34SN5CHM42TXWU4X9A"',
+455 silly registry.get     age: '252',
+455 silly registry.get     connection: 'keep-alive',
+455 silly registry.get     'x-served-by': 'cache-jfk1042-JFK',
+455 silly registry.get     'x-cache': 'HIT',
+455 silly registry.get     'x-cache-hits': '11',
+455 silly registry.get     'x-timer': 'S1459742890.500245,VS0,VE0',
+455 silly registry.get     vary: 'Accept' } ]
+456 verbose etag https://registry.npmjs.org/inherits from cache
+457 silly lockFile 0a9a4818-string-decoder-0-10-31 string_decoder@0.10.31
+458 silly lockFile 0a9a4818-string-decoder-0-10-31 string_decoder@0.10.31
+459 silly lockFile 8f75c97d-string-decoder-0-10-x string_decoder@~0.10.x
+460 silly lockFile 8f75c97d-string-decoder-0-10-x string_decoder@~0.10.x
+461 silly addNameRange number 2 { name: 'inherits', range: '>=2.0.1-0 <2.1.0-0', hasData: true }
+462 silly addNameRange versions [ 'inherits', [ '1.0.0', '2.0.0', '2.0.1', '1.0.1', '1.0.2' ] ]
+463 verbose addNamed [ 'inherits', '2.0.1' ]
+464 verbose addNamed [ '2.0.1', '2.0.1' ]
+465 silly lockFile 2b2e8f1b-inherits-2-0-1 inherits@2.0.1
+466 verbose lock inherits@2.0.1 C:\Users\jepz2_000\AppData\Roaming\npm-cache\2b2e8f1b-inherits-2-0-1.lock
+467 silly lockFile 250fbf62-core-util-is-1-0-2 core-util-is@1.0.2
+468 silly lockFile 250fbf62-core-util-is-1-0-2 core-util-is@1.0.2
+469 silly lockFile 577b60c4-core-util-is-1-0-0 core-util-is@~1.0.0
+470 silly lockFile 577b60c4-core-util-is-1-0-0 core-util-is@~1.0.0
+471 silly lockFile 61d13322-isarray-1-0-0 isarray@1.0.0
+472 silly lockFile 61d13322-isarray-1-0-0 isarray@1.0.0
+473 silly lockFile c9f174a0-isarray-1-0-0 isarray@~1.0.0
+474 silly lockFile c9f174a0-isarray-1-0-0 isarray@~1.0.0
+475 silly lockFile 2b2e8f1b-inherits-2-0-1 inherits@2.0.1
+476 silly lockFile 2b2e8f1b-inherits-2-0-1 inherits@2.0.1
+477 silly lockFile 098ef39f-inherits-2-0-1 inherits@~2.0.1
+478 silly lockFile 098ef39f-inherits-2-0-1 inherits@~2.0.1
+479 silly lockFile 30fc1e6b-util-deprecate-1-0-2 util-deprecate@1.0.2
+480 silly lockFile 30fc1e6b-util-deprecate-1-0-2 util-deprecate@1.0.2
+481 silly lockFile d0045abb-util-deprecate-1-0-1 util-deprecate@~1.0.1
+482 silly lockFile d0045abb-util-deprecate-1-0-1 util-deprecate@~1.0.1
+483 http 304 https://registry.npmjs.org/process-nextick-args
+484 silly registry.get cb [ 304,
+484 silly registry.get   { date: 'Mon, 04 Apr 2016 04:08:10 GMT',
+484 silly registry.get     via: '1.1 varnish',
+484 silly registry.get     'cache-control': 'max-age=300',
+484 silly registry.get     etag: '"5AJOT6HL2QR1J143EYQLHDSVU"',
+484 silly registry.get     age: '0',
+484 silly registry.get     connection: 'keep-alive',
+484 silly registry.get     'x-served-by': 'cache-jfk1043-JFK',
+484 silly registry.get     'x-cache': 'HIT',
+484 silly registry.get     'x-cache-hits': '1',
+484 silly registry.get     'x-timer': 'S1459742890.417010,VS0,VE399',
+484 silly registry.get     vary: 'Accept' } ]
+485 verbose etag https://registry.npmjs.org/process-nextick-args from cache
+486 silly addNameRange number 2 { name: 'process-nextick-args',
+486 silly addNameRange   range: '>=1.0.6-0 <1.1.0-0',
+486 silly addNameRange   hasData: true }
+487 silly addNameRange versions [ 'process-nextick-args',
+487 silly addNameRange   [ '1.0.0', '1.0.1', '1.0.2', '1.0.3', '1.0.4', '1.0.5', '1.0.6' ] ]
+488 verbose addNamed [ 'process-nextick-args', '1.0.6' ]
+489 verbose addNamed [ '1.0.6', '1.0.6' ]
+490 silly lockFile 37140696-process-nextick-args-1-0-6 process-nextick-args@1.0.6
+491 verbose lock process-nextick-args@1.0.6 C:\Users\jepz2_000\AppData\Roaming\npm-cache\37140696-process-nextick-args-1-0-6.lock
+492 silly lockFile 37140696-process-nextick-args-1-0-6 process-nextick-args@1.0.6
+493 silly lockFile 37140696-process-nextick-args-1-0-6 process-nextick-args@1.0.6
+494 silly lockFile 34df6d61-process-nextick-args-1-0-6 process-nextick-args@~1.0.6
+495 silly lockFile 34df6d61-process-nextick-args-1-0-6 process-nextick-args@~1.0.6
+496 silly resolved [ { name: 'string_decoder',
+496 silly resolved     version: '0.10.31',
+496 silly resolved     description: 'The string_decoder module from Node core',
+496 silly resolved     main: 'index.js',
+496 silly resolved     dependencies: {},
+496 silly resolved     devDependencies: { tap: '~0.4.8' },
+496 silly resolved     scripts: { test: 'tap test/simple/*.js' },
+496 silly resolved     repository:
+496 silly resolved      { type: 'git',
+496 silly resolved        url: 'git://github.com/rvagg/string_decoder.git' },
+496 silly resolved     homepage: 'https://github.com/rvagg/string_decoder',
+496 silly resolved     keywords: [ 'string', 'decoder', 'browser', 'browserify' ],
+496 silly resolved     license: 'MIT',
+496 silly resolved     gitHead: 'd46d4fd87cf1d06e031c23f1ba170ca7d4ade9a0',
+496 silly resolved     bugs: { url: 'https://github.com/rvagg/string_decoder/issues' },
+496 silly resolved     _id: 'string_decoder@0.10.31',
+496 silly resolved     _shasum: '62e203bc41766c6c28c9fc84301dab1c5310fa94',
+496 silly resolved     _from: 'string_decoder@~0.10.x',
+496 silly resolved     _npmVersion: '1.4.23',
+496 silly resolved     _npmUser: { name: 'rvagg', email: 'rod@vagg.org' },
+496 silly resolved     maintainers: [ [Object], [Object] ],
+496 silly resolved     dist:
+496 silly resolved      { shasum: '62e203bc41766c6c28c9fc84301dab1c5310fa94',
+496 silly resolved        tarball: 'http://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz' },
+496 silly resolved     directories: {},
+496 silly resolved     _resolved: 'https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz',
+496 silly resolved     readme: 'ERROR: No README data found!' },
+496 silly resolved   { name: 'core-util-is',
+496 silly resolved     version: '1.0.2',
+496 silly resolved     description: 'The `util.is*` functions introduced in Node v0.12.',
+496 silly resolved     main: 'lib/util.js',
+496 silly resolved     repository: { type: 'git', url: 'git://github.com/isaacs/core-util-is.git' },
+496 silly resolved     keywords:
+496 silly resolved      [ 'util',
+496 silly resolved        'isBuffer',
+496 silly resolved        'isArray',
+496 silly resolved        'isNumber',
+496 silly resolved        'isString',
+496 silly resolved        'isRegExp',
+496 silly resolved        'isThis',
+496 silly resolved        'isThat',
+496 silly resolved        'polyfill' ],
+496 silly resolved     author:
+496 silly resolved      { name: 'Isaac Z. Schlueter',
+496 silly resolved        email: 'i@izs.me',
+496 silly resolved        url: 'http://blog.izs.me/' },
+496 silly resolved     license: 'MIT',
+496 silly resolved     bugs: { url: 'https://github.com/isaacs/core-util-is/issues' },
+496 silly resolved     scripts: { test: 'tap test.js' },
+496 silly resolved     devDependencies: { tap: '^2.3.0' },
+496 silly resolved     gitHead: 'a177da234df5638b363ddc15fa324619a38577c8',
+496 silly resolved     homepage: 'https://github.com/isaacs/core-util-is#readme',
+496 silly resolved     _id: 'core-util-is@1.0.2',
+496 silly resolved     _shasum: 'b5fd54220aa2bc5ab57aab7140c940754503c1a7',
+496 silly resolved     _from: 'core-util-is@~1.0.0',
+496 silly resolved     _npmVersion: '3.3.2',
+496 silly resolved     _nodeVersion: '4.0.0',
+496 silly resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+496 silly resolved     dist:
+496 silly resolved      { shasum: 'b5fd54220aa2bc5ab57aab7140c940754503c1a7',
+496 silly resolved        tarball: 'http://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz' },
+496 silly resolved     maintainers: [ [Object] ],
+496 silly resolved     directories: {},
+496 silly resolved     _resolved: 'https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz',
+496 silly resolved     readme: 'ERROR: No README data found!' },
+496 silly resolved   { name: 'isarray',
+496 silly resolved     description: 'Array#isArray for older browsers',
+496 silly resolved     version: '1.0.0',
+496 silly resolved     repository:
+496 silly resolved      { type: 'git',
+496 silly resolved        url: 'git://github.com/juliangruber/isarray.git' },
+496 silly resolved     homepage: 'https://github.com/juliangruber/isarray',
+496 silly resolved     main: 'index.js',
+496 silly resolved     dependencies: {},
+496 silly resolved     devDependencies: { tape: '~2.13.4' },
+496 silly resolved     keywords: [ 'browser', 'isarray', 'array' ],
+496 silly resolved     author:
+496 silly resolved      { name: 'Julian Gruber',
+496 silly resolved        email: 'mail@juliangruber.com',
+496 silly resolved        url: 'http://juliangruber.com' },
+496 silly resolved     license: 'MIT',
+496 silly resolved     testling: { files: 'test.js', browsers: [Object] },
+496 silly resolved     scripts: { test: 'tape test.js' },
+496 silly resolved     gitHead: '2a23a281f369e9ae06394c0fb4d2381355a6ba33',
+496 silly resolved     bugs: { url: 'https://github.com/juliangruber/isarray/issues' },
+496 silly resolved     _id: 'isarray@1.0.0',
+496 silly resolved     _shasum: 'bb935d48582cba168c06834957a54a3e07124f11',
+496 silly resolved     _from: 'isarray@~1.0.0',
+496 silly resolved     _npmVersion: '3.3.12',
+496 silly resolved     _nodeVersion: '5.1.0',
+496 silly resolved     _npmUser: { name: 'juliangruber', email: 'julian@juliangruber.com' },
+496 silly resolved     dist:
+496 silly resolved      { shasum: 'bb935d48582cba168c06834957a54a3e07124f11',
+496 silly resolved        tarball: 'http://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz' },
+496 silly resolved     maintainers: [ [Object] ],
+496 silly resolved     directories: {},
+496 silly resolved     _resolved: 'https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz',
+496 silly resolved     readme: 'ERROR: No README data found!' },
+496 silly resolved   { name: 'inherits',
+496 silly resolved     description: 'Browser-friendly inheritance fully compatible with standard node.js inherits()',
+496 silly resolved     version: '2.0.1',
+496 silly resolved     keywords:
+496 silly resolved      [ 'inheritance',
+496 silly resolved        'class',
+496 silly resolved        'klass',
+496 silly resolved        'oop',
+496 silly resolved        'object-oriented',
+496 silly resolved        'inherits',
+496 silly resolved        'browser',
+496 silly resolved        'browserify' ],
+496 silly resolved     main: './inherits.js',
+496 silly resolved     browser: './inherits_browser.js',
+496 silly resolved     repository: { type: 'git', url: 'git://github.com/isaacs/inherits' },
+496 silly resolved     license: 'ISC',
+496 silly resolved     scripts: { test: 'node test' },
+496 silly resolved     readme: 'Browser-friendly inheritance fully compatible with standard node.js\n[inherits](http://nodejs.org/api/util.html#util_util_inherits_constructor_superconstructor).\n\nThis package exports standard `inherits` from node.js `util` module in\nnode environment, but also provides alternative browser-friendly\nimplementation through [browser\nfield](https://gist.github.com/shtylman/4339901). Alternative\nimplementation is a literal copy of standard one located in standalone\nmodule to avoid requiring of `util`. It also has a shim for old\nbrowsers with no `Object.create` support.\n\nWhile keeping you sure you are using standard `inherits`\nimplementation in node.js environment, it allows bundlers such as\n[browserify](https://github.com/substack/node-browserify) to not\ninclude full `util` package to your client code if all you need is\njust `inherits` function. It worth, because browser shim for `util`\npackage is large and `inherits` is often the single function you need\nfrom it.\n\nIt\'s recommended to use this package instead of\n`require(\'util\').inherits` for any code that has chances to be used\nnot only in node.js but in browser too.\n\n## usage\n\n```js\nvar inherits = require(\'inherits\');\n// then use exactly as the standard one\n```\n\n## note on version ~1.0\n\nVersion ~1.0 had completely different motivation and is not compatible\nneither with 2.0 nor with standard node.js `inherits`.\n\nIf you are using version ~1.0 and planning to switch to ~2.0, be\ncareful:\n\n* new version uses `super_` instead of `super` for referencing\n  superclass\n* new version overwrites current prototype while old one preserves any\n  existing fields on it\n',
+496 silly resolved     readmeFilename: 'README.md',
+496 silly resolved     bugs: { url: 'https://github.com/isaacs/inherits/issues' },
+496 silly resolved     _id: 'inherits@2.0.1',
+496 silly resolved     dist:
+496 silly resolved      { shasum: 'b17d08d326b4423e568eff719f91b0b1cbdf69f1',
+496 silly resolved        tarball: 'http://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz' },
+496 silly resolved     _from: 'inherits@~2.0.1',
+496 silly resolved     _npmVersion: '1.3.8',
+496 silly resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+496 silly resolved     maintainers: [ [Object] ],
+496 silly resolved     directories: {},
+496 silly resolved     _shasum: 'b17d08d326b4423e568eff719f91b0b1cbdf69f1',
+496 silly resolved     _resolved: 'https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz',
+496 silly resolved     homepage: 'https://github.com/isaacs/inherits' },
+496 silly resolved   { name: 'util-deprecate',
+496 silly resolved     version: '1.0.2',
+496 silly resolved     description: 'The Node.js `util.deprecate()` function with browser support',
+496 silly resolved     main: 'node.js',
+496 silly resolved     browser: 'browser.js',
+496 silly resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+496 silly resolved     repository:
+496 silly resolved      { type: 'git',
+496 silly resolved        url: 'git://github.com/TooTallNate/util-deprecate.git' },
+496 silly resolved     keywords: [ 'util', 'deprecate', 'browserify', 'browser', 'node' ],
+496 silly resolved     author:
+496 silly resolved      { name: 'Nathan Rajlich',
+496 silly resolved        email: 'nathan@tootallnate.net',
+496 silly resolved        url: 'http://n8.io/' },
+496 silly resolved     license: 'MIT',
+496 silly resolved     bugs: { url: 'https://github.com/TooTallNate/util-deprecate/issues' },
+496 silly resolved     homepage: 'https://github.com/TooTallNate/util-deprecate',
+496 silly resolved     gitHead: '475fb6857cd23fafff20c1be846c1350abf8e6d4',
+496 silly resolved     _id: 'util-deprecate@1.0.2',
+496 silly resolved     _shasum: '450d4dc9fa70de732762fbd2d4a28981419a0ccf',
+496 silly resolved     _from: 'util-deprecate@~1.0.1',
+496 silly resolved     _npmVersion: '2.14.4',
+496 silly resolved     _nodeVersion: '4.1.2',
+496 silly resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+496 silly resolved     maintainers: [ [Object] ],
+496 silly resolved     dist:
+496 silly resolved      { shasum: '450d4dc9fa70de732762fbd2d4a28981419a0ccf',
+496 silly resolved        tarball: 'http://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz' },
+496 silly resolved     directories: {},
+496 silly resolved     _resolved: 'https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz',
+496 silly resolved     readme: 'ERROR: No README data found!' },
+496 silly resolved   { name: 'process-nextick-args',
+496 silly resolved     version: '1.0.6',
+496 silly resolved     description: 'process.nextTick but always with args',
+496 silly resolved     main: 'index.js',
+496 silly resolved     scripts: { test: 'node test.js' },
+496 silly resolved     repository:
+496 silly resolved      { type: 'git',
+496 silly resolved        url: 'git+https://github.com/calvinmetcalf/process-nextick-args.git' },
+496 silly resolved     author: '',
+496 silly resolved     license: 'MIT',
+496 silly resolved     bugs: { url: 'https://github.com/calvinmetcalf/process-nextick-args/issues' },
+496 silly resolved     homepage: 'https://github.com/calvinmetcalf/process-nextick-args',
+496 silly resolved     devDependencies: { tap: '~0.2.6' },
+496 silly resolved     gitHead: 'e85787b05a8c3c1adb714f332d822e9162699c78',
+496 silly resolved     _id: 'process-nextick-args@1.0.6',
+496 silly resolved     _shasum: '0f96b001cea90b12592ce566edb97ec11e69bd05',
+496 silly resolved     _from: 'process-nextick-args@~1.0.6',
+496 silly resolved     _npmVersion: '2.14.4',
+496 silly resolved     _nodeVersion: '4.1.1',
+496 silly resolved     _npmUser: { name: 'cwmma', email: 'calvin.metcalf@gmail.com' },
+496 silly resolved     dist:
+496 silly resolved      { shasum: '0f96b001cea90b12592ce566edb97ec11e69bd05',
+496 silly resolved        tarball: 'http://registry.npmjs.org/process-nextick-args/-/process-nextick-args-1.0.6.tgz' },
+496 silly resolved     maintainers: [ [Object] ],
+496 silly resolved     directories: {},
+496 silly resolved     _resolved: 'https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-1.0.6.tgz',
+496 silly resolved     readme: 'ERROR: No README data found!' } ]
+497 info install string_decoder@0.10.31 into C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream
+498 info install core-util-is@1.0.2 into C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream
+499 info install isarray@1.0.0 into C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream
+500 info install inherits@2.0.1 into C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream
+501 info install util-deprecate@1.0.2 into C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream
+502 info install process-nextick-args@1.0.6 into C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream
+503 info installOne string_decoder@0.10.31
+504 info installOne core-util-is@1.0.2
+505 info installOne isarray@1.0.0
+506 info installOne inherits@2.0.1
+507 info installOne util-deprecate@1.0.2
+508 info installOne process-nextick-args@1.0.6
+509 verbose node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\string_decoder unbuild
+510 verbose node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\core-util-is unbuild
+511 verbose node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\isarray unbuild
+512 verbose node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\inherits unbuild
+513 verbose node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\util-deprecate unbuild
+514 verbose node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\process-nextick-args unbuild
+515 verbose tar unpack C:\Users\jepz2_000\AppData\Roaming\npm-cache\string_decoder\0.10.31\package.tgz
+516 silly lockFile 4b44b4ff-ream-node-modules-string-decoder tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\string_decoder
+517 verbose lock tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\string_decoder C:\Users\jepz2_000\AppData\Roaming\npm-cache\4b44b4ff-ream-node-modules-string-decoder.lock
+518 silly lockFile 3ad4e54e-ring-decoder-0-10-31-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\string_decoder\0.10.31\package.tgz
+519 verbose lock tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\string_decoder\0.10.31\package.tgz C:\Users\jepz2_000\AppData\Roaming\npm-cache\3ad4e54e-ring-decoder-0-10-31-package-tgz.lock
+520 verbose tar unpack C:\Users\jepz2_000\AppData\Roaming\npm-cache\core-util-is\1.0.2\package.tgz
+521 silly lockFile 11f1bf6a-stream-node-modules-core-util-is tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\core-util-is
+522 verbose lock tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\core-util-is C:\Users\jepz2_000\AppData\Roaming\npm-cache\11f1bf6a-stream-node-modules-core-util-is.lock
+523 silly lockFile b57e3b9c-e-core-util-is-1-0-2-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\core-util-is\1.0.2\package.tgz
+524 verbose lock tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\core-util-is\1.0.2\package.tgz C:\Users\jepz2_000\AppData\Roaming\npm-cache\b57e3b9c-e-core-util-is-1-0-2-package-tgz.lock
+525 verbose tar unpack C:\Users\jepz2_000\AppData\Roaming\npm-cache\isarray\1.0.0\package.tgz
+526 silly lockFile 056f2687-able-stream-node-modules-isarray tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\isarray
+527 verbose lock tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\isarray C:\Users\jepz2_000\AppData\Roaming\npm-cache\056f2687-able-stream-node-modules-isarray.lock
+528 silly lockFile cd3e8c88--cache-isarray-1-0-0-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\isarray\1.0.0\package.tgz
+529 verbose lock tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\isarray\1.0.0\package.tgz C:\Users\jepz2_000\AppData\Roaming\npm-cache\cd3e8c88--cache-isarray-1-0-0-package-tgz.lock
+530 verbose tar unpack C:\Users\jepz2_000\AppData\Roaming\npm-cache\inherits\2.0.1\package.tgz
+531 silly lockFile 66da7971-ble-stream-node-modules-inherits tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\inherits
+532 verbose lock tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\inherits C:\Users\jepz2_000\AppData\Roaming\npm-cache\66da7971-ble-stream-node-modules-inherits.lock
+533 silly lockFile 0fcce052-cache-inherits-2-0-1-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\inherits\2.0.1\package.tgz
+534 verbose lock tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\inherits\2.0.1\package.tgz C:\Users\jepz2_000\AppData\Roaming\npm-cache\0fcce052-cache-inherits-2-0-1-package-tgz.lock
+535 verbose tar unpack C:\Users\jepz2_000\AppData\Roaming\npm-cache\util-deprecate\1.0.2\package.tgz
+536 silly lockFile 7d84c043-ream-node-modules-util-deprecate tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\util-deprecate
+537 verbose lock tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\util-deprecate C:\Users\jepz2_000\AppData\Roaming\npm-cache\7d84c043-ream-node-modules-util-deprecate.lock
+538 silly lockFile 64e234f1-util-deprecate-1-0-2-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\util-deprecate\1.0.2\package.tgz
+539 verbose lock tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\util-deprecate\1.0.2\package.tgz C:\Users\jepz2_000\AppData\Roaming\npm-cache\64e234f1-util-deprecate-1-0-2-package-tgz.lock
+540 verbose tar unpack C:\Users\jepz2_000\AppData\Roaming\npm-cache\process-nextick-args\1.0.6\package.tgz
+541 silly lockFile 14da7e83-ode-modules-process-nextick-args tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\process-nextick-args
+542 verbose lock tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\process-nextick-args C:\Users\jepz2_000\AppData\Roaming\npm-cache\14da7e83-ode-modules-process-nextick-args.lock
+543 silly lockFile 18267d8c-s-nextick-args-1-0-6-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\process-nextick-args\1.0.6\package.tgz
+544 verbose lock tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\process-nextick-args\1.0.6\package.tgz C:\Users\jepz2_000\AppData\Roaming\npm-cache\18267d8c-s-nextick-args-1-0-6-package-tgz.lock
+545 silly gunzTarPerm modes [ '777', '666' ]
+546 silly gunzTarPerm modes [ '777', '666' ]
+547 silly gunzTarPerm modes [ '777', '666' ]
+548 silly gunzTarPerm modes [ '777', '666' ]
+549 silly gunzTarPerm modes [ '777', '666' ]
+550 silly gunzTarPerm modes [ '777', '666' ]
+551 silly gunzTarPerm extractEntry package.json
+552 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+553 silly gunzTarPerm extractEntry .npmignore
+554 silly gunzTarPerm modified mode [ '.npmignore', 436, 438 ]
+555 silly gunzTarPerm extractEntry README.md
+556 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+557 silly gunzTarPerm extractEntry LICENSE
+558 silly gunzTarPerm modified mode [ 'LICENSE', 436, 438 ]
+559 silly gunzTarPerm extractEntry index.js
+560 silly gunzTarPerm modified mode [ 'index.js', 436, 438 ]
+561 silly gunzTarPerm extractEntry package.json
+562 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+563 silly gunzTarPerm extractEntry README.md
+564 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+565 silly gunzTarPerm extractEntry LICENSE
+566 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+567 silly gunzTarPerm extractEntry package.json
+568 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+569 silly gunzTarPerm extractEntry .npmignore
+570 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+571 silly gunzTarPerm extractEntry README.md
+572 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+573 silly gunzTarPerm extractEntry index.js
+574 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+575 silly gunzTarPerm extractEntry test.js
+576 silly gunzTarPerm modified mode [ 'test.js', 420, 438 ]
+577 silly gunzTarPerm extractEntry package.json
+578 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+579 silly gunzTarPerm extractEntry test.js
+580 silly gunzTarPerm modified mode [ 'test.js', 420, 438 ]
+581 silly gunzTarPerm extractEntry float.patch
+582 silly gunzTarPerm modified mode [ 'float.patch', 420, 438 ]
+583 silly gunzTarPerm extractEntry .travis.yml
+584 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+585 silly gunzTarPerm extractEntry Makefile
+586 silly gunzTarPerm modified mode [ 'Makefile', 420, 438 ]
+587 silly gunzTarPerm extractEntry README.md
+588 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+589 silly gunzTarPerm extractEntry LICENSE
+590 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+591 silly gunzTarPerm extractEntry package.json
+592 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+593 silly gunzTarPerm extractEntry lib/util.js
+594 silly gunzTarPerm modified mode [ 'lib/util.js', 420, 438 ]
+595 silly gunzTarPerm extractEntry index.js
+596 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+597 silly gunzTarPerm extractEntry test.js
+598 silly gunzTarPerm modified mode [ 'test.js', 420, 438 ]
+599 silly gunzTarPerm extractEntry package.json
+600 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+601 silly gunzTarPerm extractEntry README.md
+602 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+603 silly gunzTarPerm extractEntry LICENSE
+604 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+605 silly gunzTarPerm extractEntry .travis.yml
+606 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+607 silly gunzTarPerm extractEntry license.md
+608 silly gunzTarPerm modified mode [ 'license.md', 420, 438 ]
+609 silly gunzTarPerm extractEntry browser.js
+610 silly gunzTarPerm modified mode [ 'browser.js', 420, 438 ]
+611 silly gunzTarPerm extractEntry node.js
+612 silly gunzTarPerm modified mode [ 'node.js', 420, 438 ]
+613 silly gunzTarPerm extractEntry component.json
+614 silly gunzTarPerm modified mode [ 'component.json', 420, 438 ]
+615 silly gunzTarPerm extractEntry readme.md
+616 silly gunzTarPerm modified mode [ 'readme.md', 420, 438 ]
+617 silly gunzTarPerm extractEntry inherits.js
+618 silly gunzTarPerm modified mode [ 'inherits.js', 420, 438 ]
+619 silly gunzTarPerm extractEntry inherits_browser.js
+620 silly gunzTarPerm modified mode [ 'inherits_browser.js', 420, 438 ]
+621 silly gunzTarPerm extractEntry test.js
+622 silly gunzTarPerm modified mode [ 'test.js', 420, 438 ]
+623 silly gunzTarPerm extractEntry History.md
+624 silly gunzTarPerm modified mode [ 'History.md', 420, 438 ]
+625 silly lockFile 4b44b4ff-ream-node-modules-string-decoder tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\string_decoder
+626 silly lockFile 4b44b4ff-ream-node-modules-string-decoder tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\string_decoder
+627 silly lockFile 3ad4e54e-ring-decoder-0-10-31-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\string_decoder\0.10.31\package.tgz
+628 silly lockFile 3ad4e54e-ring-decoder-0-10-31-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\string_decoder\0.10.31\package.tgz
+629 info preinstall string_decoder@0.10.31
+630 verbose readDependencies using package.json deps
+631 verbose readDependencies using package.json deps
+632 silly resolved []
+633 verbose about to build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\string_decoder
+634 info build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\string_decoder
+635 verbose linkStuff [ false,
+635 verbose linkStuff   false,
+635 verbose linkStuff   false,
+635 verbose linkStuff   'C:\\Users\\jepz2_000\\Documents\\Udacity\\MeetUpPlanner\\node_modules\\gulp-gae\\node_modules\\through2\\node_modules\\readable-stream\\node_modules' ]
+636 info linkStuff string_decoder@0.10.31
+637 verbose linkBins string_decoder@0.10.31
+638 verbose linkMans string_decoder@0.10.31
+639 verbose rebuildBundles string_decoder@0.10.31
+640 info install string_decoder@0.10.31
+641 info postinstall string_decoder@0.10.31
+642 silly lockFile 056f2687-able-stream-node-modules-isarray tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\isarray
+643 silly lockFile 056f2687-able-stream-node-modules-isarray tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\isarray
+644 silly lockFile cd3e8c88--cache-isarray-1-0-0-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\isarray\1.0.0\package.tgz
+645 silly lockFile cd3e8c88--cache-isarray-1-0-0-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\isarray\1.0.0\package.tgz
+646 silly lockFile 14da7e83-ode-modules-process-nextick-args tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\process-nextick-args
+647 silly lockFile 14da7e83-ode-modules-process-nextick-args tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\process-nextick-args
+648 silly lockFile 18267d8c-s-nextick-args-1-0-6-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\process-nextick-args\1.0.6\package.tgz
+649 silly lockFile 18267d8c-s-nextick-args-1-0-6-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\process-nextick-args\1.0.6\package.tgz
+650 info preinstall process-nextick-args@1.0.6
+651 info preinstall isarray@1.0.0
+652 verbose readDependencies using package.json deps
+653 verbose readDependencies using package.json deps
+654 silly resolved []
+655 verbose about to build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\process-nextick-args
+656 info build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\process-nextick-args
+657 verbose linkStuff [ false,
+657 verbose linkStuff   false,
+657 verbose linkStuff   false,
+657 verbose linkStuff   'C:\\Users\\jepz2_000\\Documents\\Udacity\\MeetUpPlanner\\node_modules\\gulp-gae\\node_modules\\through2\\node_modules\\readable-stream\\node_modules' ]
+658 info linkStuff process-nextick-args@1.0.6
+659 verbose linkBins process-nextick-args@1.0.6
+660 verbose linkMans process-nextick-args@1.0.6
+661 verbose rebuildBundles process-nextick-args@1.0.6
+662 verbose readDependencies using package.json deps
+663 info install process-nextick-args@1.0.6
+664 verbose readDependencies using package.json deps
+665 silly resolved []
+666 verbose about to build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\isarray
+667 info build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\isarray
+668 verbose linkStuff [ false,
+668 verbose linkStuff   false,
+668 verbose linkStuff   false,
+668 verbose linkStuff   'C:\\Users\\jepz2_000\\Documents\\Udacity\\MeetUpPlanner\\node_modules\\gulp-gae\\node_modules\\through2\\node_modules\\readable-stream\\node_modules' ]
+669 info linkStuff isarray@1.0.0
+670 verbose linkBins isarray@1.0.0
+671 verbose linkMans isarray@1.0.0
+672 verbose rebuildBundles isarray@1.0.0
+673 info install isarray@1.0.0
+674 info postinstall process-nextick-args@1.0.6
+675 info postinstall isarray@1.0.0
+676 silly lockFile 7d84c043-ream-node-modules-util-deprecate tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\util-deprecate
+677 silly lockFile 7d84c043-ream-node-modules-util-deprecate tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\util-deprecate
+678 silly lockFile 66da7971-ble-stream-node-modules-inherits tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\inherits
+679 silly lockFile 66da7971-ble-stream-node-modules-inherits tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\inherits
+680 silly lockFile 64e234f1-util-deprecate-1-0-2-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\util-deprecate\1.0.2\package.tgz
+681 silly lockFile 64e234f1-util-deprecate-1-0-2-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\util-deprecate\1.0.2\package.tgz
+682 silly lockFile 0fcce052-cache-inherits-2-0-1-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\inherits\2.0.1\package.tgz
+683 silly lockFile 0fcce052-cache-inherits-2-0-1-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\inherits\2.0.1\package.tgz
+684 info preinstall util-deprecate@1.0.2
+685 silly lockFile 11f1bf6a-stream-node-modules-core-util-is tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\core-util-is
+686 silly lockFile 11f1bf6a-stream-node-modules-core-util-is tar://C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\core-util-is
+687 info preinstall inherits@2.0.1
+688 silly lockFile b57e3b9c-e-core-util-is-1-0-2-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\core-util-is\1.0.2\package.tgz
+689 silly lockFile b57e3b9c-e-core-util-is-1-0-2-package-tgz tar://C:\Users\jepz2_000\AppData\Roaming\npm-cache\core-util-is\1.0.2\package.tgz
+690 verbose readDependencies using package.json deps
+691 verbose readDependencies using package.json deps
+692 silly resolved []
+693 verbose about to build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\util-deprecate
+694 info build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\util-deprecate
+695 verbose linkStuff [ false,
+695 verbose linkStuff   false,
+695 verbose linkStuff   false,
+695 verbose linkStuff   'C:\\Users\\jepz2_000\\Documents\\Udacity\\MeetUpPlanner\\node_modules\\gulp-gae\\node_modules\\through2\\node_modules\\readable-stream\\node_modules' ]
+696 info linkStuff util-deprecate@1.0.2
+697 verbose linkBins util-deprecate@1.0.2
+698 verbose linkMans util-deprecate@1.0.2
+699 verbose rebuildBundles util-deprecate@1.0.2
+700 verbose readDependencies using package.json deps
+701 info install util-deprecate@1.0.2
+702 verbose readDependencies using package.json deps
+703 silly resolved []
+704 verbose about to build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\inherits
+705 info build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\inherits
+706 verbose linkStuff [ false,
+706 verbose linkStuff   false,
+706 verbose linkStuff   false,
+706 verbose linkStuff   'C:\\Users\\jepz2_000\\Documents\\Udacity\\MeetUpPlanner\\node_modules\\gulp-gae\\node_modules\\through2\\node_modules\\readable-stream\\node_modules' ]
+707 info linkStuff inherits@2.0.1
+708 verbose linkBins inherits@2.0.1
+709 verbose linkMans inherits@2.0.1
+710 verbose rebuildBundles inherits@2.0.1
+711 info install inherits@2.0.1
+712 info postinstall util-deprecate@1.0.2
+713 info postinstall inherits@2.0.1
+714 info preinstall core-util-is@1.0.2
+715 verbose readDependencies using package.json deps
+716 verbose readDependencies using package.json deps
+717 silly resolved []
+718 verbose about to build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\core-util-is
+719 info build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream\node_modules\core-util-is
+720 verbose linkStuff [ false,
+720 verbose linkStuff   false,
+720 verbose linkStuff   false,
+720 verbose linkStuff   'C:\\Users\\jepz2_000\\Documents\\Udacity\\MeetUpPlanner\\node_modules\\gulp-gae\\node_modules\\through2\\node_modules\\readable-stream\\node_modules' ]
+721 info linkStuff core-util-is@1.0.2
+722 verbose linkBins core-util-is@1.0.2
+723 verbose linkMans core-util-is@1.0.2
+724 verbose rebuildBundles core-util-is@1.0.2
+725 info install core-util-is@1.0.2
+726 info postinstall core-util-is@1.0.2
+727 verbose about to build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream
+728 info build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2\node_modules\readable-stream
+729 verbose linkStuff [ false,
+729 verbose linkStuff   false,
+729 verbose linkStuff   false,
+729 verbose linkStuff   'C:\\Users\\jepz2_000\\Documents\\Udacity\\MeetUpPlanner\\node_modules\\gulp-gae\\node_modules\\through2\\node_modules' ]
+730 info linkStuff readable-stream@2.0.6
+731 verbose linkBins readable-stream@2.0.6
+732 verbose linkMans readable-stream@2.0.6
+733 verbose rebuildBundles readable-stream@2.0.6
+734 verbose rebuildBundles [ 'core-util-is',
+734 verbose rebuildBundles   'inherits',
+734 verbose rebuildBundles   'isarray',
+734 verbose rebuildBundles   'process-nextick-args',
+734 verbose rebuildBundles   'string_decoder',
+734 verbose rebuildBundles   'util-deprecate' ]
+735 info install readable-stream@2.0.6
+736 info postinstall readable-stream@2.0.6
+737 verbose about to build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2
+738 info build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae\node_modules\through2
+739 verbose linkStuff [ false,
+739 verbose linkStuff   false,
+739 verbose linkStuff   false,
+739 verbose linkStuff   'C:\\Users\\jepz2_000\\Documents\\Udacity\\MeetUpPlanner\\node_modules\\gulp-gae\\node_modules' ]
+740 info linkStuff through2@2.0.1
+741 verbose linkBins through2@2.0.1
+742 verbose linkMans through2@2.0.1
+743 verbose rebuildBundles through2@2.0.1
+744 verbose rebuildBundles [ 'readable-stream', 'xtend' ]
+745 info install through2@2.0.1
+746 info postinstall through2@2.0.1
+747 verbose about to build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae
+748 info build C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner\node_modules\gulp-gae
+749 verbose linkStuff [ false,
+749 verbose linkStuff   false,
+749 verbose linkStuff   false,
+749 verbose linkStuff   'C:\\Users\\jepz2_000\\Documents\\Udacity\\MeetUpPlanner\\node_modules' ]
+750 info linkStuff gulp-gae@0.0.4
+751 verbose linkBins gulp-gae@0.0.4
+752 verbose linkMans gulp-gae@0.0.4
+753 verbose rebuildBundles gulp-gae@0.0.4
+754 verbose rebuildBundles [ 'through2' ]
+755 info install gulp-gae@0.0.4
+756 info postinstall gulp-gae@0.0.4
+757 error peerinvalid The package karma does not satisfy its siblings' peerDependencies requirements!
+757 error peerinvalid Peer karma-phantomjs-launcher@1.0.0 wants karma@>=0.9
+757 error peerinvalid Peer gulp-karma@0.0.4 wants karma@>=0.10 <=0.13
+758 error System Windows_NT 6.2.9200
+759 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "gulp-gae" "--save-dev"
+760 error cwd C:\Users\jepz2_000\Documents\Udacity\MeetUpPlanner
+761 error node -v v0.10.34
+762 error npm -v 1.4.28
+763 error code EPEERINVALID
+764 verbose exit [ 1, true ]

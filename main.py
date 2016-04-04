@@ -8,6 +8,7 @@ from functools import wraps
 from urlparse import parse_qs, parse_qsl
 from urllib import urlencode
 from requests_oauthlib import OAuth1
+from google.appengine.api import urlfetch
 import jwt
 from jwt import DecodeError, ExpiredSignature
 try:
@@ -15,13 +16,13 @@ try:
     from simplejson import loads, dumps
 except ImportError:
     from json import loads, dumps
-from firebase import firebase
 
 current_path = os.path.dirname(__file__)
 client_path = os.path.abspath(os.path.join(current_path, 'app'))
 app = Flask(__name__, static_url_path='', static_folder=client_path)
 app.config.from_object('config')
-firebase = firebase.FirebaseApplication('https://popping-heat-5589.firebaseio.com/',None)
+firebaseUrl = 'https://popping-heat-5589.firebaseio.com/'
+userEmail = ""
 
 def create_token(user):
     payload = {
@@ -84,7 +85,8 @@ def login():
 
 @app.route('/auth/signup', methods=['POST'])
 def signup():
-    userGet = firebase.get('/users',request.json['email'].replace('@','at').replace('.','dot'))
+    userEmail = request.json['email']
+    userGet = getUserFromFirebase()
     if userGet is not None:
         print userGet
         existingUser = userGet
@@ -94,10 +96,32 @@ def signup():
     else:
         userData = {"name": request.json['name'], "email": request.json['email'],
         'password': request.json['password']}
-    result = firebase.put('/users',request.json['email'].replace('@','at').replace('.','dot'), userData)
-    return dumps(result)
+    userEmail = request.json['email']
+    return putUserInFirebase(dumps(userData))
     # /jsonify(token=token)
 
+def getUserFromFirebase():
+    userUrl = '%susers/%s.json' %(firebaseUrl, userEmail.replace('@','at').replace('.','dot'))
+    fetchResult = urlfetch.fetch(url=userUrl, method=urlfetch.GET)
+    try:
+        user = loads(fetchResult.content)
+    except Exception, e:
+        user = None
+    return user
+
+def putUserInFirebase(payload):
+    userUrl = '%susers/%s.json' %(firebaseUrl, userEmail.replace('@','at').replace('.','dot'))
+    fetchResult = urlfetch.fetch(url=userUrl, method=urlfetch.PUT, payload=payload)
+    try:
+        user = loads(fetchResult.content)
+        try:
+            del user['password']
+            user = dumps(user)
+        except Exception, e:
+            user = dumps(user)
+    except Exception, e:
+        user = ""
+    return user
 
 @app.route('/auth/facebook', methods=['POST'])
 def facebook():
@@ -111,7 +135,7 @@ def facebook():
             'code': request.json['code']
         }
     except Exception, e:
-        return "paso esto %s" % e
+        return "Error: %s" % e
 
     # Step 1. Exchange authorization code for access token.
     r = requests.get(access_token_url, params=params)
@@ -119,8 +143,9 @@ def facebook():
     # Step 2. Retrieve information about the current user.
     r = requests.get(graph_api_url, params=access_token)
     # try:
-    profile = json.loads(r.text)
-    userGet = firebase.get('/users',profile['email'].replace('@','at').replace('.','dot'))
+    profile = loads(r.text)
+    userEmail = profile['email']
+    userGet = getUserFromFirebase()
     if userGet is not None:
         print userGet
         existingUser = userGet
@@ -131,10 +156,8 @@ def facebook():
     else:
         userData = {"name": profile['name'], "email": profile['email'],
         'facebook_id': profile['id']}
-    result = firebase.put('/users',profile['email'].replace('@','at').replace('.','dot'), userData)
-
-    return dumps(userData)
-
+    userEmail = profile['email']
+    return putUserInFirebase(dumps(userData))
 
 @app.route('/auth/google', methods=['POST'])
 def google():
@@ -149,13 +172,13 @@ def google():
 
     # Step 1. Exchange authorization code for access token.
     r = requests.post(access_token_url, data=payload)
-    token = json.loads(r.text)
+    token = loads(r.text)
     headers = {'Authorization': 'Bearer {0}'.format(token['access_token'])}
 
     # Step 2. Retrieve information about the current user.
     r = requests.get(people_api_url, headers=headers)
-    profile = json.loads(r.text)
-    userGet = firebase.get('/users',profile['email'].replace('@','at').replace('.','dot'))
+    profile = loads(r.text)
+    userGet = getUserFromFirebase()
     if userGet is not None:
         print userGet
         existingUser = userGet
@@ -166,26 +189,5 @@ def google():
     else:
         userData = {"name": profile['name'], "email": profile['email'],
         'google_id': profile['sub']}
-    result = firebase.put('/users',profile['email'].replace('@','at').replace('.','dot'), userData)
-    print profile
-    # user = User.query.filter_by(google=profile['sub']).first()
-    # if user:
-    #     token = create_token(user)
-    #     return jsonify(token=token)
-    # u = User(google=profile['sub'],
-    #          display_name=profile['name'])
-    # db.session.add(u)
-    # db.session.commit()
-    # token = create_token(u)
-
-    return dumps(userData)
-
-# if __name__ == '__main__':
-#     app.run(port=3000)
-
-def log_exception(sender, exception, **extra):
-    """ Log an exception to our logging framework """
-    sender.logger.debug('Got exception during processing: %s', exception)
-
-from flask import got_request_exception
-got_request_exception.connect(log_exception, app)
+    userEmail = profile['email']
+    return putUserInFirebase(dumps(userData))
