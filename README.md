@@ -31,6 +31,7 @@ To run locally
 Made with angularJS and style with ngmaterial
 
 to run locally:
+
 1. install node dependencies with
 
 	```
