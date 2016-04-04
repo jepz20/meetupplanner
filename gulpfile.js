@@ -85,7 +85,7 @@ gulp.task('runserver', function() {
   spawn('python', ['main.py','runserver'], PIPE);
 });
 
-gulp.task('start:server', ['runserver'], function() {
+gulp.task('start:server', function() {
   browserSync({
     notify: false,
     port:9000,

@@ -44,12 +44,12 @@ Create an Event
   <div layout="row">
     <md-input-container flex-gt-xs flex-xs="60">
       <label for="startDate ">Start Date</label>
-      <input type="date" name="startDate" id="startDate" ng-model="event.startDate" required ng-change="event.setStartDateTime()" ng-blur="event.manageDate()" min="{{minDate | date:'yyyy-MM-dd'}}"
-      max="{{endDate | date:'yyyy-MM-dd'}}||''" placeholder="">
+      <input type="date" name="startDate" id="startDate" ng-model="event.startDate" required ng-blur="event.manageDate()" min="{{event.minDate | date:'yyyy-MM-dd'}}"
+      max="{{event.endDate | date:'yyyy-MM-dd'}}||''" placeholder="">
       <div ng-messages="eventForm.startDate.$error">
         <div ng-message="required">What day does the event start?</div>
-        <div ng-message="max">Event should start before it ends</div>
         <div ng-message="min">Event can't start before today</div>
+        <div ng-message="max">Event should start before it ends</div>
       </div>
     </md-input-container>
     <md-input-container flex-gt-xs flex-xs="40">
@@ -64,7 +64,7 @@ Create an Event
   <div layout="row" flex>
     <md-input-container flex-gt-xs flex-xs="60">
       <label for="endDate ">End Date</label>
-      <input type="date" name="endDate" id="endDate" ng-model="event.endDate" required ng-blur="event.manageDate()" min="{{startDate | date:'yyyy-MM-dd'}}" placeholder="">
+      <input type="date" name="endDate" id="endDate" ng-model="event.endDate" required ng-blur="event.manageDate()" min="{{event.startDate | date:'yyyy-MM-dd'}}" placeholder="">
       <div ng-messages="eventForm.endDate.$error">
         <div ng-message="required">What day does the event start?</div>
         <div ng-message="max">Event should start before it ends</div>
