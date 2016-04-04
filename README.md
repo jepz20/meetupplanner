@@ -16,6 +16,7 @@ To run locally
 2. Clone this repo
 3. Install dependencies in the project's lib directory.
    Note: App Engine can only import libraries from inside your project directory.
+
    ```
    pip install -r requirements.txt -t lib
    ```
@@ -31,14 +32,19 @@ Made with angularJS and style with ngmaterial
 
 to run locally:
 1. install node dependencies with
+
 	```
 	npm install
 	```
+
 2. install bower dependencies with
+
 	```
 	bower install
 	```
+
 3. run this proyect locally from the command line:
+
 	```
 	gulp start:server
 	```
