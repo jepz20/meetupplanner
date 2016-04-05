@@ -42,10 +42,6 @@ handlers:
 libraries:
 - name: pycrypto
   version: latest
-- name: ssl
-  version: latest
-- name: endpoints
-  version: 1.0
 - name: webapp2
   version: latest
 

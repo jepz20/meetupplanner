@@ -27,6 +27,5 @@
   },
   "_source": "git://github.com/sahat/satellizer.git",
   "_target": "^0.14.0",
-  "_originalSource": "satellizer",
-  "_direct": true
+  "_originalSource": "satellizer"
 }
