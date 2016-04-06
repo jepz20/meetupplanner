@@ -23,11 +23,14 @@ To run locally
    ```
    pip install -r requirements.txt -t lib
    ```
-4. Run this project locally from the command line:
+4. Run this project locally from the command line(you need to have google app engine in your path):
 
    ```
    dev_appserver.py --port 3000 .
    ```
+   or
+ 
+   run it through the google app engine launcher
 
 ##Frontend
 
