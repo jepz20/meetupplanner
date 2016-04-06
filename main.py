@@ -22,7 +22,6 @@ client_path = os.path.abspath(os.path.join(current_path, 'app'))
 app = Flask(__name__, static_url_path='', static_folder=client_path)
 app.config.from_object('config')
 firebaseUrl = 'https://popping-heat-5589.firebaseio.com/'
-userEmail = ""
 
 def create_token(user):
     payload = {
@@ -86,7 +85,7 @@ def login():
 @app.route('/auth/signup', methods=['POST'])
 def signup():
     userEmail = request.json['email']
-    userGet = getUserFromFirebase()
+    userGet = getUserFromFirebase(userEmail)
     if userGet is not None:
         print userGet
         existingUser = userGet
@@ -97,31 +96,9 @@ def signup():
         userData = {"name": request.json['name'], "email": request.json['email'],
         'password': request.json['password']}
     userEmail = request.json['email']
-    return putUserInFirebase(dumps(userData))
+    return putUserInFirebase(dumps(userData), userEmail)
     # /jsonify(token=token)
 
-def getUserFromFirebase():
-    userUrl = '%susers/%s.json' %(firebaseUrl, userEmail.replace('@','at').replace('.','dot'))
-    fetchResult = urlfetch.fetch(url=userUrl, method=urlfetch.GET)
-    try:
-        user = loads(fetchResult.content)
-    except Exception, e:
-        user = None
-    return user
-
-def putUserInFirebase(payload):
-    userUrl = '%susers/%s.json' %(firebaseUrl, userEmail.replace('@','at').replace('.','dot'))
-    fetchResult = urlfetch.fetch(url=userUrl, method=urlfetch.PUT, payload=payload)
-    try:
-        user = loads(fetchResult.content)
-        try:
-            del user['password']
-            user = dumps(user)
-        except Exception, e:
-            user = dumps(user)
-    except Exception, e:
-        user = ""
-    return user
 
 @app.route('/auth/facebook', methods=['POST'])
 def facebook():
@@ -145,7 +122,7 @@ def facebook():
     # try:
     profile = loads(r.text)
     userEmail = profile['email']
-    userGet = getUserFromFirebase()
+    userGet = getUserFromFirebase(userEmail)
     if userGet is not None:
         print userGet
         existingUser = userGet
@@ -157,7 +134,7 @@ def facebook():
         userData = {"name": profile['name'], "email": profile['email'],
         'facebook_id': profile['id']}
     userEmail = profile['email']
-    return putUserInFirebase(dumps(userData))
+    return putUserInFirebase(dumps(userData),userEmail)
 
 @app.route('/auth/google', methods=['POST'])
 def google():
@@ -178,7 +155,8 @@ def google():
     # Step 2. Retrieve information about the current user.
     r = requests.get(people_api_url, headers=headers)
     profile = loads(r.text)
-    userGet = getUserFromFirebase()
+    userEmail = profile['email']
+    userGet = getUserFromFirebase(userEmail)
     if userGet is not None:
         print userGet
         existingUser = userGet
@@ -190,4 +168,31 @@ def google():
         userData = {"name": profile['name'], "email": profile['email'],
         'google_id': profile['sub']}
     userEmail = profile['email']
-    return putUserInFirebase(dumps(userData))
+    logging.info('&&&&userEmail&&&&&')
+    logging.info(userEmail)
+    return putUserInFirebase(dumps(userData), userEmail)
+
+def getUserFromFirebase(userEmail):
+    userUrl = '%susers/%s.json' %(firebaseUrl, userEmail.replace('@','at').replace('.','dot'))
+    fetchResult = urlfetch.fetch(url=userUrl, method=urlfetch.GET)
+    try:
+        user = loads(fetchResult.content)
+    except Exception, e:
+        user = None
+    return user
+
+def putUserInFirebase(payload,userEmail):
+    userUrl = '%susers/%s.json' %(firebaseUrl, userEmail.replace('@','at').replace('.','dot'))
+    logging.info('===userUrl===')
+    logging.info(userUrl)
+    fetchResult = urlfetch.fetch(url=userUrl, method=urlfetch.POST, payload=payload)
+    try:
+        user = loads(fetchResult.content)
+        try:
+            del user['password']
+            user = dumps(user)
+        except Exception, e:
+            user = dumps(user)
+    except Exception, e:
+        user = ""
+    return user
