@@ -20,5 +20,6 @@ angular.module('meetUpPlannerApp')
     main.goToHome = function() {
         Navigation.home(main.user.loggedIn);
     };
+})
+;
 
-});

@@ -113,14 +113,18 @@ def facebook():
         }
     except Exception, e:
         return "Error: %s" % e
+    encoded_params = urlencode(params)
+    access_token_url_with_params = '%s?%s' %(access_token_url, encoded_params)
 
     # Step 1. Exchange authorization code for access token.
-    r = requests.get(access_token_url, params=params)
-    access_token = loads(r.text)
+    r = urlfetch.fetch(url=access_token_url_with_params, method=urlfetch.GET)
+    access_token = loads(r.content)
+    encoded_access_token = urlencode(access_token)
+    graph_api_url_with_params = '%s&%s' %(graph_api_url, encoded_access_token)
     # Step 2. Retrieve information about the current user.
-    r = requests.get(graph_api_url, params=access_token)
+    r = urlfetch.fetch(url=graph_api_url_with_params, method=urlfetch.GET)
     # try:
-    profile = loads(r.text)
+    profile = loads(r.content)
     userEmail = profile['email']
     userGet = getUserFromFirebase(userEmail)
     if userGet is not None:

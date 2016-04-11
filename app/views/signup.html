@@ -5,7 +5,7 @@
             <form id="register" name="register">
               <md-input-container class="md-block">
                 <label for="usremail">Email</label>
-                <input type="email" id="usremail" ng-model="usremail" required="true" name="usremail" ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/">
+                <input type="email" id="usremail" ng-model="usremail" required="true" name="usremail" ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/" focus-if="showSignUp">
                 <div ng-messages="register.usremail.$error" ng-messages-multiple  md-auto-hide="false" ng-show="register.usremail .$touched||register.$submitted">
                   <div ng-message="pattern">Please enter a valid email</div>
                   <div ng-message="required">Please enter your email</div>

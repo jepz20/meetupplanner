@@ -4,7 +4,7 @@
       <form id="biography" name="biography">
         <md-input-container class="md-block">
           <label for=employer>Employer</label>
-          <input type="text" id="employer" name="employer" ng-model="employer" maxlength="50" minlength="3">        
+          <input type="text" id="employer" name="employer" ng-model="employer" maxlength="50" minlength="3" focus-if="true">
           <div ng-messages="biography.employer.$error">
             <div ng-message="maxlength">Please use a shorter employer name</div>
             <div ng-message="minlength">Please use atleast 3 character for your employer</div>
@@ -23,6 +23,7 @@
           <input type="date" id="birthdate" name="birthdate" ng-model="birthdate" max={{today}}>
           <div ng-messages="biography.birthdate.$error">
             <div ng-message="max">Are you from the future?</div>
+            <div ng-message="date">Please enter a valid date</div>
           </div>
         </md-input-container>
         <md-button class="md-primary md-raised" ng-click="updateUserBio()">Continue</md-button>

@@ -44,13 +44,25 @@ angular.module('meetUpPlannerApp')
         User.loggedIn = false;
     };
 
-    User.updateBio = function(user, bio) {
+    User.updateBio = function(user, bio_param) {
         var email = user.data.email;
         email = email.replace('@','at').replace('.','dot');
         var firebaseUserRef = new Firebase(firebaseUrl + email);
         var firebaseUser = $firebaseObject(firebaseUserRef);
         firebaseUser.$loaded().then(function() {
-            firebaseUser.bio = bio;
+            if (!firebaseUser.bio) {
+                firebaseUser.bio = {};
+            }
+            if (bio_param.employer && bio_param.employer != '') {
+                firebaseUser.bio.employer = bio_param.employer;
+            }
+            if (bio_param.jobTitle && bio_param.jobTitle != '') {
+                firebaseUser.bio.jobTitle = bio_param.jobTitle;
+            }
+            if (bio_param.birthdate && bio_param.birthdate != '') {
+                firebaseUser.bio.birthdate = bio_param.birthdate.getTime();
+            }        
+
             firebaseUser.$save().then(function() {
                 Navigation.home(true);
             });

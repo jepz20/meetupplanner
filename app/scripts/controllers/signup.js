@@ -111,16 +111,9 @@ angular.module('meetUpPlannerApp')
     $scope.updateUserBio = function() {
         if ($scope.biography.$valid) {
             var bio = {}
-            if ($scope.employer && $scope.employer != '') {
-                bio.employer = $scope.employer;
-            }
-            if ($scope.jobTitle && $scope.jobTitle != '') {
-                bio.jobTitle = $scope.jobTitle;
-            }
-            if ($scope.birthdate && $scope.birthdate != '') {
-                bio.birthdate = $scope.birthdate.getTime();
-            }        
-
+            bio.employer = $scope.employer;
+            bio.jobTitle = $scope.jobTitle;
+            bio.birthdate = $scope.birthdate;
             User.updateBio($scope.user, bio);
         } else {
             $scope.biography.$setSubmitted();

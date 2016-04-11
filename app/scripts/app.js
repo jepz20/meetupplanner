@@ -17,6 +17,7 @@ angular.module('meetUpPlannerApp', [
     'ngMaterial',
     'ngMessages',
     'satellizer',
+    'focus-if',
     'firebase'
 ])
 .config(function ($routeProvider,$authProvider) {

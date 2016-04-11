@@ -6,7 +6,7 @@ Create an Event
   <div layout-gt-xs="row">
     <md-input-container flex-gt-xs class="md-block">
       <label for="name">Name</label>
-      <input type="text" name="name" id="name" ng-model="event.name" required maxlength="50" autofocus="true" placeholder="{{'e.g.' + event.user.data.firstName + '`s Graduation'}}">
+      <input type="text" name="name" id="name" ng-model="event.name" required maxlength="50" focus-if="true" placeholder="{{'e.g.' + event.user.data.firstName + '`s Graduation'}}">
       <div ng-messages="eventForm.name.$error">
         <div ng-message="required">Whats the name for your event?</div>
         <div ng-message="maxlength">Name should be shorter(50 max)</div>
@@ -79,7 +79,7 @@ Create an Event
         <div ng-message="min">Event should end after it starts</div>
       </div>
     </md-input-container>
-   </div>2
+   </div>
    <div class="md-block md-input-has-placeholder">
 
    </div>
