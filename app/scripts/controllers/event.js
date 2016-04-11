@@ -17,7 +17,6 @@ angular.module('meetUpPlannerApp')
     }
     event.minDate = new Date();
     event.startDate = new Date();
-    event.endDate = new Date();
     event.startDateTime;
     event.endDateTime;
     event.gPlace ={};
@@ -34,7 +33,7 @@ angular.module('meetUpPlannerApp')
         {'display': 'Other'}
 
     ];
-    event.guests = [event.user.data.firstName];
+    event.guests = [];
     event.host = event.user.data.name;
     event.type = event.types[0].display;
     event.firebaseEvents = new Firebase('https://popping-heat-5589.firebaseio.com/events');
@@ -46,13 +45,13 @@ angular.module('meetUpPlannerApp')
     };
 
     var setEndDatetoStartDateIfNull = function() {
-        if (!event.endDate && !$scope.eventForm.endDate ) {
+        if (!event.endDate && !$scope.eventForm.endDate.$viewValue ) {
             event.endDate = event.startDate;
         }
     };
 
     var setStartDatetoEndDateIfNull = function() {
-        if (!event.startDate && !$scope.eventForm.startDate) {
+        if (!event.startDate && !$scope.eventForm.startDate.$viewValue) {
             event.startDate = event.endDate;
         }
     };

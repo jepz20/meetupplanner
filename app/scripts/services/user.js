@@ -46,7 +46,7 @@ angular.module('meetUpPlannerApp')
 
     User.updateBio = function(user, bio_param) {
         var email = user.data.email;
-        email = email.replace('@','at').replace('.','dot');
+        email = email.replace('@','at').replace(/./g,'dot');
         var firebaseUserRef = new Firebase(firebaseUrl + email);
         var firebaseUser = $firebaseObject(firebaseUserRef);
         firebaseUser.$loaded().then(function() {
