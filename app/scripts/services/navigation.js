@@ -27,4 +27,12 @@ angular.module('meetUpPlannerApp')
     self.signup = function() {
         $location.path('/signup');
     };
+
+    self.completebio = function() {
+        $location.path('/user_biography')
+    }
+
+    self.whereAmI = function() {
+        return $location.path();
+    }
 });

@@ -26,6 +26,11 @@ angular.module('meetUpPlannerApp', [
         controller: 'SignupCtrl',
         controllerAs: 'signup'
     })
+    .when('/user_biography', {
+        templateUrl: 'views/user_biography.html',
+        controller: 'SignupCtrl',
+        controllerAs: 'signup'
+    })    
     .when('/event/create', {
         templateUrl: 'views/event_create.html',
         controller: 'EventCtrl',

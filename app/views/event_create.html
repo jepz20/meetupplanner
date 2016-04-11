@@ -23,8 +23,8 @@ Create an Event
   </div>
   <div layout-gt-xs="row">
     <md-input-container flex-gt-xs class="md-block">
-      <label>Type</label>
-      <md-select name="type" ng-model="event.type" required>
+      <label for="type">Type</label>
+      <md-select name="type" id="type" ng-model="event.type" required>
         <md-option ng-repeat="type in event.types" value="{{type.display}}">
         {{type.display}}
         </md-option>
@@ -79,7 +79,7 @@ Create an Event
         <div ng-message="min">Event should end after it starts</div>
       </div>
     </md-input-container>
-   </div>
+   </div>2
    <div class="md-block md-input-has-placeholder">
 
    </div>

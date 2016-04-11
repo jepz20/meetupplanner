@@ -15,11 +15,21 @@ angular.module('meetUpPlannerApp')
         {'type': 'includenumber', 'text': 'Please include at least one number'},
         {'type': 'includelowercase', 'text': 'Please include at least one lowercase letter'},
         {'type': 'includeuppercase', 'text': 'Please include at least one uppercase letter'},
-        {'type': 'passwodrdmatch', 'text': 'Password do not match'}
+        {'type': 'passwodrdmatch', 'text': 'Password do not match'},
+        {'type': 'required', 'text': 'Please enter your password'}
     ];
-
+    $scope.user = User;
+    if (Navigation.whereAmI() != '/signup') {
+        if (!$scope.user.loggedIn) {
+            Navigation.signup();
+        }
+    } else {
+        if ($scope.user.loggedIn) {
+            Navigation.home(true);
+        }        
+    }
     $scope.showSignUp = false;
-
+    $scope.today = new Date()
     $scope.toggleShowSignUpForm = function() {
         $scope.showSignUp = !$scope.showSignUp;
     };
@@ -52,6 +62,7 @@ angular.module('meetUpPlannerApp')
 
 
     $scope.setPasswordValidity = function() {
+        console.log('lo estoy llamando')
         $scope.register.password.$setValidity('includenumber',
             checkIfIncludeNumber($scope.password));
         $scope.register.password.$setValidity('includelowercase',
@@ -86,7 +97,7 @@ angular.module('meetUpPlannerApp')
             };
             $auth.signup(user)
             .then(function (response) {
-                User.login(response.data);
+                User.signup(response.data);
             })
             .catch(function(response) {
                 $scope.authError = true;
@@ -97,11 +108,33 @@ angular.module('meetUpPlannerApp')
         }
     };
 
+    $scope.updateUserBio = function() {
+        if ($scope.biography.$valid) {
+            var bio = {}
+            if ($scope.employer && $scope.employer != '') {
+                bio.employer = $scope.employer;
+            }
+            if ($scope.jobTitle && $scope.jobTitle != '') {
+                bio.jobTitle = $scope.jobTitle;
+            }
+            if ($scope.birthdate && $scope.birthdate != '') {
+                bio.birthdate = $scope.birthdate.getTime();
+            }        
+
+            User.updateBio($scope.user, bio);
+        } else {
+            $scope.biography.$setSubmitted();
+        }
+    }
+
+    $scope.goHome = function() {
+        Navigation.home(true);
+    }
 
     $scope.authenticate = function(provider) {
         $auth.authenticate(provider)
         .then(function(response) {
-            User.login(response.data);
+            User.signup(response.data);
         })
         .catch(function(response) {
             console.log('response error:', response);

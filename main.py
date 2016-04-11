@@ -168,8 +168,6 @@ def google():
         userData = {"name": profile['name'], "email": profile['email'],
         'google_id': profile['sub']}
     userEmail = profile['email']
-    logging.info('&&&&userEmail&&&&&')
-    logging.info(userEmail)
     return putUserInFirebase(dumps(userData), userEmail)
 
 def getUserFromFirebase(userEmail):
@@ -183,9 +181,7 @@ def getUserFromFirebase(userEmail):
 
 def putUserInFirebase(payload,userEmail):
     userUrl = '%susers/%s.json' %(firebaseUrl, userEmail.replace('@','at').replace('.','dot'))
-    logging.info('===userUrl===')
-    logging.info(userUrl)
-    fetchResult = urlfetch.fetch(url=userUrl, method=urlfetch.POST, payload=payload)
+    fetchResult = urlfetch.fetch(url=userUrl, method=urlfetch.PUT, payload=payload)
     try:
         user = loads(fetchResult.content)
         try:

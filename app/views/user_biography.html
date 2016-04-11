@@ -1,0 +1,31 @@
+<div flex layout="row">
+    <md-content flex id="content">
+      <h1>Tell us more about you</h1>
+      <form id="biography" name="biography">
+        <md-input-container class="md-block">
+          <label for=employer>Employer</label>
+          <input type="text" id="employer" name="employer" ng-model="employer" maxlength="50" minlength="3">        
+          <div ng-messages="biography.employer.$error">
+            <div ng-message="maxlength">Please use a shorter employer name</div>
+            <div ng-message="minlength">Please use atleast 3 character for your employer</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label for=jobTitle>Job Title</label>
+          <input type="text" id="jobTitle" name="jobTitle" ng-model="jobTitle" maxlength="50" minlength="3">
+          <div ng-messages="biography.jobTitle.$error">
+            <div ng-message="maxlength">Please use a shorter job title description</div>
+            <div ng-message="minlength">Please use atleast 3 character for your Job Title</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label for=birthdate>Birthdate</label>
+          <input type="date" id="birthdate" name="birthdate" ng-model="birthdate" max={{today}}>
+          <div ng-messages="biography.birthdate.$error">
+            <div ng-message="max">Are you from the future?</div>
+          </div>
+        </md-input-container>
+        <md-button class="md-primary md-raised" ng-click="updateUserBio()">Continue</md-button>
+      </form>
+    </md-content>
+</div>          

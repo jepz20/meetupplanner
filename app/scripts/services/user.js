@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('meetUpPlannerApp')
-.service('User', function User(Navigation){
+.service('User', function User(Navigation, $firebaseObject){
     var User = this;
+    var firebaseUrl = 'https://popping-heat-5589.firebaseio.com/users/';
+
     User.data ={};
     User.data.name = '';
     User.data.firstName = '';
@@ -23,13 +25,13 @@ angular.module('meetUpPlannerApp')
         return User.data;
     };
     User.login = function(user) {
-        localStorage.setItem('userName', user.name);
-        localStorage.setItem('userEmail', user.email);
-        User.data.name = user.name;
-        User.data.email = user.email;
-        User.data.firstName = getFirstName();
-        User.loggedIn = true;
+        storeUser(user);
         Navigation.showEvents(true);
+    };
+
+    User.signup = function(user) {
+        storeUser(user);
+        Navigation.completebio();
     };
 
     User.logout = function() {
@@ -42,7 +44,30 @@ angular.module('meetUpPlannerApp')
         User.loggedIn = false;
     };
 
+    User.updateBio = function(user, bio) {
+        var email = user.data.email;
+        email = email.replace('@','at').replace('.','dot');
+        var firebaseUserRef = new Firebase(firebaseUrl + email);
+        var firebaseUser = $firebaseObject(firebaseUserRef);
+        firebaseUser.$loaded().then(function() {
+            firebaseUser.bio = bio;
+            firebaseUser.$save().then(function() {
+                Navigation.home(true);
+            });
+        });
+    }
+
     var getFirstName = function() {
         return User.data.name.split(' ')[0];
     };
+
+    var storeUser = function(user) {
+        localStorage.setItem('userName', user.name);
+        localStorage.setItem('userEmail', user.email);
+        User.data.name = user.name;
+        User.data.email = user.email;
+        User.data.firstName = getFirstName();
+        User.loggedIn = true;
+    }
+
 });

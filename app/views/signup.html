@@ -5,24 +5,25 @@
             <form id="register" name="register">
               <md-input-container class="md-block">
                 <label for="usremail">Email</label>
-                <input type="email" id="usremail" ng-model="usremail" required="true" name="usremail">
-                <div ng-messages="register.usremail.$error">
+                <input type="email" id="usremail" ng-model="usremail" required="true" name="usremail" ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/">
+                <div ng-messages="register.usremail.$error" ng-messages-multiple  md-auto-hide="false" ng-show="register.usremail .$touched||register.$submitted">
+                  <div ng-message="pattern">Please enter a valid email</div>
                   <div ng-message="required">Please enter your email</div>
-                  <div ng-message="email">Please enter a valid email</div>
                 </div>
               </md-input-container>
               <md-input-container class="md-block">
                 <label for="usrname">Name</label>
-                <input type="text" id="usrname" ng-model="usrname" required="true" name="usrname">
-                <div ng-messages="register.usrname.$error">
+                <input type="text" id="usrname" ng-model="usrname" required="true" name="usrname" ng-pattern="/^(?=.*[a-zA-Z]).+$/" minlength="3">
+                <div ng-messages="register.usrname.$error" ng-messages-multiple  md-auto-hide="false" ng-show="register.usrname.$touched||register.$submitted">
+                  <div ng-message="minlength">Your name should have atleast 3 characters</div>
+                  <div ng-message="pattern">Your name should include at least one letter</div>
                   <div ng-message="required">Please enter your name</div>
                 </div>
               </md-input-container>
               <md-input-container class="md-block">
                 <label for="password">Password</label>
-                <input type="password" id="password" ng-change="setPasswordValidity()" name="password"  ng-model="password" required minlength="8"
-                maxlength="30">
-                <div ng-messages="register.password.$error" ng-messages-multiple>
+                <input type="password" id="password" ng-change="setPasswordValidity()" name="password"  ng-model="password" required minlength="8" maxlength="30" ng-model-options="{allowInvalid: true}">
+                <div ng-messages="register.password.$error" ng-messages-multiple md-auto-hide="false" ng-show="register.password.$touched||register.$submitted">
                   <div ng-repeat="errorMessage in errorMessages">
                     <div ng-message-exp="errorMessage.type">{{errorMessage.text}}</div>
                   </div>
@@ -31,9 +32,10 @@
 
               <md-input-container class="md-block">
                 <label for="checkpassword">Validate Password</label>
-                <input type="password" id="checkpassword" required="true" name="checkpassword" ng-model="checkPassword" ng-change="setCheckPasswordValidity()">
+                <input type="password" id="checkpassword" required name="checkpassword" ng-model="checkPassword" ng-change="setCheckPasswordValidity()">
                 <div ng-messages="register.checkpassword.$error">
                   <div ng-message="passwordmatch"> Password don't match</div>
+                  <div ng-message="required"> Please validate your password</div>
                 </div>
               </md-input-container>
               <md-button class="md-primary md-raised" ng-click="signupUser()">Sign up</md-button>
@@ -41,14 +43,14 @@
             </form>
           </div>
             <div ng-hide="showSignUp">
-              <div flex-gt-xs layout="row" layout-sm="column" >
-                <md-button class="md-primary md-raised md-hue-1" ng-click="toggleShowSignUpForm()" flex-gt-xs="20" flex>Sign up with Email</md-button>
+              <div flex-gt-md layout="row" layout-sm="column" >
+                <md-button class="md-primary md-raised md-hue-1" ng-click="toggleShowSignUpForm()" flex-gt-md="20" flex>Sign up with Email</md-button>
               </div>
-              <div flex-gt-xs layout="row" layout-sm="column">
-                <md-button class="md-primary md-raised md-hue-2" ng-click="authenticate('facebook')" flex-gt-xs="20" flex>Sign up with Facebook</md-button>
+              <div flex-gt-md layout="row" layout-sm="column">
+                <md-button class="md-primary md-raised md-hue-2" ng-click="authenticate('facebook')" flex-gt-md="20" flex>Sign up with Facebook</md-button>
               </div>
-              <div flex-gt-xs layout="row" layout-sm="column">
-                <md-button class="md-primary  md-raised md-warn " ng-click="authenticate('google')" flex-gt-xs="20" flex>Sign up with Google</md-button>
+              <div flex-gt-md layout="row" layout-sm="column">
+                <md-button class="md-primary  md-raised md-warn " ng-click="authenticate('google')" flex-gt-md="20" flex>Sign up with Google</md-button>
               </div>
             </div>
         </md-content>
