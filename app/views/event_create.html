@@ -24,7 +24,7 @@ Create an Event
   <div layout-gt-xs="row">
     <md-input-container flex-gt-xs class="md-block">
       <label for="type">Type</label>
-      <md-select name="type" id="type" ng-model="event.type" required aria-label="Type">
+      <md-select name="type" id="type" ng-model="event.type" aria-label="Type">
         <md-option ng-repeat="type in event.types" value="{{type.display}}">
         {{type.display}}
         </md-option>
@@ -85,12 +85,13 @@ Create an Event
    </div>
     <div layout-gt-xs="row">
     <md-input-container class="md-block" flex-gt-xs>
-      <label for="guest">Guests</label>
-       <md-chips ng-model="event.guests" readonly="false" class="md-block" require>
-          <input type="text" ng-model="ctrl.numberBuffer" placeholder="Enter a guest" name="guest" id="guest"  aria-label="Guests">
-      </md-chips>
-      <div ng-messages="eventForm.guests.$error">
-        <div ng-message="required">What time does the event end?</div>
+      <label for="guests">Guests</label>
+      <input type="text" name="guests" id="guests" ng-model="event.guest" required placeholder="Add a guests separated by a coma" ng-change="event.validateGuestList()">
+      <div ng-messages="eventForm.guests.$error" ng-messages-multiple  md-auto-hide="false" ng-show="eventForm.guests.$touched||eventForm.$submitted">
+        <div ng-message="required">Who is coming to the event</div>
+        <div ng-message="duplicatecomma">Please add a guest between the commas</div>
+        <div ng-message="min">A guest should have at least 3 characters</div>
+        <div ng-message="letters">A guest should have include 1 letter</div>
       </div>
     </md-input-container>
    </div>

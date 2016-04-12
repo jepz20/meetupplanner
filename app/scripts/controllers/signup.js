@@ -62,7 +62,6 @@ angular.module('meetUpPlannerApp')
 
 
     $scope.setPasswordValidity = function() {
-        console.log('lo estoy llamando')
         $scope.register.password.$setValidity('includenumber',
             checkIfIncludeNumber($scope.password));
         $scope.register.password.$setValidity('includelowercase',

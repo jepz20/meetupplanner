@@ -11,14 +11,14 @@
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
     "satellizer": "^0.14.0",
-    "angular-material": "^1.0.6",
+    "angular-material": "^1.0.0",
     "ng-focus-if": "^1.0.5",
     "firebase": "^2.4.2",
     "angularfire": "^1.2.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0",
-    "angular-material": "^1.0.6"
+    "angular-material": "^1.0.0"
   },
   "appPath": "app",
   "moduleName": "meetUpPlannerApp",
@@ -30,5 +30,4 @@
         "dist/js/bootstrap.js"
       ]
     }
-  }
-}
+  }}

@@ -9,7 +9,7 @@
  */
 angular.module('meetUpPlannerApp')
 .controller('EventCtrl', function (Navigation, $firebaseArray, User, $scope,
-    $mdToast, $window) {
+    $window) {
     var event = this;
     event.user = User;
     if (!event.user.loggedIn) {
@@ -130,6 +130,9 @@ angular.module('meetUpPlannerApp')
 
     var createEventJson = function() {
         var description = (typeof event.description === 'undefined') ? '' : event.description;
+        event.guest = event.guest.replace(/(^,)|(,$)/g, "")
+        event.guests = event.guest.split(',');
+        removeGuestsDuplicates();
         var eventJson = { 'name': event.name,
                 'host': event.host,
                 'type': event.type,
@@ -144,25 +147,55 @@ angular.module('meetUpPlannerApp')
             };
         return eventJson;
     };
-    event.showToast = function() {
-        $mdToast.show(
-          $mdToast.simple()
-            .textContent('Please add a guest')
-            .position('bottom right')
-            .hideDelay(3000)
-        );
-    };
+
+    event.validateGuestList = function() {
+        validateDuplicateComma();
+        event.guests = event.guest.replace(/(^,)|(,$)/g, "").split(',');
+        $scope.eventForm.guests.$setValidity('min',
+            true);
+        $scope.eventForm.guests.$setValidity('letters',
+            true); 
+        for (var i = event.guests.length - 1; i >= 0; i--) {
+            validateGuestMinLength(event.guests[i]);
+            validateGuestHasLetters(event.guests[i]);
+        }     
+    }
+    var validateDuplicateComma = function() {
+        var duplicateComa = (/(,)\1+$/).test(event.guest);
+        $scope.eventForm.guests.$setValidity('duplicatecomma',
+            !duplicateComa);
+    }
+
+    var validateGuestMinLength = function(guest) {
+        if (guest.length < 3) {
+            $scope.eventForm.guests.$setValidity('min',
+                false);            
+         }        
+    }
+
+    var validateGuestHasLetters = function(guest) {
+        var validPattern = (/^(?=.*[a-zA-Z]).+$/).test(guest);
+        $scope.eventForm.guests.$setValidity('letters',
+            validPattern);        
+    }
+ 
     var validateEventForm = function() {
         if (!$scope.eventForm.$valid) {
             $scope.eventForm.$setSubmitted();
             return false;
         }
-        if (event.guests.length===0) {
-            event.showToast();
-            return false;
-        }
         return true;
     };
+
+    var removeGuestsDuplicates = function() {
+        /*base on http://codereview.stackexchange.com/questions/60128/removing-duplicates-from-an-array-quickly*/
+        var a = [];
+        for ( var i = 0; i < event.guests.length; i++ ) {
+            var current = event.guests[i];
+            if (a.indexOf(current) < 0) a.push(current);
+        }
+        event.guests = a;
+    }
 
     $scope.showAll = false;
     event.getAllEvents = function() {
