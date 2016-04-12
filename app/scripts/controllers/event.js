@@ -17,8 +17,6 @@ angular.module('meetUpPlannerApp')
     }
     event.minDate = new Date();
     event.startDate = new Date();
-    event.startDateTime;
-    event.endDateTime;
     event.gPlace ={};
     event.types = [
         {'display': 'Conference'},
@@ -38,12 +36,6 @@ angular.module('meetUpPlannerApp')
     event.type = event.types[0].display;
     event.firebaseEvents = new Firebase('https://popping-heat-5589.firebaseio.com/events');
 
-    event.manageDate = function() {
-        setEndDatetoStartDateIfNull();
-        setStartDatetoEndDateIfNull();
-        event.manageTime();
-    };
-
     var setEndDatetoStartDateIfNull = function() {
         if (!event.endDate && !$scope.eventForm.endDate.$viewValue ) {
             event.endDate = event.startDate;
@@ -55,13 +47,7 @@ angular.module('meetUpPlannerApp')
             event.startDate = event.endDate;
         }
     };
-    event.manageTime = function() {
-        setEndTimeBaseOnStartTimeIfNull(1);
-        setStartDateTime();
-        setEndDateTime();
-        setStartDateTimeValidity();
-        setEndDateTimeValidity();
-    };
+
     var setEndTimeBaseOnStartTimeIfNull = function(hours) {
         if (event.startTime instanceof Date) {
             if (!event.endTime) {
@@ -69,6 +55,23 @@ angular.module('meetUpPlannerApp')
                 event.endTime.setTime(event.startTime.getTime() +
                  (hours*60*60*1000));
             }
+        }
+    };
+
+    event.manageDate = function() {
+        setEndDatetoStartDateIfNull();
+        setStartDatetoEndDateIfNull();
+        event.manageTime();
+    };
+
+
+    var mergeDateTime = function(date,time) {
+        if (date instanceof Date && time instanceof Date) {
+            return new Date(date.getFullYear(),
+                date.getMonth(),date.getDate(),
+                time.getHours(), time.getMinutes());
+        } else {
+            return null;
         }
     };
 
@@ -82,13 +85,11 @@ angular.module('meetUpPlannerApp')
             event.endTime);
     };
 
-    var mergeDateTime = function(date,time) {
-        if (date instanceof Date && time instanceof Date) {
-            return new Date(date.getFullYear(),
-                date.getMonth(),date.getDate(),
-                time.getHours(), time.getMinutes());
+    var checkStartDateTimeGreaterThanEndDateTime = function() {
+        if (event.startDateTime > event.endDateTime) {
+            return false;
         } else {
-            return null;
+            return true;
         }
     };
 
@@ -102,13 +103,15 @@ angular.module('meetUpPlannerApp')
             checkStartDateTimeGreaterThanEndDateTime());
     };
 
-    var checkStartDateTimeGreaterThanEndDateTime = function() {
-        if (event.startDateTime > event.endDateTime) {
-            return false;
-        } else {
-            return true;
-        }
+
+    event.manageTime = function() {
+        setEndTimeBaseOnStartTimeIfNull(1);
+        setStartDateTime();
+        setEndDateTime();
+        setStartDateTimeValidity();
+        setEndDateTimeValidity();
     };
+
 
     event.gotToCreateEvent = function() {
         Navigation.createEvent(event.user.loggedIn);
@@ -116,21 +119,27 @@ angular.module('meetUpPlannerApp')
     event.openMap = function(location) {
         var url = 'http://maps.google.com/maps?q='+location[0]+','+location[1];
         $window.open(url, '_blank');
-    }
+    };
 
     event.cancelEvent = function() {
         Navigation.showEvents(event.user.loggedIn);
     };
-    event.createEvent = function() {
-        if (validateEventForm()) {
-            event.firebaseEvents.push(createEventJson());
-            Navigation.showEvents(event.user.loggedIn);
+
+    var removeGuestsDuplicates = function() {
+        /*base on http://codereview.stackexchange.com/questions/60128/removing-duplicates-from-an-array-quickly*/
+        var a = [];
+        for ( var i = 0; i < event.guests.length; i++ ) {
+            var current = event.guests[i];
+            if (a.indexOf(current) < 0) {
+                a.push(current);
+            }
         }
+        event.guests = a;
     };
 
     var createEventJson = function() {
         var description = (typeof event.description === 'undefined') ? '' : event.description;
-        event.guest = event.guest.replace(/(^,)|(,$)/g, "")
+        event.guest = event.guest.replace(/(^,)|(,$)/g, '');
         event.guests = event.guest.split(',');
         removeGuestsDuplicates();
         var eventJson = { 'name': event.name,
@@ -148,37 +157,6 @@ angular.module('meetUpPlannerApp')
         return eventJson;
     };
 
-    event.validateGuestList = function() {
-        validateDuplicateComma();
-        event.guests = event.guest.replace(/(^,)|(,$)/g, "").split(',');
-        $scope.eventForm.guests.$setValidity('min',
-            true);
-        $scope.eventForm.guests.$setValidity('letters',
-            true); 
-        for (var i = event.guests.length - 1; i >= 0; i--) {
-            validateGuestMinLength(event.guests[i]);
-            validateGuestHasLetters(event.guests[i]);
-        }     
-    }
-    var validateDuplicateComma = function() {
-        var duplicateComa = (/(,)\1+$/).test(event.guest);
-        $scope.eventForm.guests.$setValidity('duplicatecomma',
-            !duplicateComa);
-    }
-
-    var validateGuestMinLength = function(guest) {
-        if (guest.length < 3) {
-            $scope.eventForm.guests.$setValidity('min',
-                false);            
-         }        
-    }
-
-    var validateGuestHasLetters = function(guest) {
-        var validPattern = (/^(?=.*[a-zA-Z]).+$/).test(guest);
-        $scope.eventForm.guests.$setValidity('letters',
-            validPattern);        
-    }
- 
     var validateEventForm = function() {
         if (!$scope.eventForm.$valid) {
             $scope.eventForm.$setSubmitted();
@@ -187,22 +165,53 @@ angular.module('meetUpPlannerApp')
         return true;
     };
 
-    var removeGuestsDuplicates = function() {
-        /*base on http://codereview.stackexchange.com/questions/60128/removing-duplicates-from-an-array-quickly*/
-        var a = [];
-        for ( var i = 0; i < event.guests.length; i++ ) {
-            var current = event.guests[i];
-            if (a.indexOf(current) < 0) a.push(current);
+    event.createEvent = function() {
+        if (validateEventForm()) {
+            event.firebaseEvents.push(createEventJson());
+            Navigation.showEvents(event.user.loggedIn);
         }
-        event.guests = a;
-    }
+    };
+
+
+    var validateDuplicateComma = function() {
+        var duplicateComa = (/(,)\1+$/).test(event.guest);
+        $scope.eventForm.guests.$setValidity('duplicatecomma',
+            !duplicateComa);
+    };
+
+    var validateGuestMinLength = function(guest) {
+        if (guest.length < 3) {
+            $scope.eventForm.guests.$setValidity('min',
+                false);            
+        }        
+    };
+
+    var validateGuestHasLetters = function(guest) {
+        var validPattern = (/^(?=.*[a-zA-Z]).+$/).test(guest);
+        $scope.eventForm.guests.$setValidity('letters',
+            validPattern);        
+    };
+
+    event.validateGuestList = function() {
+        validateDuplicateComma();
+        event.guests = event.guest.replace(/(^,)|(,$)/g, '').split(',');
+        $scope.eventForm.guests.$setValidity('min',
+            true);
+        $scope.eventForm.guests.$setValidity('letters',
+            true); 
+        for (var i = event.guests.length - 1; i >= 0; i--) {
+            validateGuestMinLength(event.guests[i]);
+            validateGuestHasLetters(event.guests[i]);
+        }     
+    };
 
     $scope.showAll = false;
     event.getAllEvents = function() {
+        var query;
         if ($scope.showAll) {
             query = event.firebaseEvents;
         } else {
-            var query = event.firebaseEvents.orderByChild('createdBy').equalTo(event.user.data.email);
+            query = event.firebaseEvents.orderByChild('createdBy').equalTo(event.user.data.email);
         }
         event.allEvents = $firebaseArray(query);
     };

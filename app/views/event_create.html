@@ -6,18 +6,21 @@ Create an Event
   <div layout-gt-xs="row">
     <md-input-container flex-gt-xs class="md-block">
       <label for="name">Name</label>
-      <input type="text" name="name" id="name" ng-model="event.name" required maxlength="50" focus-if="true" placeholder="{{event.user.data.firstName + '\'s Graduation'}}">
-      <div ng-messages="eventForm.name.$error">
+      <input type="text" name="name" id="name" ng-model="event.name" required maxlength="50" focus-if="true" placeholder="{{event.user.data.firstName + '\'s Graduation'}}" minlength="3">
+      <div ng-messages="eventForm.name.$error" ng-messages-multiple  md-auto-hide="false" ng-show="eventForm.name.$touched||eventForm.$submitted">
         <div ng-message="required">Whats the name for your event?</div>
         <div ng-message="maxlength">Name should be shorter(50 max)</div>
+        <div ng-message="minlength">Your event name should have atleast 3 characters</div>
       </div>
     </md-input-container>
     <md-input-container flex-gt-xs class="md-block">
       <label for="host">Host</label>
-      <input type="text" name="host" id="host" ng-model="event.host" required maxlength="30" placeholder="{{event.user.data.name}}">
-      <div ng-messages="eventForm.host.$error">
+      <input type="text" name="host" id="host" ng-model="event.host" required maxlength="30" placeholder="{{event.user.data.name}}" minlength="3" ng-pattern="/^(?=.*[a-zA-Z]).+$/">
+      <div ng-messages="eventForm.host.$error" ng-messages-multiple  md-auto-hide="false" ng-show="eventForm.host.$touched||eventForm.$submitted">
         <div ng-message="required">Who is hosting the Event?</div>
         <div ng-message="maxlength">Host should be shorter(30 max)</div>
+        <div ng-message="minlength">The host should have atleast 3 characters</div>
+        <div ng-message="pattern">The host should include at least one letter</div>
       </div>
     </md-input-container>
   </div>
@@ -36,7 +39,7 @@ Create an Event
     <md-input-container flex-gt-xs class="md-block">
       <label for="location">Location</label>
       <input type="text" name="location" id="location" ng-model="event.location" googleplace placeholder="Hotel Honduras Maya" required>
-      <div ng-messages="eventForm.location.$error">
+      <div ng-messages="eventForm.location.$error" ng-messages-multiple  md-auto-hide="false" ng-show="eventForm.location.$touched||eventForm.$submitted">
         <div ng-message="required">Where are you hosting your event?</div>
       </div>
     </md-input-container>
@@ -46,7 +49,7 @@ Create an Event
       <label for="startDate">Start Date</label>
       <input type="date" name="startDate" id="startDate" ng-model="event.startDate" required ng-blur="event.manageDate()" min="{{event.minDate | date:'yyyy-MM-dd'}}"
       max="{{event.endDate | date:'yyyy-MM-dd'}}||''" placeholder="">
-      <div ng-messages="eventForm.startDate.$error">
+      <div ng-messages="eventForm.startDate.$error" ng-messages-multiple  md-auto-hide="false" ng-show="eventForm.startDate.$touched||eventForm.$submitted">
         <div ng-message="required">What day does the event start?</div>
         <div ng-message="min">Event can't start before today</div>
         <div ng-message="max">Event should start before it ends</div>
@@ -55,7 +58,7 @@ Create an Event
     <md-input-container flex-gt-xs flex-xs="40">
       <label for="startTime">Start Time</label>
       <input type="time" name="startTime" id="startTime" ng-model="event.startTime" required ng-blur="event.manageTime()" placeholder="">
-      <div ng-messages="eventForm.startTime.$error">
+      <div ng-messages="eventForm.startTime.$error" ng-messages-multiple  md-auto-hide="false" ng-show="eventForm.startTime.$touched||eventForm.$submitted">
         <div ng-message="required">What time does the event start?</div>
         <div ng-message="max">Event should start before it ends</div>
       </div>
@@ -65,7 +68,7 @@ Create an Event
     <md-input-container flex-gt-xs flex-xs="60">
       <label for="endDate">End Date</label>
       <input type="date" name="endDate" id="endDate" ng-model="event.endDate" required ng-blur="event.manageDate()" min="{{event.startDate | date:'yyyy-MM-dd'}}" placeholder="">
-      <div ng-messages="eventForm.endDate.$error">
+      <div ng-messages="eventForm.endDate.$error" ng-messages-multiple  md-auto-hide="false" ng-show="eventForm.endDate.$touched||eventForm.$submitted">
         <div ng-message="required">What day does the event start?</div>
         <div ng-message="max">Event should start before it ends</div>
         <div ng-message="min">Event can't start before today</div>
@@ -74,7 +77,7 @@ Create an Event
     <md-input-container flex-gt-xs flex-xs="40">
       <label for="endTime">End Time</label>
       <input type="time" name="endTime" id="endTime" ng-model="event.endTime" required ng-blur="event.manageTime()" placeholder="">
-      <div ng-messages="eventForm.endTime.$error">
+      <div ng-messages="eventForm.endTime.$error" ng-messages-multiple  md-auto-hide="false" ng-show="eventForm.endTime.$touched||eventForm.$submitted">
         <div ng-message="required">What time does the event end?</div>
         <div ng-message="min">Event should end after it starts</div>
       </div>
@@ -100,7 +103,7 @@ Create an Event
     <md-input-container class="md-block" flex-gt-xs>
       <label for="description">Description</label>
       <input type="text" name="description" id="description" ng-model="event.description" ng-maxlength="150" placeholder="Awesome Graduation as a Senior Web Developer">
-      <div ng-messages="eventForm.description.$error">
+      <div ng-messages="eventForm.description.$error" ng-messages-multiple  md-auto-hide="false" ng-show="eventForm.description.$touched||eventForm.$submitted">
         <div ng-message="ng-maxlength">Message should be shorter (150 max)</div>
       </div>
     </md-input-container>

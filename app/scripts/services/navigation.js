@@ -29,10 +29,10 @@ angular.module('meetUpPlannerApp')
     };
 
     self.completebio = function() {
-        $location.path('/user_biography')
-    }
+        $location.path('/user_biography');
+    };
 
     self.whereAmI = function() {
         return $location.path();
-    }
+    };
 });

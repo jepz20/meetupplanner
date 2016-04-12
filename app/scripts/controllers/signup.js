@@ -19,7 +19,7 @@ angular.module('meetUpPlannerApp')
         {'type': 'required', 'text': 'Please enter your password'}
     ];
     $scope.user = User;
-    if (Navigation.whereAmI() != '/signup') {
+    if (Navigation.whereAmI() !== '/signup') {
         if (!$scope.user.loggedIn) {
             Navigation.signup();
         }
@@ -29,7 +29,7 @@ angular.module('meetUpPlannerApp')
         }        
     }
     $scope.showSignUp = false;
-    $scope.today = new Date()
+    $scope.today = new Date();
     $scope.toggleShowSignUpForm = function() {
         $scope.showSignUp = !$scope.showSignUp;
     };
@@ -98,9 +98,8 @@ angular.module('meetUpPlannerApp')
             .then(function (response) {
                 User.signup(response.data);
             })
-            .catch(function(response) {
+            .catch(function() {
                 $scope.authError = true;
-                console.log('response error:', response);
             });
         } else {
             $scope.register.$setSubmitted();
@@ -109,7 +108,7 @@ angular.module('meetUpPlannerApp')
 
     $scope.updateUserBio = function() {
         if ($scope.biography.$valid) {
-            var bio = {}
+            var bio = {};
             bio.employer = $scope.employer;
             bio.jobTitle = $scope.jobTitle;
             bio.birthdate = $scope.birthdate;
@@ -117,19 +116,18 @@ angular.module('meetUpPlannerApp')
         } else {
             $scope.biography.$setSubmitted();
         }
-    }
+    };
 
     $scope.goHome = function() {
         Navigation.home(true);
-    }
+    };
 
     $scope.authenticate = function(provider) {
         $auth.authenticate(provider)
         .then(function(response) {
             User.signup(response.data);
         })
-        .catch(function(response) {
-            console.log('response error:', response);
+        .catch(function() {
         });
     };
 });

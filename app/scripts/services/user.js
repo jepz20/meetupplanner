@@ -10,6 +10,20 @@ angular.module('meetUpPlannerApp')
     User.data.firstName = '';
     User.loggedIn = false;
     User.data.email = '';
+
+    var getFirstName = function() {
+        return User.data.name.split(' ')[0];
+    };
+
+    var storeUser = function(user) {
+        localStorage.setItem('userName', user.name);
+        localStorage.setItem('userEmail', user.email);
+        User.data.name = user.name;
+        User.data.email = user.email;
+        User.data.firstName = getFirstName();
+        User.loggedIn = true;
+    };
+    
     User.get = function() {
         if (localStorage.getItem('userName') && localStorage.getItem('userEmail')) {
             User.data.name = localStorage.getItem('userName');
@@ -53,13 +67,13 @@ angular.module('meetUpPlannerApp')
             if (!firebaseUser.bio) {
                 firebaseUser.bio = {};
             }
-            if (bio_param.employer && bio_param.employer != '') {
+            if (bio_param.employer && bio_param.employer !== '') {
                 firebaseUser.bio.employer = bio_param.employer;
             }
-            if (bio_param.jobTitle && bio_param.jobTitle != '') {
+            if (bio_param.jobTitle && bio_param.jobTitle !== '') {
                 firebaseUser.bio.jobTitle = bio_param.jobTitle;
             }
-            if (bio_param.birthdate && bio_param.birthdate != '') {
+            if (bio_param.birthdate && bio_param.birthdate !== '') {
                 firebaseUser.bio.birthdate = bio_param.birthdate.getTime();
             }        
 
@@ -67,19 +81,6 @@ angular.module('meetUpPlannerApp')
                 Navigation.home(true);
             });
         });
-    }
-
-    var getFirstName = function() {
-        return User.data.name.split(' ')[0];
     };
-
-    var storeUser = function(user) {
-        localStorage.setItem('userName', user.name);
-        localStorage.setItem('userEmail', user.email);
-        User.data.name = user.name;
-        User.data.email = user.email;
-        User.data.firstName = getFirstName();
-        User.loggedIn = true;
-    }
 
 });
