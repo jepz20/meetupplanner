@@ -20,18 +20,6 @@ var yeoman = {
 var paths = {
   scripts: [yeoman.app + '/scripts/**/*.js'],
   styles: [yeoman.app + '/styles/**/*.scss'],
-  test: ['test/spec/**/*.js'],
-  testRequire: [
-    yeoman.app + '/bower_components/angular/angular.js',
-    yeoman.app + '/bower_components/angular-mocks/angular-mocks.js',
-    yeoman.app + '/bower_components/angular-resource/angular-resource.js',
-    yeoman.app + '/bower_components/angular-cookies/angular-cookies.js',
-    yeoman.app + '/bower_components/angular-sanitize/angular-sanitize.js',
-    yeoman.app + '/bower_components/angular-route/angular-route.js',
-    'test/mock/**/*.js',
-    'test/spec/**/*.js'
-  ],
-  karma: 'karma.conf.js',
   views: {
     main: yeoman.app + '/index.html',
     files: [yeoman.app + '/views/**/*.html']
@@ -78,32 +66,32 @@ gulp.task('start:client', ['start:server', 'styles'], function () {
 
 gulp.task('runserver', function() {
   // var proc = exec('python app.py');
-
+  // exec('dev_appserver.py . --port 3000', function (err, stdout, stderr) {
+  //   console.log(stdout);
+  //   console.log(stderr);
+  //   cb(err);
+  // });
   var spawn = process.spawn;
   console.info('Starting flask server');
   var PIPE = {stdio: 'inherit'};
-  spawn('python', ['main.py','runserver'], PIPE);
+  spawn('dev_appserver.py', ['.','--port', '3000'], PIPE);
 });
 
-gulp.task('start:server', function() {
+gulp.task('start:server', ['build','runserver'], function() {
   browserSync({
     notify: false,
     port:9000,
     proxy: 'http://localhost:3000'
   });
 
-  gulp.watch(paths.scripts, reload);
-  gulp.watch([paths.views.files], reload);
-  gulp.watch([paths.views.main], reload);
+  gulp.watch(paths.scripts, ['build']);
+  gulp.watch([paths.views.files], ['build']);
+  gulp.watch([paths.views.main], ['build']);
+  console.log(paths.views.main + '/**/*');
+  console.log(yeoman.dist + '/**/*.*');
+  gulp.watch([yeoman.dist + '/**'], [reload]);
 });
 
-gulp.task('start:server:test', function() {
-  $.connect.server({
-    root: ['test', yeoman.app, '.tmp'],
-    livereload: true,
-    port: 9001
-  });
-});
 
 gulp.task('watch', function () {
   $.watch(paths.styles)
@@ -141,19 +129,8 @@ gulp.task('serve:prod', function() {
   });
 });
 
-gulp.task('test', ['start:server:test'], function () {
-  var testToFiles = paths.testRequire.concat(paths.scripts, paths.test);
-  return gulp.src(testToFiles)
-    .pipe($.karma({
-      configFile: paths.karma,
-      action: 'watch'
-    }));
-});
-
 // inject bower components
 gulp.task('bower', function () {
-  console.log(yeoman.app + '/bower_components');
-  console.log(paths.views.main);
   return gulp.src(paths.views.main)
     .pipe(wiredep({
       directory: yeoman.app + '/bower_components',
@@ -175,7 +152,7 @@ gulp.task('client:build', ['html', 'styles'], function () {
   var cssFilter = $.filter('**/*.css');
 
   return gulp.src(paths.views.main)
-    .pipe($.useref({searchPath: [yeoman.app, '.tmp']}))
+    .pipe($.useref({searchPath: yeoman.app + '/bower_components'}))
     .pipe(jsFilter)
     .pipe($.ngAnnotate())
     .pipe($.uglify())
@@ -183,8 +160,6 @@ gulp.task('client:build', ['html', 'styles'], function () {
     .pipe(cssFilter)
     .pipe($.minifyCss({cache: true}))
     .pipe(cssFilter.restore())
-    .pipe($.rev())
-    .pipe($.revReplace())
     .pipe(gulp.dest(yeoman.dist));
 });
 
@@ -208,13 +183,8 @@ gulp.task('copy:extras', function () {
     .pipe(gulp.dest(yeoman.dist));
 });
 
-gulp.task('copy:fonts', function () {
-  return gulp.src(yeoman.app + '/fonts/**/*')
-    .pipe(gulp.dest(yeoman.dist + '/fonts'));
-});
-
 gulp.task('build', ['clean:dist'], function () {
-  runSequence(['images', 'copy:extras', 'copy:fonts', 'client:build']);
+  runSequence(['copy:extras', 'client:build']);
 });
 
 gulp.task('default', ['build']);
