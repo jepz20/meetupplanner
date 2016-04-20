@@ -26,7 +26,7 @@ To run locally
 
 ##Frontend
 
-Made with angularJS and style with ngmaterial
+Made with AngularJS and style with NgMaterial
 
 to run locally:
 
@@ -51,7 +51,12 @@ Run this project locally(you need to have google app engine in your path):
    ```
    
  
-   start the backend through the google app engine using the devapp.yaml file if you dont have dev_appserver.py in your path
+   start the backend through the google app engine using the devapp.yaml file if you dont have dev_appserver.py in your path.
+   To use the devapp.yaml, enter the Application Settings
+   ![alt text](http://imgur.com/VeT14Zs "Application Setting")
+
+   Add to the extra flags the complete path to the devapp.yaml
+   ![alt text](http://imgur.com/l6oToNH "Extra Flag")
 
 ##Production
 
