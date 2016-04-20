@@ -23,14 +23,6 @@ To run locally
    ```
    pip install -r requirements.txt -t lib
    ```
-4. Run this project locally from the command line(you need to have google app engine in your path):
-
-   ```
-   dev_appserver.py --port 3000 .
-   ```
-   or
- 
-   run it through the google app engine launcher
 
 ##Frontend
 
@@ -50,8 +42,22 @@ to run locally:
 	bower install
 	```
 
-3. run this proyect locally from the command line:
+## Development
 
-	```
-	gulp start:server
-	```
+Run this project locally(you need to have google app engine in your path):
+
+   ```
+   gulp serve
+   ```
+   
+ 
+   start the backend through the google app engine using the devapp.yaml file if you dont have dev_appserver.py in your path
+
+##Production
+
+Build the proyect and serve its minifed version 
+   ```
+   gulp serve:prod
+   ```
+
+  start the backend through the google app engine using the app.yaml file if you dont have dev_appserver.py in your path

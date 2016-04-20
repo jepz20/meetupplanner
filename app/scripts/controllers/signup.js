@@ -7,6 +7,8 @@
  * # SignupCtrl
  * Controller of the meetUpPlannerApp
  */
+
+ 
 angular.module('meetUpPlannerApp')
 .controller('SignupCtrl', function ($scope, $auth, User, Navigation) {
     $scope.errorMessages = [
@@ -19,6 +21,7 @@ angular.module('meetUpPlannerApp')
         {'type': 'required', 'text': 'Please enter your password'}
     ];
     $scope.user = User;
+
     if (Navigation.whereAmI() !== '/signup') {
         if (!$scope.user.loggedIn) {
             Navigation.signup();
@@ -28,6 +31,7 @@ angular.module('meetUpPlannerApp')
             Navigation.home(true);
         }        
     }
+
     $scope.showSignUp = false;
     $scope.today = new Date();
     $scope.toggleShowSignUpForm = function() {
@@ -121,6 +125,7 @@ angular.module('meetUpPlannerApp')
     $scope.goHome = function() {
         Navigation.home(true);
     };
+
 
     $scope.authenticate = function(provider) {
         $auth.authenticate(provider)

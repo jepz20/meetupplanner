@@ -26,6 +26,12 @@ var paths = {
   }
 };
 
+var runGAE = function(yaml) {
+  console.info('Starting flask server');
+  var spawn = process.spawn;
+  var PIPE = {stdio: 'inherit'};
+  spawn('dev_appserver.py', [yaml,'--port', '3000'], PIPE);
+};
 ////////////////////////
 // Reusable pipelines //
 ////////////////////////
@@ -56,84 +62,66 @@ gulp.task('lint:scripts', function () {
     .pipe(lintScripts());
 });
 
-gulp.task('clean:tmp', function (cb) {
-  rimraf('./.tmp', cb);
+gulp.task('gae:dev', function() {
+  runGAE('devapp.yaml')
 });
 
-gulp.task('start:client', ['start:server', 'styles'], function () {
-  openURL('http://localhost:9000');
+gulp.task('gae:prod', function() {
+  runGAE('app.yaml')
 });
-
-gulp.task('runserver', function() {
-  // var proc = exec('python app.py');
-  // exec('dev_appserver.py . --port 3000', function (err, stdout, stderr) {
-  //   console.log(stdout);
-  //   console.log(stderr);
-  //   cb(err);
-  // });
-  var spawn = process.spawn;
-  console.info('Starting flask server');
-  var PIPE = {stdio: 'inherit'};
-  spawn('dev_appserver.py', ['.','--port', '3000'], PIPE);
-});
-
-gulp.task('start:server', ['build','runserver'], function() {
-  browserSync({
-    notify: false,
-    port:9000,
-    proxy: 'http://localhost:3000'
-  });
-
-  gulp.watch(paths.scripts, ['build']);
-  gulp.watch([paths.views.files], ['build']);
-  gulp.watch([paths.views.main], ['build']);
-  console.log(paths.views.main + '/**/*');
-  console.log(yeoman.dist + '/**/*.*');
-  gulp.watch([yeoman.dist + '/**'], [reload]);
-});
-
 
 gulp.task('watch', function () {
   $.watch(paths.styles)
     .pipe($.plumber())
-    .pipe(styles())
-
-  $.watch(paths.views.files)
-    .pipe($.plumber())
-    // .pipe(browserSync.stream());
+    .pipe(styles());
 
   $.watch(paths.scripts)
-    .pipe($.plumber())
-    .pipe(lintScripts())
-    // .pipe($.connect.reload());
-
-  $.watch(paths.test)
     .pipe($.plumber())
     .pipe(lintScripts());
 
   gulp.watch('bower.json', ['bower']);
 });
 
+gulp.task('start:server:dev', ['gae:dev'], function() {
+  browserSync({
+    notify: false,
+    port:9000,
+    proxy: 'http://localhost:3000'
+  });
+
+  gulp.watch(paths.scripts, reload);
+  gulp.watch([paths.views.files], reload);
+  gulp.watch([paths.views.main], reload);
+});
+
 gulp.task('serve', function (cb) {
-  runSequence('clean:tmp',
+  runSequence(
+    ['start:server:dev'],
     ['lint:scripts'],
-    ['start:client'],
     'watch', cb);
 });
 
-gulp.task('serve:prod', function() {
-  $.connect.server({
-    root: [yeoman.dist],
-    livereload: true,
-    port: 9000
+gulp.task('start:server:prod', ['build','gae:prod'], function() {
+  browserSync({
+    notify: false,
+    port:9000,
+    proxy: 'http://localhost:3000'
   });
+
+  gulp.watch([yeoman.dist + '/**'], [reload]);
 });
+
+gulp.task('serve:prod', function (cb) {
+  runSequence(['build'],
+    ['start:server:prod'], cb);
+});
+
 
 // inject bower components
 gulp.task('bower', function () {
   return gulp.src(paths.views.main)
     .pipe(wiredep({
-      directory: yeoman.app + '/bower_components',
+      directory: 'bower_components',
       ignorePath: '..'
     }))
   .pipe(gulp.dest(yeoman.app));
@@ -150,9 +138,10 @@ gulp.task('clean:dist', function (cb) {
 gulp.task('client:build', ['html', 'styles'], function () {
   var jsFilter = $.filter('**/*.js');
   var cssFilter = $.filter('**/*.css');
+  var notIndexFilter = $.filter(['**/*', '!**/index.html']);
 
   return gulp.src(paths.views.main)
-    .pipe($.useref({searchPath: yeoman.app + '/bower_components'}))
+    .pipe($.useref({searchPath: yeoman.app}))
     .pipe(jsFilter)
     .pipe($.ngAnnotate())
     .pipe($.uglify())
@@ -160,6 +149,10 @@ gulp.task('client:build', ['html', 'styles'], function () {
     .pipe(cssFilter)
     .pipe($.minifyCss({cache: true}))
     .pipe(cssFilter.restore())
+    .pipe(notIndexFilter)
+    .pipe($.rev())
+    .pipe(notIndexFilter.restore())
+    .pipe($.revReplace())
     .pipe(gulp.dest(yeoman.dist));
 });
 
