@@ -20,8 +20,10 @@ handlers:
 
 # App Engine serves and caches static files contained in the listed directories
 # (and subdirectories). Uncomment and set the directory as needed.
-#- url: /client
-#  static_dir: client
+
+- url: /auth/(.+)  # This regex directs all routes to main.app
+  script: main.app
+  
 - url: /bower_components/(.+)
   static_files: bower_components/\1
   upload: bower_components/(.*)

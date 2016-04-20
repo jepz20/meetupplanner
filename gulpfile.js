@@ -177,7 +177,7 @@ gulp.task('copy:extras', function () {
 });
 
 gulp.task('build', ['clean:dist'], function () {
-  runSequence(['copy:extras', 'client:build']);
+  runSequence(['images', 'copy:extras', 'client:build']);
 });
 
 gulp.task('default', ['build']);
