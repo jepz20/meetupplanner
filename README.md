@@ -56,7 +56,7 @@ Run this project locally(you need to have google app engine in your path):
    ![alt text](http://i.imgur.com/VeT14Zs.png "Application Setting")
 
    Add to the extra flags the complete path to the devapp.yaml
-   ![alt text](http://imgur.com/l6oToNH "Extra Flag")
+   ![alt text](http://i.imgur.com/l6oToNH.png "Extra Flag")
 
 ##Production
 
