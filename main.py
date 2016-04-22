@@ -64,9 +64,6 @@ def login_required(f):
 
 # Routes
 
-@app.route('/')
-def index():
-    return send_file(os.path.join(client_path, 'index.html'))
 
 
 @app.route('/auth/login', methods=['POST'])
